@@ -1,7 +1,7 @@
 欢迎来到 QFramework 的文档!
 ======================================
 
-Contents:
+目录:
 
 .. toctree::
     :maxdepth: 2
@@ -9,7 +9,7 @@ Contents:
     intro.md
     roadmap.md
 
-Indices and tables
+索引和表格
 ==================
 
 * :ref:`genindex`

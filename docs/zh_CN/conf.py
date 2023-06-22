@@ -304,10 +304,10 @@ epub_copyright = copyright
 #epub_tocdup = True
 
 # Highlight PHP without starting <?php tag
-from sphinx.highlighting import lexers
-from pygments.lexers.web import PhpLexer
-
-lexers['php'] = PhpLexer(startinline=True)
+# from sphinx.highlighting import lexers
+# from pygments.lexers.web import PhpLexer
+#
+# lexers['php'] = PhpLexer(startinline=True)
 
 # Number of retries and timeout for linkcheck
 linkcheck_retries = 10
