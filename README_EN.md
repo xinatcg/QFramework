@@ -8,7 +8,7 @@
 
 [中文](README)|[English](README_EN.md)
 
-[QFramework](https://github.com/liangxiegame/QFramework)  is a framework. she support solid pricinple、domain design driven、event-driven、data-driven、layered、mvc、cqrs、modulization、extendable、scalable architecture. Simple but powerful! she only has 800 lines of code.can save to a note-taking app. 
+[QFramework](https://github.com/liangxiegame/QFramework)  is a framework. she supports solid principle、domain design driven、event-driven、data-driven、layered、mvc、cqrs、modularization、extendable、scalable architecture. Simple but powerful! she only has 800 lines of code and can save to a note-taking app. 
 
 ## Architecture diagram
 
@@ -26,12 +26,12 @@
 
 **QFramework System Design Architecture has 4 layers：**
 
-* Presentation Layer：ViewController Layer. Using IController interface，recive input from user and state changed event from model. In unity MonoBehaviour is on presentation layer
+* Presentation Layer：ViewController Layer. Using IController interface，receive input from user and state changed event from model. In unity MonoBehaviour is on presentation layer
     * Can get System
     * Can get Model
     * Can send Command
     * Can listen Event
-* System Layer：Using ISystem interface. share IController's part of responsibility. Sharing logic shared across multiple presentation layers，suchas time system、shop system、archivement system.
+* System Layer：Using ISystem interface. share IController's part of responsibility. Sharing logic shared across multiple presentation layers，such-as time system、shop system、achievement system.
     * Can get System
     * Can get Model
     * Can listen Event
@@ -47,7 +47,7 @@
     * Can send Command
 * Layer Rule：
     * IController change ISystem、IModel's state by Command
-    * Notify icontroller after the change of ISystem and IModel must use event or bindableproperty
+    * Notify iController after the change of ISystem and IModel must use event or BindableProperty
     * IController can get ISystem、IModel for data query
     * ICommand cannot have state
     * The upper layer can directly obtain the lower layer, and the lower layer cannot obtain the upper object
@@ -66,9 +66,9 @@
     * copy [this code](QFramework.cs) to your project
 
 * QFramework.cs With Examples
-    * [downlowd unitypackage](./QFramework.cs.Examples.unitypackage)
+    * [download unitypackage](./QFramework.cs.Examples.unitypackage)
 * QFramework.ToolKits
-    * [downlowd unitypackage](./QFramework.Toolkits.unitypackage)
+    * [download unitypackage](./QFramework.Toolkits.unitypackage)
 * QFramework.ToolkitsPro
     * install by [Asset Store](http://u3d.as/SJ9) 
 
@@ -77,37 +77,37 @@
 
 ## Resources
 
-| **Version**                                 |                                                              |                                                              |
-| ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| QFramework.cs                               | Implementation of qframework ontology architecture           | [code file](./QFramework.cs)                                 |
-| QFramework.cs With Examples                 | QFramework.cs and  Examples：CounterApp、Point Point Point、CubeMaster、FlappyBird、ShootingEditor2D、SnakeGame  etc (QFramework.cs included) | [downlowd unitypackage](./QFramework.cs.Examples.unitypackage) |
-| QFramework.ToolKits                         | QFramework.cs  with UIKit/ActionKit/ResKit/PackageKit/AudioKit (QFramework.cs and examples included) | [downlowd unity package](./QFramework.Toolkits.unitypackage) |
-| QFramework.Toolkits.Demo.WuZiQi             | Gobang Demo by QFramework.Toolkits（Need Install QFramework.Toolkits） | [download unitypackage](./QFramework.Toolkits.Demo.WuZiQi.unitypackage) |
-| QFramework.Toolkits.Demo.Saolei             | Mine clearance Demo by QFramework.Toolkits（Need Install QFramework.Toolkits） | [download unitypackage](./QFramework.Toolkits.Demo.SaoLei.unitypackage) |
-| QFramework.ToolKitsPro                      | More Powerful Tools version based on QFramework.ToolKits (QFramework.Toolkits included) | [AssetStore](http://u3d.as/SJ9)                              |
-| **Community**                               |                                                              |                                                              |
-| github issue                                | github community                                             | [address](https://github.com/liangxiegame/QFramework/issues/new) |
-| gitee issue                                 | gitee community                                              | [address](https://gitee.com/liangxiegame/QFramework/issues)  |
-| **ShowCase**                                | email me or publish on github's issue. My email: liangxiegame@163.com |                                                              |
-| 《When The Train Buzzes For Three Seconds》 |                                                              | [Steam](https://store.steampowered.com/app/1563700/_/)\|[TapTap](https://www.taptap.cn/app/208258) |
-| 《The First Mountain》                      |                                                              | [Steam](https://store.steampowered.com/app/2149980/The_First_Mountain/) |
-| 《Hi Eggplant》                             |                                                              | [Steam](https://store.steampowered.com/app/2091640/Hi_Eggplant/) |
-| 《Under The Ghost Mountain》                |                                                              | [Steam](https://store.steampowered.com/app/1517160/_/)       |
-|                                             |                                                              |                                                              |
-| **Official Toolkits**                       |                                                              |                                                              |
-| SingletonKit                                |                                                              | [github](https://github.com/liangxiegame/SingletonKit)\|[gitee](https://gitee.com/liangxiegame/SingletonKit) |
-| ExtensionKit                                |                                                              | [github](https://github.com/liangxiegame/ExtensionKit)\|[gitee](https://gitee.com/liangxiegame/ExtensionKit) |
-| IOCKit                                      |                                                              | [github](https://github.com/liangxiegame/IOCKit)\|[gitee](https://gitee.com/liangxiegame/IOCKit) |
-| TableKit                                    |                                                              | [github](https://github.com/liangxiegame/TableKit)\|[gitee](https://gitee.com/liangxiegame/TableKit) |
-| PoolKit                                     |                                                              | [github](https://github.com/liangxiegame/PoolKit)\|[gitee](https://gitee.com/liangxiegame/PoolKit) |
-| LogKit                                      |                                                              | [github](https://github.com/liangxiegame/LogKit)\|[gitee](https://gitee.com/liangxiegame/LogKit) |
-| ActionKit                                   |                                                              | [github](https://github.com/liangxiegame/ActionKit)\|[gitee](https://gitee.com/liangxiegame/ActionKit) |
-| ResKit                                      |                                                              | [github](https://github.com/liangxiegame/ResKit)\|[gitee](https://gitee.com/liangxiegame/ResKit) |
-| UIKit                                       |                                                              | [github](https://github.com/liangxiegame/UIKit)\|[gitee](https://gitee.com/liangxiegame/UIKit) |
-| AudioKit                                    |                                                              | [github](https://github.com/liangxiegame/AudioKit)\|[gitee](https://gitee.com/liangxiegame/AudioKit) |
-| PackageKit                                  |                                                              | [github](https://github.com/liangxiegame/PackageKit)\|[gitee](https://gitee.com/liangxiegame/PackageKit) |
-|                                             |                                                              |                                                              |
-|                                             |                                                              |                                                              |
+| **Version**                               |                                                                                                                                         |                                                                                                              |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| QFramework.cs                             | Implementation of QFramework ontology architecture                                                                                      | [code file](./QFramework.cs)                                                                                 |
+| QFramework.cs With Examples               | QFramework.cs and  Examples：CounterApp、Point Point Point、CubeMaster、FlappyBird、ShootingEditor2D、SnakeGame  etc (QFramework.cs included) | [download unitypackage](./QFramework.cs.Examples.unitypackage)                                               |
+| QFramework.ToolKits                       | QFramework.cs  with UIKit/ActionKit/ResKit/PackageKit/AudioKit (QFramework.cs and examples included)                                    | [download unity package](./QFramework.Toolkits.unitypackage)                                                 |
+| QFramework.Toolkits.Demo.WuZiQi           | Gobang Demo by QFramework.Toolkits（Need Install QFramework.Toolkits）                                                                    | [download unitypackage](./QFramework.Toolkits.Demo.WuZiQi.unitypackage)                                      |
+| QFramework.Toolkits.Demo.Saolei           | Mine clearance Demo by QFramework.Toolkits（Need Install QFramework.Toolkits）                                                            | [download unitypackage](./QFramework.Toolkits.Demo.SaoLei.unitypackage)                                      |
+| QFramework.ToolKitsPro                    | More Powerful Tools version based on QFramework.ToolKits (QFramework.Toolkits included)                                                 | [AssetStore](http://u3d.as/SJ9)                                                                              |
+| **Community**                             |                                                                                                                                         |                                                                                                              |
+| github issue                              | github community                                                                                                                        | [address](https://github.com/liangxiegame/QFramework/issues/new)                                             |
+| gitee issue                               | gitee community                                                                                                                         | [address](https://gitee.com/liangxiegame/QFramework/issues)                                                  |
+| **ShowCase**                              | email me or publish on github's issue. My email: liangxiegame@163.com                                                                   |                                                                                                              |
+| 《When The Train Buzzes For Three Seconds》 |                                                                                                                                         | [Steam](https://store.steampowered.com/app/1563700/_/)\|[TapTap](https://www.taptap.cn/app/208258)           |
+| 《The First Mountain》                      |                                                                                                                                         | [Steam](https://store.steampowered.com/app/2149980/The_First_Mountain/)                                      |
+| 《Hi Eggplant》                             |                                                                                                                                         | [Steam](https://store.steampowered.com/app/2091640/Hi_Eggplant/)                                             |
+| 《Under The Ghost Mountain》                |                                                                                                                                         | [Steam](https://store.steampowered.com/app/1517160/_/)                                                       |
+|                                           |                                                                                                                                         |                                                                                                              |
+| **Official Toolkits**                     |                                                                                                                                         |                                                                                                              |
+| SingletonKit                              |                                                                                                                                         | [github](https://github.com/liangxiegame/SingletonKit)\|[gitee](https://gitee.com/liangxiegame/SingletonKit) |
+| ExtensionKit                              |                                                                                                                                         | [github](https://github.com/liangxiegame/ExtensionKit)\|[gitee](https://gitee.com/liangxiegame/ExtensionKit) |
+| IOCKit                                    |                                                                                                                                         | [github](https://github.com/liangxiegame/IOCKit)\|[gitee](https://gitee.com/liangxiegame/IOCKit)             |
+| TableKit                                  |                                                                                                                                         | [github](https://github.com/liangxiegame/TableKit)\|[gitee](https://gitee.com/liangxiegame/TableKit)         |
+| PoolKit                                   |                                                                                                                                         | [github](https://github.com/liangxiegame/PoolKit)\|[gitee](https://gitee.com/liangxiegame/PoolKit)           |
+| LogKit                                    |                                                                                                                                         | [github](https://github.com/liangxiegame/LogKit)\|[gitee](https://gitee.com/liangxiegame/LogKit)             |
+| ActionKit                                 |                                                                                                                                         | [github](https://github.com/liangxiegame/ActionKit)\|[gitee](https://gitee.com/liangxiegame/ActionKit)       |
+| ResKit                                    |                                                                                                                                         | [github](https://github.com/liangxiegame/ResKit)\|[gitee](https://gitee.com/liangxiegame/ResKit)             |
+| UIKit                                     |                                                                                                                                         | [github](https://github.com/liangxiegame/UIKit)\|[gitee](https://gitee.com/liangxiegame/UIKit)               |
+| AudioKit                                  |                                                                                                                                         | [github](https://github.com/liangxiegame/AudioKit)\|[gitee](https://gitee.com/liangxiegame/AudioKit)         |
+| PackageKit                                |                                                                                                                                         | [github](https://github.com/liangxiegame/PackageKit)\|[gitee](https://gitee.com/liangxiegame/PackageKit)     |
+|                                           |                                                                                                                                         |                                                                                                              |
+|                                           |                                                                                                                                         |                                                                                                              |
 
 
 
@@ -140,5 +140,5 @@
 ### Donate:
 
 * 如果觉得不错可以在 [Asset Store](http://u3d.as/SJ9) 给个 5 星哦~ give 5 star
-* 或者给此仓库一个小小的  Star~ star this repository
+* 或者给此仓库一个小小的 Star~ star this repository
 * 以上这些都会转化成我们的动力,提供更好的技术服务! 
