@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# phpMyAdmin documentation build configuration file, created by
+# QFramework documentation build configuration file, created by
 # sphinx-quickstart on Wed Sep 26 14:04:48 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
