@@ -12,9 +12,9 @@
     QFramework_v1.0_Guide/01_introduction/01_Introduction.md
 
 .. toctree::
-   :maxdepth: 2
-   :caption: QFramework v1.0 使用手册
-   :numbered:
+    :maxdepth: 2
+    :caption: QFramework v1.0 使用手册
+    :numbered:
 
     intro.md
     QFramework_v1.0_Guide/01_introduction/01_Introduction.md

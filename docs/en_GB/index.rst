@@ -11,8 +11,8 @@ Contents:
     roadmap.md
 
 .. toctree::
-   :maxdepth: 2
-   :caption: QFramework v1.0 Guide
+    :maxdepth: 2
+    :caption: QFramework v1.0 Guide
 
     QFramework_v1.0_Guide/01_introduction/01_Introduction.md
     QFramework_v1.0_Guide/02_architecture/01_architecture_intro.md
