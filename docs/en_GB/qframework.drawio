@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-23T12:59:44.348Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64" etag="bpLYRnD7feAfdsmxn0z4" version="21.5.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-23T13:59:44.172Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64" etag="W7YhQgvbt-0WsEnvpYh0" version="21.5.0" type="github" pages="3">
   <diagram name="Architecture-example" id="Xe_4gwDoeP_Kr8wrqsXp">
     <mxGraphModel dx="1194" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -111,6 +111,32 @@
         </mxCell>
         <mxCell id="eDWGDgWY74uWRdHwPiOK-4" value="Model" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="600" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="XuO9eypbdBnjpihOSvpf" name="Command-Event">
+    <mxGraphModel dx="1194" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kfuvwcUhDd6S_XUr3T6P-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SNl8nOePWC-xe_NP73l9-1" target="SNl8nOePWC-xe_NP73l9-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNl8nOePWC-xe_NP73l9-1" value="Command" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kfuvwcUhDd6S_XUr3T6P-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SNl8nOePWC-xe_NP73l9-2" target="SNl8nOePWC-xe_NP73l9-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNl8nOePWC-xe_NP73l9-2" value="Data Change" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SNl8nOePWC-xe_NP73l9-3" value="Data Change Event" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kfuvwcUhDd6S_XUr3T6P-1" value="Model" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="193" y="60" width="374" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
