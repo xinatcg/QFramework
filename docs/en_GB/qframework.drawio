@@ -1,9 +1,51 @@
-<mxfile host="app.diagrams.net" modified="2023-06-23T07:07:38.194Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64" version="21.5.0" etag="ZmUSvf7HHwgHyvjNYErB" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-23T07:11:47.712Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64" etag="Ap09FKdJVSJwG9KF4fC7" version="21.5.0" type="github">
   <diagram name="Page-1" id="Xe_4gwDoeP_Kr8wrqsXp">
-    <mxGraphModel>
+    <mxGraphModel dx="1194" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-1" value="LoginController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="286" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-2" value="PlayerController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="446" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-3" value="ScoreSystem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="286" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-4" value="AchievementSystem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="446" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-5" value="MissionSystem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="606" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-6" value="PlayerModel" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="286" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-7" value="EnemyConfigModel" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="446" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-8" value="JsonSerializer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="286" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-9" value="BlutoothHelper" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="446" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-10" value="DOTween" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="606" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-11" value="Utility Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="101" y="335" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-12" value="Model Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="101" y="245" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-13" value="System Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="101" y="155" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="boRCh7XIJ0PvMaIgXJtd-14" value="ViewController Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="101" y="65" width="160" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
