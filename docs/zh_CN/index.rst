@@ -12,10 +12,14 @@
 
 .. toctree::
     :maxdepth: 2
-    :caption: QFramework v1.0 使用手册
+    :caption: QFramework v1.0 使用手册: 介绍
 
-    QFramework_v1.0_Guide/01_introduction/01_Introduction.md
+    QFramework_v1.0_Guide/01_introduction/01_introduction.md
     QFramework_v1.0_Guide/01_introduction/02_roadmap.md
+
+.. toctree::
+    :maxdepth: 2
+    :caption: QFramework v1.0 Guide: 架构篇
 
     QFramework_v1.0_Guide/02_architecture/01_qf_architecture.md
     QFramework_v1.0_Guide/02_architecture/02_qf_mvc.md
@@ -36,6 +40,10 @@
     QFramework_v1.0_Guide/02_architecture/18_ioccontainer.md
     QFramework_v1.0_Guide/02_architecture/19_architecture_in_mind.md
     QFramework_v1.0_Guide/02_architecture/20_more_content.md
+
+.. toctree::
+    :maxdepth: 2
+    :caption: QFramework v1.0 Guide: 工具篇
 
     QFramework_v1.0_Guide/03_toolkits/01_intro_qframework_toolkits.md
     QFramework_v1.0_Guide/03_toolkits/02_download_and_install.md
