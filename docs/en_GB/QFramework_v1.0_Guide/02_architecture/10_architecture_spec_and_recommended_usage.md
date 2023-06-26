@@ -1,22 +1,22 @@
-# 10. 架构规范 与 推荐用法
+# 10. Architecture Specification and Recommended Usage
 
-QFramework 架构提供了四个层级：
+The QFramework architecture provides four levels:
 
-*   表现层：IController
-*   系统层：ISystem
-*   数据层：IModel
-*   工具层：IUtility
+* Presentation layer: IController
+* System layer: ISystem
+* Data layer: IModel
+* Utility layer: IUtility
 
-除了四个层级，还提供了 Command、Query、Event、BindableProperty 等概念和工具。
+In addition to the four levels, concepts and tools such as Command, Query, Event, and BindableProperty are also provided.
 
-这里有一套层级的规则，如下：
+Here are some rules for the levels:
 
-*   表现层：ViewController 层。IController接口，负责接收输入和状态变化时的表现，一般情况下，MonoBehaviour 均为表现层
-    *   可以获取 System、Model
-    *   可以发送 Command、Query
-    *   可以监听 Event
+* Presentation layer: ViewController layer. IController interface, responsible for the presentation when receiving input and state changes. In general, MonoBehaviour is the presentation layer.
+    * Can get System, Model
+    * Can send Command, Query
+    * Can listen to Event
 
-Controller 的接口定义如下：
+The interface definition of Controller is as follows:
 
 ```plain
 #region Controller
@@ -27,12 +27,12 @@ public interface IController : IBelongToArchitecture, ICanSendCommand, ICanGetSy
 #endregion
 ```
 
-*   系统层：System层。ISystem接口，帮助IController承担一部分逻辑，在多个表现层共享的逻辑，比如计时系统、商城系统、成就系统等
-    *   可以获取 System、Model
-    *   可以监听Event
-    *   可以发送Event
+* System layer: System layer. ISystem interface, helps IController to bear some logic, such as timing system, mall system, achievement system, etc., shared by multiple presentation layers.
+    * Can get System, Model
+    * Can listen to Event
+    * Can send Event
 
-System 的接口定义如下：
+The interface definition of System is as follows:
 
 ```plain
 #region System
@@ -42,11 +42,11 @@ public interface ISystem : IBelongToArchitecture, ICanSetArchitecture, ICanGetMo
 }
 ```
 
-*   数据层：Model层。IModel接口，负责数据的定义、数据的增删查改方法的提供
-    *   可以获取 Utility
-    *   可以发送 Event
+* Data layer: Model layer. IModel interface, responsible for defining data and providing methods for data addition, deletion, modification, and query.
+    * Can get Utility
+    * Can send Event
 
-Model 的接口定义如下：
+The interface definition of Model is as follows:
 
 ```plain
 public interface IModel : IBelongToArchitecture, ICanSetArchitecture, ICanGetUtility, ICanSendEvent
@@ -55,9 +55,9 @@ public interface IModel : IBelongToArchitecture, ICanSetArchitecture, ICanGetUti
 }
 ```
 
-*   工具层：Utility层。IUtility接口，负责提供基础设施，比如存储方法、序列化方法、网络连接方法、蓝牙方法、SDK、框架继承等。啥都干不了，可以集成第三方库，或者封装API
+* Utility layer: Utility layer. IUtility interface, responsible for providing infrastructure, such as storage methods, serialization methods, network connection methods, Bluetooth methods, SDK, framework inheritance, etc. Can't do anything, can integrate third-party libraries or encapsulate APIs.
 
-Utility 的接口定义如下:
+The interface definition of Utility is as follows:
 
 ```plain
 #region Utility
@@ -68,11 +68,11 @@ public interface IUtility
 #endregion
 ```
 
-*   Command：命令，负责数据的增删改。
-    *   可以获取 System、Model
-    *   可以发送 Event、Command
+* Command: Command, responsible for data addition, deletion, and modification.
+    * Can get System, Model
+    * Can send Event, Command
 
-Command 的接口定义如下：
+The interface definition of Command is as follows:
 
 ```plain
 public interface ICommand : IBelongToArchitecture, ICanSetArchitecture, ICanGetSystem, ICanGetModel, ICanGetUtility,ICanSendEvent, ICanSendCommand, ICanSendQuery
@@ -81,9 +81,9 @@ public interface ICommand : IBelongToArchitecture, ICanSetArchitecture, ICanGetS
 }
 ```
 
-*   Query：查询、负责数据的查询
-    *   可以获取 System、Model
-    *   可以发送 Query
+* Query: Query, responsible for data query.
+    * Can get System, Model
+    * Can send Query
 
 ```plain
 public interface IQuery<TResult> : IBelongToArchitecture, ICanSetArchitecture, ICanGetModel, ICanGetSystem,ICanSendQuery
@@ -92,18 +92,18 @@ public interface IQuery<TResult> : IBelongToArchitecture, ICanSetArchitecture, I
 }
 ```
 
-*   通用规则：
-    *   IController 更改 ISystem、IModel 的状态必须用Command
-    *   ISystem、IModel 状态发生变更后通知 IController 必须用事件或BindableProperty
-    *   IController可以获取ISystem、IModel对象来进行数据查询
-    *   ICommand、IQuery 不能有状态,
-    *   上层可以直接获取下层，下层不能获取上层对象
-    *   下层向上层通信用事件
-    *   上层向下层通信用方法调用（只是做查询，状态变更用 Command），IController 的交互逻辑为特别情况，只能用 Command
+* General rules:
+    * IController must use Command to change the state of ISystem and IModel.
+    * After the state of ISystem and IModel changes, notify IController using events or BindableProperty.
+    * IController can obtain ISystem and IModel objects for data queries.
+    * ICommand and IQuery cannot have states.
+    * The upper layer can directly obtain the lower layer, and the lower layer cannot obtain the upper layer object.
+    * Use events for communication from the lower layer to the upper layer.
+    * Use method calls for communication from the upper layer to the lower layer (only for queries, use Command for state changes). The interaction logic of IController is a special case and can only use Command.
 
-通用规则是理想状态下的一套规则，但是落实的实际项目，很有可能需要对以上规则做一些修改。
+The general rules are an ideal set of rules, but in actual projects, it is likely that some modifications need to be made to the above rules.
 
-修改的方式非常简单，比如我希望 IController 可以发送事件，那么我们只需要在 IController 接口上增加一个 ICanSendEvent 接口即可，代码如下:
+The modification method is very simple. For example, if I want IController to be able to send events, we only need to add an ICanSendEvent interface to the IController interface, as shown below:
 
 ```plain
     #region Controller
@@ -116,22 +116,18 @@ public interface IQuery<TResult> : IBelongToArchitecture, ICanSetArchitecture, I
     #endregion
 ```
 
-这样，就可以在 Controller 对象里，通过 this.SendEvent 来发送事件了。
+In this way, we can send events in the Controller object through this.SendEvent.
 
-如果是打算先了解或学习 QFramework 架构，那么我推荐就先按照 QFramework 默认的架构规范来做练习项目。
+If you intend to learn or study the QFramework architecture, I recommend that you first practice projects according to the default architecture specifications of QFramework.
 
-如果是打算马上用 QFramework 做项目，那么可以再保持原有开发习惯的基础上，一点点引入 QFramework 的概念，比如一开始用 BindableProperty 和 Architecture 来解决 Model 和数据更新的问题。
+If you intend to use QFramework to do projects immediately, you can gradually introduce QFramework concepts based on your original development habits, such as using BindableProperty and Architecture to solve the problem of Model and data updates at the beginning.
 
-再慢慢开始用 Command 来解决交互逻辑臃肿的问题，以此类推，直到能完全掌握全部概念，最终能修改和定制 QFramework.cs 源码。
+Then gradually use Command to solve the problem of bloated interaction logic, and so on, until you can fully master all concepts and finally modify and customize the QFramework.cs source code.
 
-  
+## Summary
 
-## 笔记总结
-
-  
-
-1. 4 层架构, 自上而下: Controller, System, Model, Utility
-2. 上层可获取下层, 但下层不能获取上层
-3. 上层通知下层使用调用
-4. 下层通知上层使用事件
-5. 通过接口可以为灵活掌控各层次的能力, 比如 Controller 增加实现接口可以增加发送 event 的能力
+1. 4-layer architecture, from top to bottom: Controller, System, Model, Utility
+2. The upper layer can obtain the lower layer, but the lower layer cannot obtain the upper layer.
+3. The upper layer notifies the lower layer using method calls.
+4. The lower layer notifies the upper layer using events.
+5. Through interfaces, you can have flexible control over the capabilities of each level. For example, adding an implementation interface to Controller can increase the ability to send events.

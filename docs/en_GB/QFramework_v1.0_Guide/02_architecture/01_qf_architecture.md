@@ -1,25 +1,25 @@
-# 01. QFramework 架构简介
+# 01. Introduction to QFramework Architecture
 
-QFramework 架构是一套简单、强大、易上手的系统设计架构。
+The QFramework architecture is a simple, powerful, and easy-to-use system design architecture.
 
-这套架构的特性如下：
+The characteristics of this architecture are as follows:
 
-*   基于 MVC
-*   分层
-*   (可选)CQRS 支持
-*   (可选)事件驱动
-*   (可选)数据驱动
-*   (可选)IOC 模块化
-*   (可选)领域驱动设计（DDD）支持
-*   符合 SOLID 原则
-*   源码不到 1000 行
+* Based on MVC
+* Layered
+* (Optional) CQRS support
+* (Optional) Event-driven
+* (Optional) Data-driven
+* (Optional) IOC modularization
+* (Optional) Support for Domain-Driven Design (DDD)
+* Compliant with SOLID principles
+* Source code is less than 1000 lines
 
-## 提供的架构图
+## Provided Architecture Diagram
 
 [![](https://file.liangxiegame.com/5e9f1682-1907-47a2-a23a-2d5a4ba2e7a4.png)](https://file.liangxiegame.com/5e9f1682-1907-47a2-a23a-2d5a4ba2e7a4.png)
 
-## 举个例子
+## For example
 
 [![](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)
 
-这两张图现在大家可能还看不太懂，没关系，我们过一遍快速入门就懂了。
+You may not understand these two pictures yet, but it's okay. We will go through a quick start and understand them.

@@ -1,70 +1,70 @@
-# 05. ResKit 资源管理&开发解决方案
+# 05. ResKit Resource Management & Development Solution
 
-## Res Kit 简介
+## Introduction to Res Kit
 
-Res Kit，是资源管理&快速开发解决方案
+Res Kit is a resource management and rapid development solution.
 
-**特性如下:**
+**Features include:**
 
-*   可以使用一个 API 从 dataPath、Resources、StreammingAssetPath、PersistentDataPath、网络等地方加载资源。
-*   基于引用计数，简化资源加载和卸载。
-*   拥抱游戏开发流程中的不同阶段
-    *   开发阶段不用打 AB 直接从 dataPath 加载。
-    *   测试阶段支持只需打一次 AB 即可。
-*   可选择生成资源名常量代码，减少拼写错误。
-*   异步加载队列支持
-*   对于 AssetBundle 资源，可以只通过资源名而不是 AssetBundle 名 + 资源名 加载资源，简化 API 使用。
+*   You can use one API to load resources from dataPath, Resources, StreammingAssetPath, PersistentDataPath, and the network.
+*   Simplify resource loading and unloading based on reference counting.
+*   Embrace different stages in the game development process
+    *   In the development stage, you can load from dataPath without having to build AssetBundles.
+    *   In the testing stage, you only need to build AssetBundles once.
+*   You can choose to generate resource name constant code to reduce spelling errors.
+*   Asynchronous loading queue support
+*   For AssetBundle resources, you can load resources only by resource name instead of AssetBundle name + resource name, simplifying API usage.
 
-## Res Kit 快速入门
+## Quick Start with Res Kit
 
-我们知道，在一般情况下，有两种方式可以让我们实现动态加载资源：
+We know that in general, there are two ways to dynamically load resources:
 
 *   Resources
 *   AssetBundle
 
-在 Res Kit 中，推荐使用 AssetBundle 的方式进行加载，因为 Res Kit 所封装的 AssetBundle 方式，比 Resources 的方式更好用。
+In Res Kit, it is recommended to use AssetBundle for loading because the AssetBundle encapsulated by Res Kit is easier to use than the Resources method.
 
-除了 Res Kit 中的 AsseBundle 方式更易用外，AssetBundle 本身相比 Resources 有更多的优点，比如更小的包体，支持热更等。
+In addition to being easier to use than the AsseBundle method in Res Kit, AssetBundle itself has more advantages than Resources, such as smaller package size and support for hot updates.
 
-废话不多说，我们看下 Res Kit 的基本使用。
+Without further ado, let's take a look at the basic usage of Res Kit.
 
-Res Kit 在开发阶段，分为两步。
+In the development stage, Res Kit is divided into two steps.
 
-*   标记资源
-*   写代码
+*   Mark resources
+*   Write code
 
-在开始之前，我们要确保，当前的 Res Kit 环境为模拟模式。
+Before we start, we need to make sure that the current Res Kit environment is in simulation mode.
 
-按下快捷键 ctrl + e 或者 ctrl + shift + r ，我们可以看到如下面板:
+Press the shortcut key ctrl + e or ctrl + shift + r, and we can see the following panel:
 
 [![](https://file.liangxiegame.com/d6d1ac25-4c60-4b42-81ec-51b1628b640a.png)](https://file.liangxiegame.com/d6d1ac25-4c60-4b42-81ec-51b1628b640a.png)
 
-确保模拟模式勾选之后，我们就可以进入使用流程了。
+After making sure that the simulation mode is selected, we can enter the usage process.
 
-### 1\. 资源标记
+### 1. Resource Marking
 
-在 Asset 目录下，只需对需要标记的文件或文件夹右键->@ResKit- AssetBundle Mark，如下所示：
+In the Asset directory, simply right-click on the file or folder that needs to be marked and select @ResKit-AssetBundle Mark, as shown below:
 
 [![](https://file.liangxiegame.com/2d793421-94cb-457f-80da-ee976f700f02.png)](https://file.liangxiegame.com/2d793421-94cb-457f-80da-ee976f700f02.png)
 
-标记完了，
+After marking,
 
-标记成功后，我们可以看到如下结果：
+After successful marking, we can see the following results:
 
-1. 该资源标记的选项为勾选状态
+1. The option marked for the resource is selected
     1. [![](https://file.liangxiegame.com/1ced7efd-a328-4c5e-a76a-4a85020acdd2.png)](https://file.liangxiegame.com/1ced7efd-a328-4c5e-a76a-4a85020acdd2.png)
-2. 该资源的 AssetLabel 中的名字如下
+2. The name of the AssetLabel for the resource is as follows
     1. [![](https://file.liangxiegame.com/a7e20396-e553-4ead-8291-e4395fe53b30.png)](https://file.liangxiegame.com/a7e20396-e553-4ead-8291-e4395fe53b30.png)
 
   
 
-这样就标记成功了。
+This is a successful marking.
 
-这里注意，一次标记就是一个 AssetBundle，如果想要让 AssetBundle 包含多个资源，可以将多个资源放到一个文件夹中，然后标记文件夹。
+Note that one marking is one AssetBundle. If you want the AssetBundle to contain multiple resources, you can put multiple resources in a folder and then mark the folder.
 
-### 2.资源加载
+### 2. Resource Loading
 
-接下来我们直接写资源加载的代码即可，代码如下，具体的代码含义，看注释即可。。
+Next, we can directly write the code for resource loading. The code is as follows. See the comments for the specific code meaning.
 
 ```plain
 using UnityEngine;
@@ -104,94 +104,94 @@ namespace QFramework.Example
 }
 ```
 
-将此脚本挂到任意 GameObject 上，运行后，结果如下:
+Attach this script to any GameObject, and after running it, the result is as follows:
 
 [![](https://file.liangxiegame.com/04cd1727-b7ad-436d-988c-80b70c0fc106.png)](https://file.liangxiegame.com/04cd1727-b7ad-436d-988c-80b70c0fc106.png)
 
-资源加载成功。
+The resource is loaded successfully.
 
-## 模拟模式与非模拟模式
+## Simulation Mode and Non-Simulation Mode
 
-### AssetBundle 的不便之处
+### Inconvenience of AssetBundle
 
-在使用 Res Kit 之前，相信大家多多少少接触过 AssetBundle。 有的童鞋可能是在项目中用过 AssetBundle，有的童鞋可能只是简单学习过 AssetBundle。总之，AssetBundle 在不通过 Res Kit 使用之前，总结下来就两个字：麻烦。
+Before using Res Kit, I believe that most people have more or less come into contact with AssetBundle. Some may have used AssetBundle in projects, and some may have only learned AssetBundle briefly. In short, before using Res Kit, AssetBundle can be summarized in two words: troublesome.
 
-**AssetBundle 麻烦在哪里**呢？
+What's the trouble with AssetBundle?
 
-首先 AssetBundle，需要打包才能在运行时加载资源。而打包需要我们写编辑器扩展脚本，在编辑器扩展脚本中还要处理平台和路径相关的逻辑。
+Firstly, AssetBundle needs to be packaged before loading resources at runtime. Packaging requires us to write editor extension scripts, which also need to handle platform and path-related logic in the editor extension scripts.
 
-在运行时，还需要根据平台和路径去加载对应的 AssetBundle。
+At runtime, it is necessary to load the corresponding AssetBundle based on the platform and path.
 
-这些操作想想就比较头痛。
+These operations are quite troublesome to think about.
 
-既然 AssetBundle 这么麻烦，我们为什么还要用 AssetBundle 呢？
+Since AssetBundle is so troublesome, why do we still use AssetBundle?
 
-因为 AssetBundle 可以给项目带来更好的性能，而且 AssetBundle 支持热更新。
+Because AssetBundle can bring better performance to the project, and AssetBundle supports hot updates.
 
-有了这两个优势，AssetBundle 就成了很多项目的必然选择。
+With these two advantages, AssetBundle has become the inevitable choice for many projects.
 
-而 Res Kit 中，为了解决频繁打包的问题，引入了一个概念：模拟模式（Simulation Mode）。
+In Res Kit, in order to solve the problem of frequent packaging, a concept called Simulation Mode is introduced.
 
-#### 模拟模式（Simulation Mode）
+#### Simulation Mode
 
-**什么是模拟模式？**
+What is Simulation Mode?
 
-顾名思义，就是模拟加载 AssetBundle 的模式，这里只是模拟，并没有真正去加载 AssetBundle，而是去加载 Application.dataPath 目录下的资源，也就是 Assets 目录下的资源。
+As the name suggests, it is a mode that simulates loading AssetBundle. Here, it is only simulated and AssetBundle is not actually loaded. Instead, resources under the Application.dataPath directory are loaded, that is, resources under the Assets directory.
 
-**这样做有什么好处呢？**
+What are the benefits of doing this?
 
-好处就是每当有资源修改的时候，就不用再打 AB 包了，就可以在运行时加载到修改后的资源。
+The benefit is that whenever a resource is modified, there is no need to package the AB again, and the modified resource can be loaded at runtime.
 
-如果是非模拟模式下，每当有资源修改时，就需要再打一次 AB 包，才能加载到修改后的资源。
+If it is in non-simulation mode, every time a resource is modified, an AB package needs to be packaged again to load the modified resource.
 
-所以一个模拟模式，解决了频繁打 AB 包的问题，从而在开发阶段提高我们的开发效率。
+Therefore, a simulation mode solves the problem of frequent AB packaging, thereby improving our development efficiency in the development stage.
 
-那么在使用 Res Kit 的时候，模拟模式对应的阶段是开发阶段，那么非模拟模式对应的是什么阶段呢？
+So when using Res Kit, what stage does the simulation mode correspond to, and what stage does the non-simulation mode correspond to?
 
-答案就是真机阶段。
+The answer is the real machine stage.
 
-### 开发阶段、真机阶段
+### Development Stage, Real Machine Stage
 
-开发阶段、真机阶段并不是 Unity 提供的概念，而是笔者在迭代 Res Kit 中提出的两个概念。
+The development stage and the real machine stage are not concepts provided by Unity, but two concepts proposed by the author in iterating Res Kit.
 
-这两个概念很容易理解：
+These two concepts are easy to understand:
 
-*   开发阶段：开发逻辑的阶段，需要编写大量的逻辑，大部分情况下都在 Unity Editor 环境下开发。
-*   真机阶段：需要在真机上运行的阶段，这个阶段主要是做大量的测试或者真正发布了。
+* Development stage: the stage of developing logic, requiring a lot of logic to be written, and in most cases, developed in the Unity Editor environment.
+* Real machine stage: the stage that needs to be run on the real machine. This stage is mainly for a lot of testing or real release.
 
-相信有点规模的项目都会分阶段出来的，比如开发阶段、测试阶段、生产阶段等等，大家理解起来应该不难。
+I believe that projects of a certain scale will be divided into stages, such as development stage, testing stage, production stage, etc., which should be easy for everyone to understand.
 
-接下来简单分析一下开发阶段、真机阶段的特点。
+Next, let's briefly analyze the characteristics of the development stage and the real machine stage.
 
-**开发阶段** 在开发阶段，开发者需要写大量的逻辑，而且资源的目录还没有稳定，一般在开发过程中会有很大的变化。 如果每次资源的修改都需要打 AB 包的话，会非常影响开发进度。
+**Development Stage** In the development stage, developers need to write a lot of logic, and the resource directory is not stable yet, and there will be a lot of changes during the development process. If every modification of resources requires AB packaging, it will greatly affect the development progress.
 
-**真机阶段** 真机阶段，一般就是一个版本的逻辑都写完了，只需要做一些测试和 debug 工作。在这个阶段，资源目录都稳定了，不需要做很大的调整。
+**Real Machine Stage** In the real machine stage, generally, the logic of a version is completed, and only some testing and debugging work needs to be done. At this stage, the resource directory is stable and does not require much adjustment.
 
-在真机阶段，每次打 App 包之前，只需要 Build 一次 AB 即可。
+In the real machine stage, only one AB needs to be built before each App package is built.
 
-当然，在 Unity Editor 环境中，可以取消勾选模拟模式，这样在 Unity Editor 环境下可以加载真正的 AssetBundle 包。
+Of course, in the Unity Editor environment, you can uncheck the simulation mode, so that the real AssetBundle package can be loaded in the Unity Editor environment.
 
-在上一篇文章所说的，拥抱各个开发阶段指的就是为开发阶段、和真机阶段做了考虑。
+As mentioned in the previous article, embracing each development stage means considering the development stage and the real machine stage.
 
-此篇的内容就这些。
+That's all for this article.
 
-### 小结
+### Summary
 
-*   开发阶段：
-    *   模拟模式
-*   真机阶段：
-    *   每次打 App 包之前，打一次 AB 包。
-    *   可以在 Unity Editor 环境下，取消勾选模拟模式，这时在运行时加载的资源则是真正的 AssetBundle 资源
+* Development stage:
+    * Simulation mode
+* Real machine stage:
+    * Build an AB package before each App package is built.
+    * In the Unity Editor environment, uncheck the simulation mode, and the resources loaded at runtime are the real AssetBundle resources.
 
-## 如何打 AssetBundle（真机模式）
+## How to Build AssetBundle (Real Mode)
 
 [![](https://file.liangxiegame.com/bcc21643-8c4a-4f6f-b3a9-db1ec3071119.png)](https://file.liangxiegame.com/bcc21643-8c4a-4f6f-b3a9-db1ec3071119.png)
 
-取消勾选模拟模式情况下，点击打 AB 包 即可。
+Click "Build AB Package" when the simulation mode is unchecked.
 
-## 异步加载
+## Asynchronous Loading
 
-异步加载代码如下:
+The asynchronous loading code is as follows:
 
 ```plain
 // 添加到加载队列
@@ -207,13 +207,13 @@ mResLoader.Add2Load("TestObj",(succeed,res)=>{
 mResLoader.LoadAsync();
 ```
 
-与 LoadSync 不同的是，异步加载是分两步的，第一步是添加到加载队列，第二步是执行异步加载。
+Unlike LoadSync, asynchronous loading is divided into two steps, the first step is to add to the loading queue, and the second step is to perform asynchronous loading.
 
-这样做是为了支持同时异步加载多个资源的。
+This is to support loading multiple resources asynchronously at the same time.
 
-## 异步加载
+## Asynchronous Loading
 
-代码如下:
+The code is as follows:
 
 ```plain
 using System.Collections;
@@ -269,13 +269,13 @@ namespace QFramework.Example
 }
 ```
 
-结果如下:
+The result is as follows:
 
 [![](https://file.liangxiegame.com/8ad406e4-f59c-43d2-bd4a-e7de57560958.png)](https://file.liangxiegame.com/8ad406e4-f59c-43d2-bd4a-e7de57560958.png)
 
-## 加载场景
+## Loading Scene
 
-注意：标记场景时要确保，一个场景是一个 AssetBundle。
+Note: When marking the scene, make sure that one scene is one AssetBundle.
 
 ```plain
 using UnityEngine;
@@ -314,7 +314,7 @@ namespace QFramework.Example
 }
 ```
 
-## 加载 Resources 中的资源
+## Loading resources from Resources
 
 ```plain
 using UnityEngine;
@@ -345,7 +345,7 @@ namespace QFramework.Example
 }
 ```
 
-## 关联对象管理
+## Associated Object Management
 
 ```plain
 using System.Collections;
@@ -385,7 +385,7 @@ namespace QFramework.Example
 }
 ```
 
-## SpriteAtlas 加载
+## Loading SpriteAtlas
 
 ```plain
 using System.Collections;
@@ -425,7 +425,7 @@ namespace QFramework
 }
 ```
 
-## 加载网络图片
+## Loading network images
 
 ```plain
 using UnityEngine;
@@ -468,7 +468,7 @@ namespace QFramework.Example
 }
 ```
 
-## 从 PersistentDataPath 加载图片
+## Loading images from PersistentDataPath
 
 ```plain
 namespace QFramework.Example
@@ -512,11 +512,11 @@ namespace QFramework.Example
 }
 ```
 
-## 自定义 Res
+## Custom Res
 
-ResKit 提供了 自定义 Res ，通过自定义 Res 可以非常方便地自定义 Res 的加载来源，比如 PersistentDataPath、StreamingAssetPath、AssetBundle 等，甚至是内存中的 GameObject 等资产，还可以集成 Addressables 或者其他的资源管理方案，ResKit 内置支持的 AssetBundle、Resources、网络图片加载、PersistentDataPath 图片加载都是通过自定义 Res 的方式扩展而来。
+ResKit provides Custom Res, which can be used to easily customize the loading source of Res, such as PersistentDataPath, StreamingAssetPath, AssetBundle, and even assets such as GameObject in memory. It can also integrate Addressables or other resource management solutions. The built-in AssetBundle, Resources, network image loading, and PersistentDataPath image loading in ResKit are all extended through Custom Res.
 
-我们看下自定义 Res 的用法，如下:
+Let's take a look at how to use Custom Res, as follows:
 
 ```plain
 using UnityEngine;
@@ -586,21 +586,19 @@ namespace QFramework
 }
 ```
 
-非常简单。
+Very simple.
 
-## 代码生成
+## Code Generation
 
-Res Kit 支持代码生成，生成按钮的位置如下所示:
+Res Kit supports code generation, and the location of the generate button is shown below:
 
 [![](https://file.liangxiegame.com/e482f08e-2e8e-4b43-84bf-f32722cc5f5c.png)](https://file.liangxiegame.com/e482f08e-2e8e-4b43-84bf-f32722cc5f5c.png)
 
-  
-
-点击生成代码即可，生成后结果如下。
+Click the generate code button to generate the following result.
 
 [![](http://file.liangxiegame.com/0ea13581-4960-4bc8-bbf1-b49a03455271.png)](http://file.liangxiegame.com/0ea13581-4960-4bc8-bbf1-b49a03455271.png)
 
-生成了 QAssets 代码文件，代码内容如下:
+The QAssets code file is generated, and the code content is as follows:
 
 ```plain
 namespace QAssetBundle
@@ -619,19 +617,19 @@ namespace QAssetBundle
 }
 ```
 
-生成了代码，那么在写资源加载的代码的时候就会爽的飞起，如下图示:
+After generating the code, it will be very convenient to write resource loading code, as shown in the following figure:
 
 [![](http://file.liangxiegame.com/7b8ae854-aafe-49d8-9318-5f7d1190c8cc.png)](http://file.liangxiegame.com/7b8ae854-aafe-49d8-9318-5f7d1190c8cc.png)
 
-图中，给出了资源名字的提示。
+In the figure, the resource name is given as a prompt.
 
-这样就不容易出现字符串的拼写错误了。
+This way, it is not easy to make spelling errors in strings.
 
-## ResLoader 推荐用法
+## Recommended usage of ResLoader
 
-ResLoader 的推荐用法，是一个需要加载的单元申请一个 ResLoader。
+The recommended usage of ResLoader is to apply a ResLoader for each unit that needs to be loaded.
 
-代码如下:
+The code is as follows:
 
 ```plain
 using QF.Res;
@@ -657,51 +655,51 @@ namespace QF.Example
 }
 ```
 
-在以上代码中，TestResKit 是一个需要加载资源的单元。
+In the above code, TestResKit is a unit that needs to load resources.
 
-**这个单元是什么意思呢？**
+**What does this unit mean?**
 
-其实很简单，单元可以是 UIPanel （界面），或者任何需要加载资源服务的 MonoBehaviour。
+In fact, it is very simple. The unit can be a UIPanel (interface), or any MonoBehaviour that needs to load resource services.
 
-## ResLoader 的职责
+## Responsibilities of ResLoader
 
-ResLoader 的职责字如其意，就是负责加载资源的，即资源加载器。
+As its name suggests, the responsibility of ResLoader is to load resources, that is, the resource loader.
 
-一个 ResLoader 会记录所有它加载过的资源。
+A ResLoader will record all the resources it has loaded.
 
-这样它在释放资源的时候只需要根据加载记录，进行释放即可。
+So when it releases resources, it only needs to release them based on the loading record.
 
-ResLoader 与 单元（Test 脚本）的示意图如下:
+The schematic diagram of ResLoader and unit (Test script) is as follows:
 
 [![](http://file.liangxiegame.com/296b0166-bdea-47d5-ac87-4b55c91df16f.png)](http://file.liangxiegame.com/296b0166-bdea-47d5-ac87-4b55c91df16f.png)
 
-这里我们要注意，ResLoader 不是进行真正的资源加载操作，而是进行资源的引用获取。
+Here we need to pay attention that ResLoader is not performing the actual resource loading operation, but obtaining the resource reference.
 
-真正的资源加载是在 ResMgr 中完成，这个过程用户是无法感知的到的。
+The real resource loading is completed in ResMgr, and the user cannot perceive this process.
 
-ResLoader 获取资源引用的过程如下:
+The process of ResLoader obtaining resource references is as follows:
 
-1. 从 ResLoader 的引用记录中查询是否已经获取了引用，如果之前已经在 ResLoader 记录过资源引用则返回资源。否则执行 2.
-2. 从 ResMgr 中查询是否已经有资源对象，如果有资源对象，返回资源，并在 ResLoader 中记录引用，同时对资源对象进行引用计数 +1 操作，否则执行 3.
-3. 让 ResMgr 进行资源加载，同时创建资源对象，剩下的步骤同 2。
+1. Query whether the reference has been obtained from the reference record of ResLoader. If the resource reference has been recorded in ResLoader before, return the resource. Otherwise, go to step 2.
+2. Query whether there is a resource object in ResMgr. If there is a resource object, return the resource, record the reference in ResLoader, and perform a reference count +1 operation on the resource object. Otherwise, go to step 3.
+3. Let ResMgr load the resource and create the resource object, and the remaining steps are the same as step 2.
 
-大致的访问资源的过程就是如此，不理解的童鞋不要紧，因为对使用上来说不重要。
+The process of accessing resources is roughly like this. It's not important for usage if you don't understand it.
 
-我们只需要知道，建议每个需要加载的脚本申请一个 ResLoader，是为了更方便地让大家进行资源管理。
+All we need to know is that it is recommended to apply a ResLoader for each script that needs to be loaded in order to facilitate resource management.
 
-不管这个脚本加载过多少个东西，也不管别的脚本加载过多少，只需要各自脚本释放自己的 ResLoader 即可。
+Regardless of how many things this script has loaded, or how many other scripts have loaded, each script only needs to release its own ResLoader.
 
-因为每个资源对象对集成了引用计数的。
+This is because each resource object has an integrated reference count.
 
-## 申请 ResLoader 的消耗
+## Cost of Applying ResLoader
 
-几乎没有消耗，因为 ResLoader 是从对象池中申请的。
+There is almost no cost because ResLoader is applied from the object pool.
 
-## WebGL 注意事项补充
+## WebGL Notes
 
-在 WebGL 平台 ResKit 加载 AssetBundle 资源只支持异步加载。
+On the WebGL platform, ResKit only supports asynchronous loading of AssetBundle resources.
 
-异步初始化
+Asynchronous Initialization
 
 ```plain
 StartCoroutine(ResKit.InitAsync());
@@ -709,13 +707,9 @@ StartCoroutine(ResKit.InitAsync());
 ResKit.InitAsync().ToAction().StartGlobal();
 ```
 
-异步加载资源
+Asynchronous Loading of Resources
 
-*   先 Add2Load
-*   再调用 LoadAsync()
+*   Add2Load first
+*   Then call LoadAsync()
 
-好了，ResKit 的功能就全部介绍完了。
-
-  
-
-#
+Okay, that's all for the introduction of ResKit.

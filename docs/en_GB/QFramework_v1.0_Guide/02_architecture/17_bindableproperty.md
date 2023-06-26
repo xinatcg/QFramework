@@ -1,10 +1,10 @@
-# 17. 内置工具：BindableProperty
+# 17. Built-in Tool: BindableProperty
 
-在此篇介绍 BindableProperty。
+In this section, we will introduce BindableProperty.
 
-BindableProperty 提供 数据 + 数据变更事件 的一个对象。
+BindableProperty provides an object that combines data and data change events.
 
-## 基本使用
+## Basic Usage
 
 ```plain
 using UnityEngine;
@@ -45,6 +45,6 @@ namespace QFramework.Example
 // 输出结果// QFramework// 按下鼠标左键,输出:// 1// 按下鼠标左键,输出:// 2
 ```
 
-非常简单。
+It's very simple.
 
-关于 BindableProperty，在之前写 CounterApp 的时候有介绍过，所以这篇就介绍到这里。
+We have already introduced BindableProperty when we were writing the CounterApp, so we will end the introduction here.

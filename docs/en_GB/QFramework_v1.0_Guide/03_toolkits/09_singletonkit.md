@@ -1,16 +1,16 @@
-# 09. SingletonKit 单例模板套件
+# 09. SingletonKit Singleton Template Kit
 
-SingletonKit 是 QFramework 的第一个收集的工具，经过了 7 年的迭代，现在已经非常成熟了。
+SingletonKit is the first tool collected by QFramework. After 7 years of iteration, it is now very mature.
 
-好久不见 ！之前想着让各位直接用 QFramework，但是后来想想，如果正在进行的项目直接使用QFramework，这样风险太高了，要改的代码太多，所以打算陆续独立出来一些工具和模块,允许各位一个模块一个模块的进行更换，减少更换带来的风险。
+Long time no see! I used to think that everyone could use QFramework directly, but later I thought that if the ongoing project uses QFramework directly, the risk is too high and there are too many codes to be changed. So I plan to gradually separate some tools and modules, allowing everyone to replace them module by module to reduce the risk of replacement.
 
 ## QSingleton:
 
-  之前有几篇文章介绍过单例模板在 Unity 中的几种实现。之后又参考了其他的单例库的实现，借鉴(chao)了它们的优点,借鉴了哪里有声明原作者。
+Several articles have introduced several implementations of singleton templates in Unity before. Later, I also referred to the implementation of other singleton libraries, learned from their advantages, and declared the original author.
 
-## 快速开始:
+## Quick Start:
 
-实现一个继承 MonoBehaviour 的单例类
+Implement a singleton class that inherits from MonoBehaviour
 
 ```plain
 namespace QFramework.Example
@@ -47,15 +47,15 @@ namespace QFramework.Example
 }
 ```
 
-结果如下:
+The result is as follows:
 
   
 
   
 
-这样从头到尾都很！优！雅！
+This is very elegant from start to finish!
 
-## C# 单例类
+## C# Singleton Class
 
 *   Singleton.cs
 
@@ -84,16 +84,16 @@ GameDataManager.Instance.Log(""Hello"");
 GameDataManager.Instance.Dispose();
 ```
 
-只需简单继承QSingleton，并声明非public构造方法即可。如果有需要获取单例初始化的时机，则可以选择重载OnSingletonInit方法。
+Simply inherit QSingleton and declare a non-public constructor. If you need to get the timing of singleton initialization, you can choose to overload the OnSingletonInit method.
 
-## 结果:
+## Result:
 
 ```plain
 Hello World!
 Hello World!
 ```
 
-## Mono 单例
+## Mono Singleton
 
 *   MonoSingleton.cs
 
@@ -200,10 +200,10 @@ public class GameDataManager : ISingleton
       SingletonProperty<GameDataManager>.Dispose();
   }
 
-  public void Log(string content)
-  {
-      Debug.Log(""GameDataManager"" + mIndex + "":"" + content);
-  }
+```
+public void Log(string content)
+{
+    Debug.Log(""GameDataManager"" + mIndex + "":"" + content);
 }
 ```
 
@@ -214,11 +214,11 @@ GameDataManager.Instance.Log(""Hello""); // GameDataManager1:OnSingletonInit:Hel
 GameDataManager.Instance.Dispose();
 
 ```plain
-## MonoSingletPath 重命名
+## Rename MonoSingletPath
 
 
-代码如下：
-MonoSingletonPath.cs：
+Code as follows:
+MonoSingletonPath.cs:
 
 ```cs
 namespace QFramework.Example
@@ -241,13 +241,13 @@ namespace QFramework.Example
 }
 ```
 
-## 结果:
+## Result:
 
   
 
 ## PersistentMonoSingleton
 
-当场景里包含两个 PersistentMonoSingleton，保留先创建的
+When there are two PersistentMonoSingleton in the scene, keep the one created first.
 
 ```plain
 public class GameManager : PersistentMonoSingleton<GameManager>
@@ -274,7 +274,7 @@ IEnumerator Start()
 
 ## ReplaceableMonoSingleton
 
-当场景里包含两个 ReplaceableMonoSingleton，保留最后创建的
+When there are two ReplaceableMonoSingleton in the scene, keep the one created last.
 
 ```plain
 public class GameManager : ReplaceableMonoSingleton<GameManager>
@@ -299,4 +299,4 @@ IEnumerator Start()
 }
 ```
 
-关于 SingletonKit 的介绍就到这。
+That's all about the introduction of SingletonKit.

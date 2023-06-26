@@ -1,6 +1,6 @@
-# 03. 引入 Command
+# 03. Introduction to Command
 
-我们回顾一下目前的代码，如下；
+Let's review the current code as follows:
 
 ```plain
 using UnityEngine;
@@ -93,15 +93,15 @@ namespace QFramework.Example
 }
 ```
 
-现在，数据共享的问题通过 引入 Model 解决了。
+Now, the problem of data sharing is solved by introducing the Model.
 
-这里再次强调一下，**需要共享的数据放 Model 里，不需要共享的，能不放就不放**。
+It is emphasized again here that **data that needs to be shared should be placed in the Model, and data that does not need to be shared should not be placed in the Model if possible**.
 
-虽然引入了 Model，但是这套代码随着项目规模的发展还是有很多的问题。
+Although the Model has been introduced, there are still many problems with this set of code as the project scales.
 
-其中最严重也最常见的就是 Controller 会越来越臃肿。
+The most serious and common one is that the Controller will become more and more bloated.
 
-我们简单分析一下为什么 Controller 会越来越臃肿，我们先看下监听用户输入部分的代码，如下：
+Let's analyze why the Controller will become more and more bloated. Let's first look at the code for listening to user input, as follows:
 
 ```plain
 // 监听输入
@@ -122,37 +122,37 @@ mBtnSub.onClick.AddListener(() =>
 });
 ```
 
-在处理用户输入的代码中，笔者写了注释，交互逻辑 和 表现逻辑。
+In the code for processing user input, the author wrote comments on the interaction logic and presentation logic.
 
-什么是**交互逻辑** 和 **表现逻辑**？
+What are **interaction logic** and **presentation logic**?
 
-非常简单。
+Very simple.
 
-**交互逻辑**，就是从用户输入开始到数据变更的逻辑
+**Interaction logic** is the logic from user input to data change.
 
-顺序是 View->Controller->Model
+The order is View->Controller->Model.
 
-**表现逻辑**，就是数据变更到在界面显示的逻辑
+**Presentation logic** is the logic from data change to display on the interface.
 
-顺序是 Model->Controller->View
+The order is Model->Controller->View.
 
-如下图所示：
+As shown in the following figure:
 
 [![](https://file.liangxiegame.com/0b4e1255-ee5d-4223-97a6-2e49cf68715c.png)](https://file.liangxiegame.com/0b4e1255-ee5d-4223-97a6-2e49cf68715c.png)
 
-虽然交互逻辑和表现逻辑理解起来简单，但是它们非常重要，因为 QFramework 接下来的概念都是围绕这两个概念展开的。
+Although the interaction logic and presentation logic are easy to understand, they are very important because the concepts of QFramework are based on these two concepts.
 
-View、Model 以及 Controller 的交互逻辑和表现逻辑形成了一个闭环。构成了完整的 MVC 闭环。
+The interaction logic and presentation logic of View, Model, and Controller form a closed loop. It constitutes a complete MVC loop.
 
-而 Controller 本身之所以臃肿，是因为，它负责了两种职责，即改变 Model 数据 的交互逻辑，以及 Model 数据变更之后更新到界面的表现逻辑。
+The reason why the Controller itself is bloated is that it is responsible for two responsibilities, namely, the interaction logic of changing Model data and the presentation logic of updating to the interface after Model data changes.
 
-而在一个有一定规模的项目中，表现逻辑和交互逻辑非常多。而一个 Controller 很容易就做到上千行代码。
+In a project of a certain scale, there are many presentation logic and interaction logic. A Controller can easily reach thousands of lines of code.
 
-**而大部分的 MVC 方案，解决 Controller 臃肿用的是引入 Command 的方式，即引入命令模式，通过命令来分担 Controller 的交互逻辑的职责。**
+**Most MVC solutions solve the problem of bloated Controller by introducing Command, that is, introducing the command pattern to share the responsibility of Controller's interaction logic.**
 
-QFramework 也是使用了同样的方式解决 Controller 臃肿的问题。
+QFramework also uses the same method to solve the problem of bloated Controller.
 
-我们将代码改成如下：
+We changed the code to the following:
 
 ```plain
 using UnityEngine;
@@ -263,41 +263,43 @@ namespace QFramework.Example
 }
 ```
 
-代码很简单，我们用流程图表示如下：
+The code is very simple, and we represent it with a flowchart as follows:
 
 [![](https://file.liangxiegame.com/6544f785-0389-46bc-813d-b9c77abdd336.png)](https://file.liangxiegame.com/6544f785-0389-46bc-813d-b9c77abdd336.png)
 
-运行 Unity，结果如下：
+Run Unity, the result is as follows:
 
 [![](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)
 
-没有变化，运行正确。
+No change, running correctly.
 
-大家可能会问，一个简单的数据加减操作，至于创建一个 Command 对象来承担么？看不出来好处呀，反而代码更多了。
+You may ask, is it necessary to create a Command object for a simple data addition and subtraction operation? It seems unnecessary and the code is longer.
 
-如果整个项目只有一个简单的数据加减操作，那使用 Command 有点多此一举，但是一般的项目的交互逻辑，是非常复杂的，代码量也非常多，整个时候使用 Command 词汇发挥作用。
+If there is only one simple data addition and subtraction operation in the entire project, using Command is a bit redundant, but the interaction logic of a general project is very complex, and the code volume is also very large. The use of Command vocabulary plays a role throughout the project.
 
-具体发挥什么作用，使用 Command 可以带来很多便利，比如：
+Specifically, using Command can bring many conveniences, such as:
 
-*   Command 可以复用，Command 也可以调用 Command
-*   Command 可以比较方便实现撤销功能，如果 App 或者 游戏需要的话
-*   如果遵循一定规范，可以实现使用 Command 跑自动化测试。
-*   Command 可以定制 Command 队列，也可以让 Command 按照特定的方式执行
-*   一个 Command 也可以封装成一个 Http 或者 TCP 里的一次数据请求
-*   Command 可以实现 Command 中间件模式
-*   等等
+*   Command can be reused, and Command can also call Command
+*   Command can easily implement undo function if App or game needs it
+*   If certain specifications are followed, automated testing can be implemented using Command.
+*   Command can customize the Command queue, and can also make Command execute in a specific way
+*   A Command can also be encapsulated as a data request in Http or TCP
+*   Command can implement Command middleware mode
+*   And so on
 
-OK，通过引入 Command，帮助分担了 Controller 的交互逻辑。使得 Controller 成为一个薄薄的一层，在需要修改 Model 的时候，Controller 只要调用一句简单的 Command 即可。
+OK, by introducing Command, the interaction logic of the Controller is helped to be shared. The Controller becomes a thin layer. When it is necessary to modify the Model, the Controller only needs to call a simple Command.
 
-Command 最明显的好处就是：
+The most obvious advantage of Command is:
 
-*   就算代码再乱，也只是在一个 Command 对象里乱，而不会影响其他的对象。
-*   讲方法封装成命令对象，可以实现对命令对象的组织、排序、延时等操作。
+*   Even if the code is messy, it is only messy in a Command object and will not affect other objects.
+*   Encapsulating methods into Command objects can realize operations such as organizing, sorting, and delaying Command objects.
 
-更多好处会随着大家的实践慢慢体会到。
+Here's the translation:
 
-当前的 MVC 流程如下：
+You will gradually experience more benefits through practice.
+
+The current MVC process is as follows:
 
 [![](https://file.liangxiegame.com/5ddfe754-110f-4417-8e29-d890e36d4a7a.png)](https://file.liangxiegame.com/5ddfe754-110f-4417-8e29-d890e36d4a7a.png)
 
-这篇内容就这些。
+That's all for this content.

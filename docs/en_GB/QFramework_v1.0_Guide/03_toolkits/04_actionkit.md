@@ -1,14 +1,14 @@
-# 04. ActionKit 时序动作执行系统
+# 04. ActionKit Sequential Action Execution System
 
-AciontKit 是一个时序动作执行系统。
+ActionKit is a sequential action execution system.
 
-游戏中，动画的播放、延时、资源的异步加载、Tween 的执行、网络请求等，这些全部都是时序任务，而 ActionKit，可以把这些任务全部整合在一起，使用统一的 API，来对他们的执行进行**计划**。
+In games, tasks such as playing animations, delays, asynchronous loading of resources, executing Tweens, network requests, etc. are all sequential tasks. ActionKit can integrate all these tasks together and use a unified API to plan their execution.
 
-OK，我们先看下 ActionKit的基本用法。
+Now, let's take a look at the basic usage of ActionKit.
 
-## 延时回调
+## Delayed Callback
 
-示例代码如下:
+The sample code is as follows:
 
 ```plain
 using UnityEngine;
@@ -33,7 +33,7 @@ namespace QFramework.Example
 // 输出结果// Start Time: 0// End Time: 1.00781
 ```
 
-## 序列和完成回调
+## Sequence and Completion Callback
 
 ```plain
 using UnityEngine;
@@ -61,7 +61,7 @@ namespace QFramework.Example
 // Sequence Finish:1.00537
 ```
 
-## 帧延时
+## Frame Delay
 
 ```plain
 using UnityEngine;
@@ -98,7 +98,7 @@ namespace QFramework.Example
 // Sequence Delay FrameCount:11
 ```
 
-## 条件执行
+## Conditional Execution
 
 ```plain
 using UnityEngine;
@@ -124,7 +124,7 @@ namespace QFramework.Example
 // Mouse Clicked
 ```
 
-## 重复执行
+## Repeated Execution
 
 ```plain
 using UnityEngine;
@@ -158,7 +158,7 @@ namespace QFramework.Example
 // 
 ```
 
-## 并行执行
+## Parallel Execution
 
 ```plain
 using UnityEngine;
@@ -191,7 +191,7 @@ namespace QFramework.Example
 // Parallel Finish:3.018883
 ```
 
-## 更复杂的示例
+## More Complex Examples
 
 ```plain
 using UnityEngine;
@@ -237,7 +237,7 @@ namespace QFramework.Example
 // Finish
 ```
 
-## 自定义动作
+## Custom Actions
 
 ```plain
 using UnityEngine;
@@ -310,7 +310,7 @@ namespace QFramework.Example
 }
 ```
 
-## 协程支持
+## Coroutine Support
 
 ```plain
 using System.Collections;
@@ -345,7 +345,7 @@ namespace QFramework.Example
 // Hello:1.002077
 ```
 
-## 全局 Mono 生命周期
+## Global Mono Lifecycle
 
 ```plain
 using UnityEngine;
@@ -401,15 +401,15 @@ namespace QFramework.Example
 }
 ```
 
-## DOTween 集成
+## DOTween Integration
 
-需要先提前装好 DOTween。
+You need to install DOTween first.
 
-然后导入 Example 中的如下包。
+Then import the following package from the Example.
 
 [![](https://file.liangxiegame.com/63e3eba5-0dfc-4d53-af56-242d6a308124.png)](https://file.liangxiegame.com/63e3eba5-0dfc-4d53-af56-242d6a308124.png)
 
-导入之后，就可以用 让 ActionKit 跑 DOTween 了，代码如下:
+After importing, you can use ActionKit to run DOTween. The code is as follows:
 
 ```plain
 using DG.Tweening;
@@ -449,15 +449,15 @@ namespace QFramework.Example
 }
 ```
 
-## UniRx 集成
+## UniRx Integration
 
-需要先提前装好 UniRx。
+You need to install UniRx first.
 
-然后导入 Example 中的如下包。
+Then import the following package from the Example.
 
 [![](https://file.liangxiegame.com/9b687ee1-83ec-49f5-b315-5795cc72b3ce.png)](https://file.liangxiegame.com/9b687ee1-83ec-49f5-b315-5795cc72b3ce.png)
 
-导入成功后，使用示例如下:
+After importing successfully, use the example as follows:
 
 ```plain
 using System;
@@ -495,4 +495,4 @@ namespace QFramework.Example
 }
 ```
 
-好了，关于 ActionKit 的介绍就到这里。
+That's all about the introduction to ActionKit.

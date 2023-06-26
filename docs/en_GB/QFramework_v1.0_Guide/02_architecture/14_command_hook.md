@@ -1,10 +1,10 @@
-# 14. Command 拦截
+# 14. Command interception
 
-QFramework 提供了拦截 Command 的 API。
+QFramework provides an API for intercepting Commands.
 
-我们尝试在 CounterApp 中实现一个 Command 日志。
+We will try to implement a Command log in the CounterApp.
 
-代码很简单，如下:
+The code is very simple, as follows:
 
 ```plain
 public class CounterApp : Architecture<CounterApp>
@@ -30,34 +30,28 @@ public class CounterApp : Architecture<CounterApp>
 }
 ```
 
-只需要在 Architecture 中覆写 ExecuteCommand 即可。
+Just override ExecuteCommand in Architecture.
 
-运行之后，笔者随意点击了几次按钮，结果如下:
+After running, the author clicked the button a few times at random, and the result is as follows:
 
 [![](https://file.liangxiegame.com/96bdc2f4-222d-4e91-a10e-dc2128e50fb4.png)](https://file.liangxiegame.com/96bdc2f4-222d-4e91-a10e-dc2128e50fb4.png)
 
-这样就实现了一个非常简单的 Command 日志功能。
+This implements a very simple Command log function.
 
-## 有了 Command 拦截有什么用？
+## What is the use of Command interception?
 
-有了 Command 拦截功能，我们可以做非常多的事情，比如：
+With Command interception, we can do a lot of things, such as:
 
-*   Command 日志可以用来方便调试
-*   可以实现 Command 中间件模式 可以写各种各样额度 Command 中间件，比如 Command 日志中间件
-*   可以方便你先撤销功能
-*   可以用 Command 做自动化测试
-*   等等
+*   Command logs can be used for easy debugging
+*   Middleware mode can be implemented in Command. Various Command middleware can be written, such as Command log middleware
+*   It can easily implement undo functionality
+*   Command can be used for automated testing
+*   And so on
 
-好了这篇就介绍到这里。
+Okay, that's all for this article.
 
-  
+## Summary Notes
 
-## 总结笔记
-
-  
-
-1. 实现原理就是在 Architecture 内覆盖 ExecuteCommand 方法. 默认的方式就是执行 Command, 覆写后可以执行而外逻辑, 同时执行原方法.
-
-  
+1. The implementation principle is to override the ExecuteCommand method in Architecture. The default way is to execute the Command. After overriding, additional logic can be executed while executing the original method.
 
 ![](https://cdn.jsdelivr.net/gh/storageimgbed/storage@img/images/20230625072313.png)

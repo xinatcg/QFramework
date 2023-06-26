@@ -1,10 +1,10 @@
-# 08. FluentAPI 链式 API
+# 08. FluentAPI Chain API
 
-## FluentAPI 简介
+## Introduction to FluentAPI
 
-FluentAPI 是 笔者积累的 Unity API 的一些链式封装。
+FluentAPI is a chain encapsulation of some Unity APIs accumulated by the author.
 
-基本使用非常简单，如下：
+The basic usage is very simple, as follows:
 
 ```plain
 // traditional stylevar playerPrefab = Resources.Load<GameObject>("no prefab don't run");
@@ -32,13 +32,13 @@ Resources.Load<GameObject>("playerPrefab")
     .ApplySelfTo(_ => { Debug.Log("playerPrefab instantiated"); });
 ```
 
-代码很简单。
+The code is very simple.
 
-FluentAPI 包含 100 多个常用 API 的链式封装，具体可以参考编辑器内文档。
+FluentAPI contains chain encapsulations of more than 100 commonly used APIs, which can be referred to in the documentation in the editor.
 
 [![](https://file.liangxiegame.com/67604baa-a9ca-4f03-8f7a-c1f88be322b7.png)](https://file.liangxiegame.com/67604baa-a9ca-4f03-8f7a-c1f88be322b7.png)
 
-另外 链式 API 可以与 QFramework 的其他模块配合使用事半功倍，比如 ResKit 与 FluentAPI 结合，参考代码如下:
+In addition, chain APIs can be used in conjunction with other modules of QFramework to achieve twice the result with half the effort. For example, ResKit and FluentAPI are combined, and the reference code is as follows:
 
 ```plain
 mResLoader.LoadSync<GameObject>("mygameobj")
@@ -49,4 +49,4 @@ mResLoader.LoadSync<GameObject>("mygameobj")
   .Show();
 ```
 
-链式 API 就介绍到这里。
+That's all for the introduction to chain APIs.

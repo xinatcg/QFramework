@@ -1,10 +1,10 @@
-# 15. 补充内容：GridKit 二维格子数据结构
+# 15. Additional Content: GridKit Two-Dimensional Grid Data Structure
 
-在做游戏的过程中，我们经常需要处理二维格子类的数据，比如消除类游戏、俄罗斯方块、各种棋类游戏，还有我们最常用的 Tilemap 的地块数据，这些都需要二维格子数据结构。
+In the process of game development, we often need to deal with two-dimensional grid data, such as elimination games, Tetris, various chess games, and the tile data of Tilemap that we use most frequently. All of these require a two-dimensional grid data structure.
 
-而在 GameMaker Studio 引擎中，这样的数据结构直接在引擎层面提供，名字叫做 ds\_grid。
+In the GameMaker Studio engine, such data structures are provided directly at the engine level, named ds\_grid.
 
-受到 GameMaker Stdio 的 ds\_grid 启发，QFramework 也实现了一个类似的数据结构，名字叫做 EasyGrid，示例代码如下:
+Inspired by GameMaker Studio's ds\_grid, QFramework has also implemented a similar data structure, named EasyGrid, with sample code as follows:
 
 ```plain
 using UnityEngine;
@@ -29,7 +29,7 @@ namespace QFramework.Example
 }
 ```
 
-运行后，代码如下:
+After running, the code is as follows:
 
 ```plain
 (0,0):Empty
@@ -50,13 +50,13 @@ namespace QFramework.Example
 (3,3):Empty
 ```
 
-好了这个就是关于 GridKit 的简单介绍。
+Okay, that's a brief introduction to GridKit.
 
-## 更多内容
+## More Content
 
-*   转载请注明地址：[liangxiegame.com](https://liangxiegame.com/) （首发） 微信公众号：凉鞋的笔记
-*   QFramework 主页：[qframework.cn](https://qframework.cn/)
-*   QFramework 交流群: 623597263
-*   QFramework Github 地址: [https://github.com/liangxiegame/qframework](https://github.com/liangxiegame/qframework)
-*   QFramework Gitee 地址：[https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
-*   GamePix 独立游戏学院 & Unity 进阶小班地址：[https://www.gamepixedu.com/](https://www.gamepixedu.com/)
+*   Reproduced please indicate the address: [liangxiegame.com](https://liangxiegame.com/) (first release) WeChat public account: Liangxie's Notes
+*   QFramework homepage: [qframework.cn](https://qframework.cn/)
+*   QFramework communication group: 623597263
+*   QFramework Github address: [https://github.com/liangxiegame/qframework](https://github.com/liangxiegame/qframework)
+*   QFramework Gitee address: [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
+*   GamePix Independent Game Academy & Unity Advanced Small Class Address: [https://www.gamepixedu.com/](https://www.gamepixedu.com/)

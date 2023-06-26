@@ -1,14 +1,14 @@
-# 07. AudioKit 音频管理解决方案
+# 07. AudioKit Audio Management Solution
 
-## 基本使用
+## Basic Usage
 
-AudioKit 音频播放相关的功能如下:
+The following are the features related to audio playback in AudioKit:
 
-*   播放背景音乐，同一时间只能播放一个音乐，播放别的音乐会直接卸载掉正在播放的音乐。
-*   播放音效，同一时间可以播放多个音效，当多人说话时，也可以用来播放人声。
-*   播放人声，与播放背景音乐一致，同一时间只能播放一个人声，用于播放一些旁白之类的声音非常适合。
+*   Play background music. Only one music can be played at the same time. Playing other music will directly unload the currently playing music.
+*   Play sound effects. Multiple sound effects can be played at the same time. It can also be used to play human voices when multiple people are speaking.
+*   Play human voice. Same as playing background music, only one human voice can be played at the same time. It is suitable for playing some voiceovers.
 
-对应的 API 调用方式如下:
+The corresponding API call method is as follows:
 
 ```plain
 btnPlayGame.onClick.AddListener(() => { AudioKit.PlayMusic("resources://game_bg"); });
@@ -18,13 +18,13 @@ btnPlaySound.onClick.AddListener(() => { AudioKit.PlaySound("resources://game_bg
 btnPlayVoiceA.onClick.AddListener(() => { AudioKit.PlayVoice("resources://game_bg"); });
 ```
 
-AudioKit 设置相关的功能如下:
+The following are the functions related to AudioKit settings:
 
-*   背景音乐开关
-*   音效开关
-*   人声开关
+*   Background music switch
+*   Sound effect switch
+*   Human voice switch
 
-调用示例如下：
+The calling example is as follows:
 
 ```plain
 btnSoundOn.onClick.AddListener(() => { AudioKit.Settings.IsSoundOn.Value = true; });
@@ -40,9 +40,9 @@ btnVoiceOn.onClick.AddListener(() => { AudioKit.Settings.IsVoiceOn.Value = true;
 btnVoiceOff.onClick.AddListener(() => { AudioKit.Settings.IsVoiceOn.Value = false; });
 ```
 
-这是打开声音这个功能的使用方式。
+This is the usage of the function to turn on the sound.
 
-调整音量大小的代码如下:
+The code for adjusting the volume is as follows:
 
 ```plain
 AudioKit.Settings.MusicVolume.RegisterWithInitValue(v => musicVolumeSlider.value = v);
@@ -54,11 +54,11 @@ voiceVolumeSlider.onValueChanged.AddListener(v => { AudioKit.Settings.VoiceVolum
 soundVolumeSlider.onValueChanged.AddListener(v => { AudioKit.Settings.SoundVolume.Value = v; });
 ```
 
-## 如何自定义音频加载
+## How to Customize Audio Loading
 
-与 UIKit 一样, AudioKit 也支持了自定义音频加载的方式。
+Like UIKit, AudioKit also supports custom audio loading methods.
 
-参考代码如下:
+The reference code is as follows:
 
 ```plain
 using System;
@@ -117,7 +117,7 @@ namespace QFramework.Example
 }
 ```
 
-由于 QFramework 中的 AudioKit 默认是通过 ResKit 加载，所以使用自定义加载方式时，请将项目中如下代码注释掉:
+Since the AudioKit in QFramework is loaded through ResKit by default, please comment out the following code in the project when using a custom loading method:
 
 ```plain
     public class AudioKitWithResKitInit 
@@ -130,4 +130,4 @@ namespace QFramework.Example
     }
 ```
 
-关于 AudioKit 就介绍到这。
+That's all about AudioKit.

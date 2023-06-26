@@ -1,136 +1,136 @@
-# 06. UIKit 界面管理&快速开发解决方案
+# 06. UI Kit Interface Management & Rapid Development Solution
 
-## UI Kit 简介
+## Introduction to UI Kit
 
-UI Kit 是一套界面管理&快速开发解决方案
+UI Kit is a set of interface management and rapid development solutions.
 
-UI Kit 的特性如下：
+The features of UI Kit are as follows:
 
-*   界面管理
-*   层级管理
-*   代码生成及组件自动绑定（底层用的 ViewController)
+* Interface management
+* Hierarchy management
+* Code generation and component automatic binding (using ViewController at the bottom)
 
-## UI Kit 基本使用
+## Basic Usage of UI Kit
 
-UI Kit 本身有一套推荐使用的工作流程，而此工作流程的设计是为了使每个界面只负责展示数据和监听用户输入，界面与界面之间互相独立，并且可独立测试。
+UI Kit itself has a recommended workflow, and the design of this workflow is to make each interface only responsible for displaying data and listening to user input. The interfaces are independent of each other and can be independently tested.
 
-下面我们将介绍如何制作一个游戏主页（UIBasicPanel）。
+Next, we will introduce how to create a game homepage (UIBasicPanel).
 
-首先我们先创建一个场景：TestUIBasicPanel，如下图所示:
+First, we create a scene: TestUIBasicPanel, as shown in the figure below:
 
 [![](https://file.liangxiegame.com/1b23e2de-9af1-4ce7-b5fd-7f1af8f1688b.png)](https://file.liangxiegame.com/1b23e2de-9af1-4ce7-b5fd-7f1af8f1688b.png)
 
-在这里大家要注意一下，UI Kit 推荐每个界面创建一个对应的测试场景，要保证每个界面是可以独立测试的。
+Here, everyone should pay attention to it. UI Kit recommends creating a corresponding test scene for each interface to ensure that each interface can be independently tested.
 
-接着打开 TestUIBasicPanel 如下所示：
+Then open TestUIBasicPanel as shown below:
 
 [![](https://file.liangxiegame.com/0f2accd3-1836-4d38-9858-3cc7828dc72f.png)](https://file.liangxiegame.com/0f2accd3-1836-4d38-9858-3cc7828dc72f.png)
 
-我们拖出来一个 UIRoot prefab，如下所示:
+We drag out a UIRoot prefab, as shown below:
 
 [![](https://file.liangxiegame.com/3804bb25-0112-4798-bee8-d1b9bf13f134.png)](https://file.liangxiegame.com/3804bb25-0112-4798-bee8-d1b9bf13f134.png)
 
-这里非常清晰地可以看到 UI Kit 所支持的所有层级。
+Here, all the levels supported by UI Kit can be seen very clearly.
 
-接着我们在 Design 层级下创建一个 Panel（右击 Design->UI->Panel) ，并命名为 UIBasicPanel，如下所示:
+Then we create a Panel (right-click Design->UI->Panel) under the Design level and name it UIBasicPanel, as shown below:
 
 [![](https://file.liangxiegame.com/6b626de9-223f-4d32-9031-285c1d537c75.png)](https://file.liangxiegame.com/6b626de9-223f-4d32-9031-285c1d537c75.png)
 
-这里要说一点，Design 层级，顾名思义就是用来做设计的层级，什么是设计？就是拼界面，这个层级就是专门用来拼界面的，Design 层级会在运行的时候会自动隐藏掉自己以及所有的子节点。
+Here, I want to say that the Design level, as the name suggests, is the level used for design. What is design? It is to assemble the interface. This level is specifically used to assemble the interface. The Design level will automatically hide itself and all child nodes during operation.
 
-OK，接下来，我们将 UIBasic 制作成 prefab，将其放到 Assets/Art/UIPrefabs 目录下，如果没有这个目录就自己手动创建一下。
+OK, next, we will make UIBasic into a prefab and put it in the Assets/Art/UIPrefabs directory. If there is no such directory, create it manually.
 
-放入后如下图所示:
+After putting it in, it looks like the following figure:
 
 [![](https://file.liangxiegame.com/584225aa-eb8a-4a7d-a44e-32ecd6732aa2.png)](https://file.liangxiegame.com/584225aa-eb8a-4a7d-a44e-32ecd6732aa2.png)
 
-Assets/Art/UIPrefab 这个目录是怎么来的呢？它是 QFramework 约定的专门放置 UI 界面 prefab 的位置。而 Assets/Art 是框架推荐存放资源的位置，当然关于资源的存放位置只是推荐，而不是强制的。
+How did the Assets/Art/UIPrefab directory come about? It is a location designated by QFramework for placing UI interface prefabs. And Assets/Art is the recommended location for the framework to store resources. Of course, the storage location of resources is only recommended, not mandatory.
 
-但是 UI 界面的 prefab 必须放在 Assets/Art/UIPrefab 目录下，因为这个部分在代码生成的时候需要。
+However, the prefab of the UI interface must be placed in the Assets/Art/UIPrefab directory because this part is required during code generation.
 
-那么有的童鞋可能会问，Assets/Art/UIPrefab 这个路径可以不可以更改？
+So some players may ask, can the Assets/Art/UIPrefab path be changed?
 
-当然可以，更改的方式也很简单，就是打开包管理面板(QFramework/Preference ctrl + e)，打开后可以看到如下面板:
+Of course, the way to change it is also very simple. Open the package management panel (QFramework/Preference ctrl + e), and you can see the following panel after opening it:
 
 [![](https://file.liangxiegame.com/146ffecf-e9b8-46fc-8e6e-1b95832256fd.png)](https://file.liangxiegame.com/146ffecf-e9b8-46fc-8e6e-1b95832256fd.png)
 
-详细的设置方式在上边介绍了，这里就不多介绍了。
+The detailed setting method is introduced above, and I will not introduce it here.
 
-接下来需要将 UIHomePanel prefab 标记为 AssetBundle，如下图所示:
+Next, you need to mark the UIHomePanel prefab as AssetBundle, as shown in the figure below:
 
 [![](https://file.liangxiegame.com/f999ac89-5b91-453f-a865-1dea7045a1d3.png)](https://file.liangxiegame.com/f999ac89-5b91-453f-a865-1dea7045a1d3.png)
 
-标记成功后。
-
-会看到如下结果:
+After successful tagging, you will see the following result:
 
 [![](https://file.liangxiegame.com/3c313f23-2350-4e88-a7b3-88958e9e6219.png)](https://file.liangxiegame.com/3c313f23-2350-4e88-a7b3-88958e9e6219.png)
 
-接着，我们在这里要确保一件事情，就是 Res Kit 需要保证当前环境是模拟环境（Simulation Mode），具体看面板中的如下选项是否是勾上即可。
+Next, we need to ensure that Res Kit is in simulation mode. Check if the following option is checked in the panel.
 
 [![](https://file.liangxiegame.com/98e4043d-bd1b-4a29-9363-890f9f545b12.png)](https://file.liangxiegame.com/98e4043d-bd1b-4a29-9363-890f9f545b12.png)
 
-确保勾上之后，我们就开始生成代码，具体操作如下所示（右键->@UI-Kit Create UI Code):
+After ensuring that it is checked, we can start generating code. The specific operation is shown below (right-click -> @UI-Kit Create UI Code):
 
 [![](https://file.liangxiegame.com/de51f6ad-fef7-46dd-adee-c286b77511fe.png)](https://file.liangxiegame.com/de51f6ad-fef7-46dd-adee-c286b77511fe.png)
 
-点击之后等待编译，编译结束后，我们看到如下结果:
+After clicking, wait for the compilation to finish. After the compilation is completed, we see the following result:
 
-**脚本生成成功**
+**Script generated successfully**
 
 [![](https://file.liangxiegame.com/7f3959f1-66fc-44de-a8b1-97e31383dcdd.png)](https://file.liangxiegame.com/7f3959f1-66fc-44de-a8b1-97e31383dcdd.png)
 
-**脚本自动挂载了 UIBasicPanel Prefab 上**
+**The script is automatically mounted on the UIBasicPanel Prefab**
 
 [![](https://file.liangxiegame.com/b386fd53-1f84-4ede-a79c-a20533361fa1.png)](https://file.liangxiegame.com/b386fd53-1f84-4ede-a79c-a20533361fa1.png)
 
-到此，代码生成部分就介绍完了。
+At this point, the code generation part is introduced.
 
-接着，我们想办法让这个场景独立运行。
+Next, we find a way to make this scene run independently.
 
-现在，我们直接运行场景，是不会加载任何界面的，如下所示:
+Now, if we run the scene directly, no interface will be loaded, as shown below:
 
 [![](https://file.liangxiegame.com/4ecc5084-4f8b-4ac3-a62b-d4b7a4c9967e.png)](https://file.liangxiegame.com/4ecc5084-4f8b-4ac3-a62b-d4b7a4c9967e.png)
 
-如何让这个场景加载 UIBasicPanel 呢？
+How to load UIBasicPanel in this scene?
 
-很简单，使用 UIPanelTester 如下所示:
+It's very simple, use UIPanelTester as shown below:
 
 [![](https://file.liangxiegame.com/dd934412-abfd-4d92-9906-3e084a2b761d.png)](https://file.liangxiegame.com/dd934412-abfd-4d92-9906-3e084a2b761d.png)
 
-按照图中样子设置就好，然后运行场景。 结果如下:
+Set it up as shown in the figure, and then run the scene. The result is as follows:
 
 [![](https://file.liangxiegame.com/71acdc41-14a2-42c3-a9c7-6fef2af9757b.png)](https://file.liangxiegame.com/71acdc41-14a2-42c3-a9c7-6fef2af9757b.png)
 
-图中成功加载了改界面。
+The interface is successfully loaded in the figure.
 
-这样，最基本的 UIBasicPanel 测试场景就算搭建完了，同时我们是完全按照 QFramework 推荐的工作流程完成的。
+In this way, the most basic UIBasicPanel test scene is set up, and we have completed it completely according to the recommended workflow of QFramework.
 
-虽然步骤会稍微繁琐一点，但是用一段时间大家就会觉得这是值得的。
+Although the steps may be a bit cumbersome, everyone will find it worthwhile after using it for a while.
 
-OK，接下来我们来介绍控件的自动绑定功能。
+OK, next we will introduce the automatic binding function of controls.
 
-## 控件的自动绑定功能
+## Automatic binding function of controls
 
-我们在 UIBasicPanel 上添加一些按钮，并在每个按钮上挂上 Bind 脚本，如下所示:
+We add some buttons to UIBasicPanel and attach the Bind script to each button, as shown below:
 
 [![](https://file.liangxiegame.com/9f099faf-d488-491c-bb74-444816c48d6f.png)](https://file.liangxiegame.com/9f099faf-d488-491c-bb74-444816c48d6f.png)
 
-接着 Apply UIBasicPanel，如下所示:
+Then Apply UIBasicPanel, as shown below:
 
 [![](https://file.liangxiegame.com/5782a40b-f683-41a2-9db7-7481853aa6a8.png)](https://file.liangxiegame.com/5782a40b-f683-41a2-9db7-7481853aa6a8.png)
 
-这里要注意，一定要选定 UIBasicPanel 再进行 Apply，千万别选成 UIRoot 了。
+Here are the translations:
 
-Apply 之后，再次生成一次代码，操作如下所示:
+Please note that you must select UIBasicPanel before applying, and do not select UIRoot by mistake.
+
+After applying, generate the code again as shown below:
 
 [![](https://file.liangxiegame.com/de51f6ad-fef7-46dd-adee-c286b77511fe.png)](https://file.liangxiegame.com/de51f6ad-fef7-46dd-adee-c286b77511fe.png)
 
-生成之后，结果如下:
+After generating, the result is as follows:
 
 [![](https://file.liangxiegame.com/3f332d24-b7cc-403e-a8d0-e628bf186f9e.png)](https://file.liangxiegame.com/3f332d24-b7cc-403e-a8d0-e628bf186f9e.png)
 
-接着，我们打开 UIHomePanel.cs 脚本，试着写一些代码:
+Then, we open the UIHomePanel.cs script and try to write some code:
 
 ```plain
 using UnityEngine;
@@ -173,55 +173,55 @@ namespace QFramework.Example
 }
 ```
 
-代码很简单，主要是在 OnInit 的时候注册了 BtnStart 按钮。
+The code is very simple, mainly registering the BtnStart button during OnInit.
 
-接着我们运行场景，接着点击 BtnStart 按钮，得到结果如下:
+Then we run the scene, click the BtnStart button, and get the following result:
 
 [![](http://file.liangxiegame.com/70f2fbb8-1267-407a-960f-bb019f114a83.png)](http://file.liangxiegame.com/70f2fbb8-1267-407a-960f-bb019f114a83.png)
 
-这样控件自动绑定功能就介绍完了。
+This is the end of the introduction to the automatic binding function of controls.
 
-自动绑定的功能与 View Controller + Bind 是使用的是同一套机制。
+The automatic binding function and the View Controller + Bind use the same mechanism.
 
-## 打开、关闭界面
+## Opening and Closing Panels
 
-我们运行 UIBasicPanel 是通过 UIPanelTester 实现的。
+We run UIBasicPanel through UIPanelTester.
 
-UIPanelTester 是一个 UI 界面的测试器，它只能在编辑器环境下运行。
+UIPanelTester is a UI interface tester that can only run in the editor environment.
 
-真正打开一个 UI 界面，是通过 UIKit.OpenPanel 这个 API 完成的。
+To truly open a UI interface, it is done through the API UIKit.OpenPanel.
 
-只需要写如下代码即可:
+Just write the following code:
 
 ```plain
 UIKit.OpenPanel<UIBasicPanel>();
 ```
 
-代码非常简单。
+The code is very simple.
 
-而我们要关闭掉一个 UI 界面也比较容易，代码如下:
+It is also relatively easy to close a UI interface, with the following code:
 
 ```plain
 UIKit.ClosePanel<UIBasicPanel>();
 ```
 
-如果是在一个界面内部关掉自己的话，代码如下:
+If you want to close yourself within a panel, the code is as follows:
 
 ```plain
-this.CloseSelf(); // this 继承自 UIPanel 
+this.CloseSelf(); // this inherits from UIPanel 
 ```
 
-OK，到此我们接触了 3 个 API：
+OK, we have encountered 3 APIs:
 
 *   UIKit.OpenPanel<T>();
 *   UIKit.ClosePanel<T>();
 *   UIPanel.CloseSelf();
 
-后边的两个没什么好讲的，很简单，但是第一个 API 比较重要，因为它有一些参数我们可以填。
+The last two are simple, but the first one is important because it has some parameters that we can fill in.
 
 ## UIKit.OpenPanel
 
-UIKit.OpenPanel 的参数定义及重载如下：
+The parameter definition and overload of UIKit.OpenPanel are as follows:
 
 ```plain
 public static T OpenPanel<T>(UILevel canvasLevel = UILevel.Common, IUIData uiData = null,
@@ -244,22 +244,22 @@ public static UIPanel OpenPanel(string panelName, UILevel level = UILevel.Common
 }
 ```
 
-所有参数如下：
+All parameters are as follows:
 
-*   canvasLevel：界面在哪个层级打开
-    *   默认值：Common
-*   uiData：打开时可以给界面传的初始数据
-    *   默认值：null
-*   assetBundleName：界面资源所在的 assetBundle 名
-    *   默认值：null
-*   prefabName：如果界面名字和 prefab 名字不同，则以这个参数为准去加载界面资源
-    *   默认值：null
+*   canvasLevel: Where the interface is opened
+    *   Default value: Common
+*   uiData: Initial data passed to the interface when opened
+    *   Default value: null
+*   assetBundleName: The name of the assetBundle where the interface resources are located
+    *   Default value: null
+*   prefabName: If the interface name is different from the prefab name, use this parameter to load the interface resources
+    *   Default value: null
 
-都有默认值，所以这四个参数都可以不用传。
+All have default values, so these four parameters can be omitted.
 
-不过这四个 API 在某种情况下非常实用。
+However, these four APIs are very useful in certain situations.
 
-下边举一些例子。
+Here are some examples.
 
 ```plain
 // 在 Forward 层级打开
@@ -275,11 +275,11 @@ UIKit.OpenPanel<UIBasicPanel>(new UIHomePanelData()
 UIKit.OpenPanel<UIBasicPanel>(prefabName: "UIBasicPanel");
 ```
 
-都比较容易理解。
+They are all easy to understand.
 
-有的童鞋可能会问，我们给 UIHomePanel 传递的 UIHomePanelData，在哪里使用呢？
+Some may ask, where do we use the UIHomePanelData passed to UIHomePanel?
 
-答案是在，OnInit 和 OnOpen 中，如下所示:
+It is used in OnInit and OnOpen, as shown below:
 
 ```plain
 namespace QFramework.Example
@@ -329,15 +329,15 @@ namespace QFramework.Example
 }
 ```
 
-为什么要这样做呢？
+Why do we do this?
 
-笔者认为，界面有两种显示数据的用法，一种是有的界面是需要从外边填充的，比如警告、弹框、或者道具信息页面等。另一种界面是需要自己获取数据并展示的，比如游戏中的主角金币、等级、经验值等。
+I think there are two ways to display data in an interface. One is to fill in data from the outside, such as warnings, pop-ups, or item information pages. The other type of interface is to obtain and display data on its own, such as the main character's gold coins, level, experience, etc.
 
-如果界面的数据都从外边填充，那么这个界面会拥有更好的可复用性。
+If the data of the interface is filled from the outside, the interface will have better reusability.
 
-当然需要一个可复用性的界面还是需要一个普通界面就看大家的需求了，并不是说有可复用性的界面就是好的。
+Of course, whether a reusable interface is needed or not depends on everyone's needs, and having a reusable interface does not necessarily mean that it is good.
 
-## 异步加载界面
+## Asynchronous Loading of Interfaces
 
 ```plain
 StartCoroutine(UIKit.OpenPanelAsync<UIHomePanel>());
@@ -345,11 +345,11 @@ StartCoroutine(UIKit.OpenPanelAsync<UIHomePanel>());
 UIKit.OpenPanelAsync<UIHomePanel>().ToAction().Start(this);
 ```
 
-在 WebGL 平台上, AssetBundle 加载资源只支持异步加载，所以为此提供了 UIKit 的异步加载支持。
+On the WebGL platform, AssetBundle loading resources only supports asynchronous loading, so UIKit provides asynchronous loading support.
 
-## UIPanel 生命周期
+## UIPanel Lifecycle
 
-我们先看下 UIBasicPanel 的代码，如下:
+Let's first take a look at the code of UIBasicPanel as follows:
 
 ```plain
 namespace QFramework.Example
@@ -396,59 +396,59 @@ namespace QFramework.Example
 }
 ```
 
-默认的生命周期函数如下:
+The default lifecycle functions are as follows:
 
-*   OnInit
-*   OnOpen
-*   OnShow
-*   OnHide
-*   OnClose
+* OnInit
+* OnOpen
+* OnShow
+* OnHide
+* OnClose
 
-OnInit 则是在 UIPanel 所在的 prefab 初始化的时候进行调用的，在调用 UIKit.OpenPanel 时，只要在 UIKit 中没有对应的缓存界面时，就会调用一次 OnInit 这个周期。
+OnInit is called when the prefab containing the UIPanel is initialized. When calling UIKit.OpenPanel, if there is no corresponding cached interface in UIKit, OnInit will be called once in this cycle.
 
-OnOpen 就是每次 UIKit.OpenPanel 调用时，就会调用。
+OnOpen is called every time UIKit.OpenPanel is called.
 
-OnShow 实际上调用时机与 UIKit.OpenPanel 是一样的，只不过 OnShow 是最初版本遗留下拉的 API，所以就保留了。当然还有 UIMgr.ShowPanel 调用时，OnShow 会被调用
+OnShow is actually called at the same time as UIKit.OpenPanel, but OnShow is an API left over from the initial version, so it is retained. Of course, when UIMgr.ShowPanel is called, OnShow will be called.
 
-OnHide 则是在 UIKit.HidePanel 调用时，OnHide 会被调用。
+OnHide is called when UIKit.HidePanel is called.
 
-最后 OnClose 就是在 UIKit.ClosePanel 调用时，就会触发，实际上 OnClose 相当于 OnDestory 这个周期。
+Finally, OnClose is triggered when UIKit.ClosePanel is called, and in fact, OnClose is equivalent to the OnDestory cycle.
 
-大概就这些，其中 UIKit.OpenPanel 会触发资源的加载和初始化操作，而 UIKit.ClosePanel 则会触发卸载和销毁操作，只要记得这两点就好。
+That's about it. UIKit.OpenPanel triggers resource loading and initialization operations, while UIKit.ClosePanel triggers unloading and destruction operations. Just remember these two points.
 
-笔者基本上就只会用到 OnInit 和 OnClose 这些周期，偶尔会用一用 OnOpen。
+I basically only use the OnInit and OnClose cycles, and occasionally use OnOpen.
 
-OK，此篇的内容就这些。
+OK, that's all for this article.
 
-## UIKit 剩下的常用 API
+## Other Commonly Used APIs in UIKit
 
 ### UIKit.Root.SetResolution
 
-参数定义如下：
+Parameter definition is as follows:
 
 [![](http://file.liangxiegame.com/bac63766-0f9a-4d9c-92fd-cb6b90324262.png)](http://file.liangxiegame.com/bac63766-0f9a-4d9c-92fd-cb6b90324262.png)
 
-对应 UIRoot 上的 Canvas Scaler 如下:
+Corresponding to the Canvas Scaler on UIRoot as follows:
 
 [![](http://file.liangxiegame.com/bc2c2122-c559-48bf-8b2f-ea4609826493.png)](http://file.liangxiegame.com/bc2c2122-c559-48bf-8b2f-ea4609826493.png)
 
-大部分项目，用这个 API 做屏幕适配足够了。
+For most projects, using this API for screen adaptation is sufficient.
 
 ### [UIKit.Root.Camera](http://UIKit.Root.Camera)
 
-获取 UIRoot 的摄像机。
+Get the camera of UIRoot.
 
 ```plain
 var uiCamera = UIKit.Root.Camera;
 ```
 
-### UIKit.Stack.Push、UIPanel.Back（Pop）
+### UIKit.Stack.Push, UIPanel.Back (Pop)
 
-有的时候，UI 需要实现一个 UI 界面的堆栈，以便于支持返回上一页这样的操作。
+Sometimes, UI needs to implement a stack of UI interfaces to support operations such as returning to the previous page.
 
-这个时候就可以用 Push 和 UIPanel.Back 实现。
+At this time, Push and UIPanel.Back can be used to achieve this.
 
-示例代码:
+Sample code:
 
 ```plain
 UIKit.Stack.Push(this); // this 是 Panel// UIHomePanel 需要确保是打开的状态，如果不打开会报错。
@@ -457,85 +457,85 @@ UIKit.Stack.Push<UIHomePanel>();
 this.Back(); // 弹出 UIHomePanelthis.Back(); // 弹出 this
 ```
 
-非常简单。
+Very simple.
 
-## UIPanel 自动生成工具
+## UIPanel Automatic Generation Tool
 
-在此篇的最开始，笔者手动创建了一套围绕 UIBasicPanel 的测试、开发场景，其过程比较繁琐。
+At the beginning of this article, the author manually created a set of test and development scenarios around UIBasicPanel, which was quite cumbersome.
 
-为了解决这个问题，笔者写了一个简单的 UIPanel 自动生成工具。
+To solve this problem, the author wrote a simple UIPanel automatic generation tool.
 
-接下来看下它的基本使用流程。
+Next, let's take a look at its basic usage process.
 
-### 基本使用
+### Basic Usage
 
-首先，快捷键 ctrl + e 打开 PackageKit 面板，如下:
+First, press the shortcut key ctrl + e to open the PackageKit panel, as follows:
 
 [![](https://file.liangxiegame.com/12dcb73a-c255-45f4-869e-a00700d3b3c1.png)](https://file.liangxiegame.com/12dcb73a-c255-45f4-869e-a00700d3b3c1.png)
 
-在上图中界面名字的输入框中输入 Game/UIGamePanel，然后点击创建 UI Panel，如下所示:
+In the input box of the interface name in the above figure, enter Game/UIGamePanel, and then click Create UI Panel, as shown below:
 
 [![](https://file.liangxiegame.com/19dfe911-4cdd-4432-a99c-00423b38d781.png)](https://file.liangxiegame.com/19dfe911-4cdd-4432-a99c-00423b38d781.png)
 
-输入之后可以看到即将生成文件的预览。
+After entering, you can see a preview of the file to be generated.
 
-在这个面板中，我们还可以设置 分辨率与适配对齐，还有模块的目录，如果不想在更目录创建按照规范生成文件，也可以在其他子目录中创建。
+In this panel, we can also set the resolution and adaptation alignment, as well as the directory of the module. If you don't want to create files generated according to the specifications in the root directory, you can also create them in other subdirectories.
 
-我们点击 "创建 UI Panel" 这个按钮。
+We click the "Create UI Panel" button.
 
-点击之后结果如下:
+After clicking, the result is as follows:
 
 [![](https://file.liangxiegame.com/daf92af1-1e66-4b86-bf4b-e331c272570b.png)](https://file.liangxiegame.com/daf92af1-1e66-4b86-bf4b-e331c272570b.png)
 
-相关的 prefab，场景、脚本都生成好了，就连 AssetBundle 也都标记好了，如下:
+The related prefab, scene, and script have been generated, even the AssetBundle has been marked, as shown below:
 
 [![](https://file.liangxiegame.com/a0a6c3e3-c4b6-4602-8b92-a47506714a98.png)](https://file.liangxiegame.com/a0a6c3e3-c4b6-4602-8b92-a47506714a98.png)
 
-这就是这个工具的一个用处，非常方便，解决了笔者大量的开发工作量。
+This is one of the uses of this tool, which is very convenient and solves a lot of development work for the author.
 
-在上一篇，我们了解了界面的打开和关闭相关的 API。
+In the previous article, we learned about the API related to opening and closing the interface.
 
-在这一篇，我们了解一下 UI Kit 中的 子界面/子控件—UI Element
+In this article, we will learn about the sub-interface/sub-control in the UI Kit - UI Element.
 
-## UI Element 简介
+## Introduction to UI Element
 
-在前篇，我们了解到，一个 UIPanel 是可以自动绑定几个 子控件的（Bind）。但是当一个界面结构比较复杂的时候，不可能一个 UIPanel 管理数十个 Bind，这时候就需要对 Bind 进行一些打组操作。我们的 UIElement 就可以登场了。
+In the previous article, we learned that a UIPanel can automatically bind several sub-controls (Bind). However, when the structure of an interface is complex, it is impossible for a UIPanel to manage dozens of Binds. At this time, we need to perform some grouping operations on the Bind. Our UIElement can come on stage.
 
-## UIElement 基本使用
+## Basic Usage of UIElement
 
-使用方式非常简单，就是将 Bind 中的 标记类型 改成 Element即可,如下所示。
+The usage is very simple, just change the type of the marked Bind to Element, as shown below.
 
 [![](https://file.liangxiegame.com/47b78081-62cd-41e2-b96b-47383dc80e04.png)](https://file.liangxiegame.com/47b78081-62cd-41e2-b96b-47383dc80e04.png)
 
 [![](https://file.liangxiegame.com/b9533003-b30b-406e-b14c-4f8f777b1e95.png)](https://file.liangxiegame.com/b9533003-b30b-406e-b14c-4f8f777b1e95.png)
 
-并且要给 生成类名 填写一个名字，这个名字决定生成的类的名字。这里填写了 UIAboutSubPanel。
+And fill in a name for the generated class name, which determines the name of the generated class. Here, UIAboutSubPanel is filled in.
 
-之后进行 Apply 操作。
+Then perform the Apply operation.
 
 [![](https://file.liangxiegame.com/46876a38-e980-49a8-bbc8-59e74f968f3d.png)](https://file.liangxiegame.com/46876a38-e980-49a8-bbc8-59e74f968f3d.png)
 
-注意这里 Apply 的是 UIBasicPanel。
+Note that UIBasicPanel is applied here.
 
-接着生成代码， 如下:
+Then generate the code, as shown below:
 
 [![](https://file.liangxiegame.com/800b53e4-0d6a-43f4-9aa1-ce3815d5fc87.png)](https://file.liangxiegame.com/800b53e4-0d6a-43f4-9aa1-ce3815d5fc87.png)
 
-等待编译后，如下所示：
+After waiting for compilation, it is shown as follows:
 
 [![](https://file.liangxiegame.com/3c05a2b9-f815-421b-b0b4-379a0477e401.png)](https://file.liangxiegame.com/3c05a2b9-f815-421b-b0b4-379a0477e401.png)
 
-BtnClose 由 UIAboutSubPanel 管理了
+BtnClose is managed by UIAboutSubPanel
 
 [![](https://file.liangxiegame.com/956e3e01-32a3-4582-a691-59e2d9e647de.png)](https://file.liangxiegame.com/956e3e01-32a3-4582-a691-59e2d9e647de.png)
 
-我们看下脚本目录:
+Let's take a look at the script directory:
 
 [![](https://file.liangxiegame.com/76847346-79ad-4003-84f7-6111152e457a.png)](https://file.liangxiegame.com/76847346-79ad-4003-84f7-6111152e457a.png)
 
-目录生成了一个新的文件夹，是以父 Panel （UIBasicPanel）为名的。
+A new folder is generated in the directory, named after the parent Panel (UIBasicPanel).
 
-打开 UIAboutSubPanel 脚本，代码如下所示:
+Open the UIAboutSubPanel script, the code is as follows:
 
 ```plain
 /****************************************************************************
@@ -554,7 +554,7 @@ namespace QFramework.Example
 }
 ```
 
-再看下 UILoginView.Designer.cs 脚本，如下所示:
+Then take a look at the UILoginView.Designer.cs script, as shown below:
 
 ```plain
 /****************************************************************************
@@ -571,19 +571,19 @@ namespace QFramework.Example
 }
 ```
 
-结构与之前的 UIBasicPanel 非常相似。
+The structure is very similar to the previous UIBasicPanel.
 
-接下来，就可以写一些与子模块相关的逻辑了，关于 UIElement 的基本使用就介绍到这里。
+Next, you can write some logic related to the sub-module. This is the basic usage of UIElement.
 
-## 同一个类型的界面打开多个
+## Open multiple interfaces of the same type
 
 ```plain
 UIKit.OpenPanel<UIMultiPanel>(new UIMultiPanelData(), PanelOpenType.Multiple);
 ```
 
-## 如何自定义界面加载方式?
+## How to customize the interface loading method?
 
-继承 AbstractPanelLoaderPool 类，再实现一个 IPanelLoader 的类，参考代码如下:
+Inherit the AbstractPanelLoaderPool class, and then implement a class of IPanelLoader. The reference code is as follows:
 
 ```plain
 using System;
@@ -636,11 +636,11 @@ namespace QFramework.Example
 }
 ```
 
-如果想要支持 其他方式加载界面则可以通过此方式定制。
+If you want to support other ways to load the interface, you can customize it through this method.
 
-另外，QFramework 中的 UIKit 默认使用 ResKit 的方式加载界面。
+In addition, the UIKit in QFramework uses ResKit's method to load the interface by default.
 
-可以在 QFramework 源码中看到如下代码:
+You can see the following code in the QFramework source code:
 
 ```plain
 using System;
@@ -661,24 +661,24 @@ namespace QFramework
 }
 ```
 
-如果想要使用自定义的方式加载界面，需要将以上代码注释掉。
+If you want to use a custom way to load the interface, you need to comment out the above code.
 
-好了，关于 UIKit 自定义加载界面就简单介绍到这里。
+Well, that's all about customizing the interface loading in UIKit.
 
-## UI Kit 小结
+## Summary of UI Kit
 
-在这一章，UI Kit 的核心功能，我们都接触过了，如下：
+In this chapter, we have touched on the core functions of the UI Kit, as follows:
 
-*   UIPanel/UIElement 代码生成
-*   UIKit 常用 API
-    *   UIKit.OpenPanel（Async）
+*   Code generation of UIPanel/UIElement
+*   Commonly used APIs in UIKit
+    *   UIKit.OpenPanel (Async)
     *   UIKit.ClosePanel
     *   UIKit.CloseSelf
     *   UIKit.SetResolution
-    *   UIKit.Stack.Push、UIPanel.Back(Pop)
-*   UIPanel 生命周期
-*   UIPanel 测试场景生成工具
+    *   UIKit.Stack.Push, UIPanel.Back (Pop)
+*   UIPanel lifecycle
+*   UIPanel test scenario generation tool
 
-只要掌握了以上这些，基本上开发一些界面就没啥问题了。
+As long as you master the above, there should be no problem in developing some interfaces.
 
-关于 UIKit 就介绍到这里。
+That's all about UIKit.

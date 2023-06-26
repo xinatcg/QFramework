@@ -1,6 +1,6 @@
-# 08. 用接口设计模块（依赖倒置原则）
+# 08. Designing Modules with Interfaces (Dependency Inversion Principle)
 
-QFramework 本身支持依赖倒置原则，就是所有的模块访问和交互都可以通过接口来完成，代码如下:
+QFramework itself supports the Dependency Inversion Principle, which means that all module access and interaction can be completed through interfaces. The code is as follows:
 
 ```plain
 using UnityEngine;
@@ -178,15 +178,15 @@ namespace QFramework.Example
 }
 ```
 
-代码不难。
+The code is not difficult.
 
-所有的模块注册，模块获取 等代码都是通过接口完成，这一点符合 SOLID 原则中的 依赖倒置原则。
+All module registration, module acquisition, and other code are completed through interfaces, which conforms to the Dependency Inversion Principle in the SOLID principle.
 
-通过接口设计模块可以让我们更容易思考模块之间的交互和职责本身，而不是具体实现，在设计的时候可以减少很多的干扰。
+Designing modules through interfaces can make it easier for us to think about the interaction and responsibilities between modules themselves, rather than specific implementations, and can reduce a lot of interference in the design process.
 
-当然面向接口的方式去做开发也有很多其他的好处，这当然是大家随着使用时长会慢慢体会的。
+Of course, there are many other benefits to developing in an interface-oriented way, which everyone will gradually experience as they use it.
 
-其中有一个重要的大一点，就是我们之前说的 Storage，如果想把存储的 API 从 PlayerPrefs 切换成 EasySave，那么我们就不需要去修改 Storage 对象，而是扩展一个 IStorage 接口即可，伪代码如下:
+One important thing is that we previously mentioned Storage. If we want to switch the storage API from PlayerPrefs to EasySave, we don't need to modify the Storage object, but just extend an IStorage interface. The pseudo code is as follows:
 
 ```plain
     public class EasySaveStorage : IStorage
@@ -203,7 +203,7 @@ namespace QFramework.Example
     }
 ```
 
-注册模块的伪代码如下:
+The pseudo code for registering modules is as follows:
 
 ```plain
     // 定义一个架构（用于管理模块）
@@ -223,30 +223,22 @@ namespace QFramework.Example
     }
 ```
 
-这样，底层所有存储的代码都切换成了 EasySave 的存储，替换一套方案非常简单。
+In this way, all storage code at the bottom is switched to EasySave storage, and replacing a set of solutions is very simple.
 
-好了，用接口设计模块的功能就介绍完了。
+Okay, that's all for the feature of designing modules with interfaces.
 
-这篇内容就这些。
+That's all for this content.
 
-  
+## Summary Notes
 
-## 总结笔记
+1. Dependency Inversion Principle
+2. Generally speaking, in each component, if you need to get other components, you use the methods provided by Architecture to get them, and these methods are all based on interfaces. The specific type information is passed in through generics, such as:
+    1. CounterApp registers components using RegisterXXX
+    2. CounterAppController calls Command using SendCommand
+    3. System gets Model using GetModel
+    4. Command gets Model using GetModel
+    5. Model gets Utility using GetUtility
 
-  
-
-1. Dependency Inversion Principle
-2. 总的来说就是在各个组件中, 如果需要获取其他组件, 都是使用Architecture 提供的方法来获取到, 而这些方法都是基于接口的. 具体的类型信息都是通过泛型传递进去的, 比如
-    1. CounterApp 注册组件, 使用 RegisterXXX
-    2. CounterAppController 中调用 Command, 使用的是 SendCommand
-    3. System 中获取 Model, 使用的是 GetModel
-    4. Command 中获取 Model, 使用的 GetModel
-    5. Model 中获取 Utility 使用的 GetUtility
-
-  
-
-附上一个类图, 方便理解 DIP 原则:
-
-  
+Attached is a class diagram to help understand the DIP principle:
 
 ![](https://cdn.jsdelivr.net/gh/storageimgbed/storage@img/images/20230624162529.png)

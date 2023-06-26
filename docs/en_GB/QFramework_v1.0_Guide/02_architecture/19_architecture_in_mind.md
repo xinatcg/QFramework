@@ -1,14 +1,14 @@
-# 19. 心中有架构
+# 19. Architecture in Mind
 
-QFramework.cs 提供了 MVC、分层、CQRS、事件驱动、数据驱动等工具，除了这些工具，QFramework.cs 还提供了架构使用规范。
+QFramework.cs provides tools such as MVC, layering, CQRS, event-driven, and data-driven, as well as architecture usage specifications.
 
-而当使用 QFramework 熟练到一定的程度之后，就可以达到心中有架构的境界。
+When you become proficient in using QFramework, you can reach the state of having architecture in mind.
 
-如果达到这个境界，你就早已不是当年的你了（开玩笑）。
+If you reach this state, you are no longer the same person you were before (just kidding).
 
-心中有架构的境界，具体是指可以不依赖 QFramework.cs 就可以再项目中实践 QFramework.cs 架构。
+Having architecture in mind means that you can practice QFramework architecture in a project without relying on QFramework.cs.
 
-具体的示例如下:
+An example of this is shown below:
 
 ```plain
 using System;
@@ -90,98 +90,96 @@ namespace QFramework.Example
 }
 ```
 
-上图是一个计数器应用的实现。
+The above image shows the implementation of a counter application.
 
-在这个实现里，没有使用 QFramework.cs 里的任何内容，但是也写出来了符合 QFramework.cs 架构规范的计数器应用实现。
+In this implementation, none of the contents of QFramework.cs were used, but a counter application implementation that conforms to the QFramework.cs architecture specification was written.
 
-当大家使用 QFramework.cs 到一定程度之后，在未来不使用 QFramework.cs ，也可以按照 QFramework.cs 架构规范来写项目，而到此时，对于大家来说有没有 QFramework.cs 就无所谓了，因为 QFramework.cs 的架构规范已经刻在大家的骨子里了。
+When you become proficient in using QFramework.cs, you can write projects according to the QFramework.cs architecture specification even without using QFramework.cs in the future. At this point, whether or not you have QFramework.cs doesn't matter because the QFramework.cs architecture specification is already ingrained in you.
 
-当大家熟练使用 QFramework.cs 之后，有一天如果大家去研究 网页前端、服务器、App 开发，会发现它们的很多框架与 QFramework.cs 架构有共通之处，甚至说，通过 QFramework.cs 中积累的开发经验可以直接照搬到其他领域的开发中。
+When you become proficient in using QFramework.cs, if one day you study web front-end, server, or app development, you will find that many of their frameworks have similarities with the QFramework.cs architecture. In fact, the development experience accumulated through QFramework.cs can be directly applied to other fields of development.
 
-这是因为 QFramework.cs 最初的设计目的，就是为了糅合和简化大量其他领域的架构概念，比如 React 中的 Redux（Flux）、.Net Core 开发中的领域驱动设计、CQRS、仓储模式等、App 开发中的 MVC、MVP、MVVM 等。
+This is because QFramework.cs was originally designed to blend and simplify a large number of architecture concepts from other fields, such as Redux (Flux) in React, domain-driven design, CQRS, repository patterns, etc. in .Net Core development, and MVC, MVP, MVVM, etc. in app development.
 
-我们简单看一下这些图，大家就清楚了。
+Let's take a brief look at these diagrams, and you will understand.
 
-首先是前端 React 中的 Redux 的工作流程，如下：
+First, the workflow of Redux in front-end React is as follows:
 
 [![](https://file.liangxiegame.com/8b854e1e-4772-4a79-b595-c0ded004a569.png)](https://file.liangxiegame.com/8b854e1e-4772-4a79-b595-c0ded004a569.png)
 
-其中 React Components 对应的是 QFramework.cs 中的 Controller。
+The React Components correspond to the Controller in QFramework.cs.
 
-Action + Reducers 对应的是 QFramework.cs 中的 Command
+Action + Reducers correspond to Command in QFramework.cs.
 
-Store 对应的是 QFramework.cs 中的 Model。
+Store corresponds to Model in QFramework.cs.
 
-接着是领域驱动设计：
+Next is domain-driven design:
 
 [![](https://file.liangxiegame.com/f966558b-c616-46cd-9eee-4ba56de64b2c.png)](https://file.liangxiegame.com/f966558b-c616-46cd-9eee-4ba56de64b2c.png)
 
-其中 Interface 对应的是 IController。
+The Interface corresponds to IController.
 
-Application 对应的是 ISystem。
+Application corresponds to ISystem.
 
-Domain 对应的是 Model。
+Domain corresponds to Model.
 
-Infrustracture 对应的是 Utility + 一部分 Model。
+Infrustracture corresponds to Utility + part of Model.
 
-接着看下 CQRS，CQRS 一般是领域驱动设计包含的模式，如下图所示:
+Next, let's look at CQRS. CQRS is generally a pattern included in domain-driven design, as shown in the following figure:
 
 [![](https://file.liangxiegame.com/5f45fb20-537e-4574-80ac-c8d6a2d7921e.png)](https://file.liangxiegame.com/5f45fb20-537e-4574-80ac-c8d6a2d7921e.png)
 
-其中 User Interface 对应的是 IController。
+The User Interface corresponds to IController.
 
-Command 和 Query 对应的是 Command 和 Query。
+Command and Query correspond to Command and Query.
 
-Domain Model 和 Data 对应的是 Model
+Domain Model and Data correspond to Model.
 
-Event 对应的是 Event。
+Event corresponds to Event.
 
-非常接近。
+Very close.
 
-接着看下仓储模式:
+Next, let's look at the repository pattern:
 
 [![](https://file.liangxiegame.com/5bf7ddeb-702d-4e05-aa4a-b3751a7547eb.png)](https://file.liangxiegame.com/5bf7ddeb-702d-4e05-aa4a-b3751a7547eb.png)
 
-仓储模式没有具体的图，而此图是从网上随便找的，很清晰地表达出了仓储模式的结构。
+There is no specific diagram for the repository pattern, and this diagram was randomly found online, which clearly expresses the structure of the repository pattern.
 
-其中 IRepository 对应的是 IModel。
+The IRepository corresponds to IModel.
 
-Repository 对应的是 AbstractModel。
+Repository corresponds to AbstractModel.
 
-IBookRepository 对应的是 ICounterModel。
+IBookRepository corresponds to ICounterModel.
 
-BookRespository 对应的是 CounterModel。
+BookRespository corresponds to CounterModel.
 
-使用 ICounterModel 和 CounterModel 举例不是很合适，因为 CounterModel 只有一个 Counter 数据。
+Using ICounterModel and CounterModel as examples is not very appropriate because CounterModel only has one Counter data.
 
-更适合的举例是 IStudentModel，StudentModel ，因为 StudentModel 会维护一个 Student 的 List。
+A more suitable example is IStudentModel and StudentModel, because StudentModel will maintain a List of Students.
 
-仓储模式的优势在于，可以让上层（System、Controller）专注于数据的增删改查功能，而不是具体的增删改查实现，因为在服务器端，数据都是存储在数据库中的，数据库有很多类型，比如 MySQL、MongoDB 等，而在服务器端开发时，很有可能在开发阶段用 SQLite 或者 MongoDB，而在生产环境用的是 MySQL、PostgreSQL，所以在静态类型语言中，仓储模式会和 ORM 一起配合，让开发者专注在数据的增删改查和数据之间的关联上，而不是具体的查询语句，这样能提高开发效率。
+The advantage of the repository pattern is that it allows the upper layer (System, Controller) to focus on the functionality of data addition, deletion, modification, and retrieval, rather than the specific implementation of these operations. This is because on the server side, data is stored in a database, which has many types, such as MySQL, MongoDB, etc. During server-side development, it is very likely to use SQLite or MongoDB in the development stage, while using MySQL or PostgreSQL in the production environment. Therefore, in statically typed languages, the repository pattern will work with ORM to allow developers to focus on data manipulation and the relationships between data, rather than specific query statements, which can improve development efficiency.
 
-最后，MVC、MVP、MVVM 这里就不介绍了，其中 MVP 和 MVVM 的实现会用 BindableProperty，有的会用反射的形式实现。
+Finally, MVC, MVP, and MVVM will not be introduced here. The implementation of MVP and MVVM will use BindableProperty, and some will be implemented in the form of reflection.
 
-而 QFramework.cs 中的 BindableProperty 和 MVC 分层，则是来自这些架构中。
+The BindableProperty in QFramework.cs and the MVC layering come from these architectures.
 
-好了，此篇的内容就说完了。
+Now, why does QFramework.cs integrate these architectural concepts?
 
-大家可能会问，为什么 QFramework.cs 要糅合这些架构概念？
+Because around 2019, the author happened to study React development in his spare time for a year, and used React frontend development to do some SideProjects, while the server used .Net Core. In addition, the author had previous experience in iOS, Android, and other development. At that time, the author suddenly found that many of these architectural concepts in these fields are similar, and may be called one thing in one field and just have a different name in another field. So the idea of integrating these architectural concepts together and removing the cumbersome parts while retaining the useful parts came up, and the design of QFramework.cs began.
 
-因为在 2019 年左右，笔者刚好在业余时间研究了一年 React 开发，用 React 前端开发做了一些 SideProject，服务器则是用的 .Net Core，再加上之前笔者也有做 iOS、Android 等开发经验。而在当时，笔者突然发现这些领域的架构概念很多都是相通的，可能在这个领域叫这个，在另一个领域只是换了一个名字而已，于是就产生了可不可以把这些架构概念都糅合在一起，然后去掉繁琐的保留有用的部分，于是就开始了 QFramework.cs 的设计。
+What are the benefits of mixing and simplifying these concepts in QFramework.cs?
 
-杂糅和简化这些概念的 QFramework.cs 有什么好处呢？
+First of all, QFramework.cs is a very easy-to-use architecture, because the MVC three-layer concept makes everyone feel very familiar, so the learning curve is not very high.
 
-首先 QFramework.cs 是非常容易上手的架构，因为其中的 MVC 三层概念让大家会觉得非常亲切，所以上手成本并不是很高。
+Secondly, QFramework.cs is an architecture that can improve everyone's technical level. In terms of architecture, the ceiling is the implementation of domain-driven design, which is the content that architects must study. If QFramework.cs is familiar, it will be much easier to study domain-driven design, which will greatly improve the level of architecture, and QFramework.cs is a simplified version of the implementation of domain-driven design.
 
-其次 QFramework.cs 是一个能提高大家技术水平的架构，在架构方面，天花板是领域驱动设计的实现，是架构师必研究的内容，如果 QFramework.cs 用熟悉了，再去研究领域驱动设计会容易得多，而领域驱动设计不管在项目中有没有使用，只要去研究就会对架构水平有很大的提升，而 QFramework.cs 算是简化版本的领域驱动设计的实现。
+Then QFramework.cs can be used for system design, games, projects, and plugins, because many of the author's own projects, plugins, and servers are built using the QFramework.cs architecture.
 
-然后 QFramework.cs 可以用来做系统设计、可以做游戏、做项目、做插件都是很适合的，因为笔者自己的很多项目、插件、服务器都是用 QFramework.cs 架构来做的。
+Finally, QFramework.cs itself is very powerful, easy to use, simple, code is concise, maintainability is strong, development efficiency is high, customizability is strong, and extensibility is strong, because QFramework.cs absorbs the advantages of many other architectural fields, and has also undergone a lot of polishing in many projects, with a total code of about 900 lines.
 
-最后 QFramework.cs 本身是很强大的，易上手、简单、代码精简、可维护性强、开发效率高、可定制性强、扩展性强，因为 QFramework.cs 吸取了大量其他领域架构的优点，同时也经历过大量项目的打磨而成，总体的代码精简到了 900 行左右。
+If you want to further strengthen these concepts, the best way is to try to learn the architectures of other fields, such as:
 
-如果大家想在更进一步强化这些概念，最好的方式就是尝试去学习其他领域的架构，比如:
+* React and Redux
+* Java/.Net Core and DDD implementation, CQRS, repository pattern
+* MVC, MVP, MVVM in app development
 
-*   React 与 RedU型
-*   Java/.Net Core 与 DDD 实现，CQRS、仓储模式
-*   App 开发中的 MVC、MVP、MVVM
-
-好了，这篇内容就说到这里。
+That's all for this content.

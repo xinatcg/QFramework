@@ -1,26 +1,26 @@
-# 02. 下载与安装
+# 02. Download and Installation
 
-## 如何下载&安装
+## How to Download and Install
 
-QFramework.Toolkits 的最新 unitypackage 存放在 git 仓库里，如下图所示:
+The latest unitypackage of QFramework.Toolkits is stored in the git repository, as shown in the figure below:
 
 [![](https://file.liangxiegame.com/e5ff0b03-e593-4720-b077-1b0af817cdf0.png)](https://file.liangxiegame.com/e5ff0b03-e593-4720-b077-1b0af817cdf0.png)
 
-git 仓库地址:
+Git repository address:
 
-*   github： [https://github.com/liangxiegame/QFramework](https://github.com/liangxiegame/QFramework)
-*   gitee（国内镜像）： [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
+*   Github: [https://github.com/liangxiegame/QFramework](https://github.com/liangxiegame/QFramework)
+*   Gitee (Domestic mirror): [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
 
-点击包文件后，再点击下载按钮。
+After clicking the package file, click the download button.
 
 [![](https://file.liangxiegame.com/4cfddfa3-a27a-4454-9cd9-8ebeef6ae8cc.png)](https://file.liangxiegame.com/4cfddfa3-a27a-4454-9cd9-8ebeef6ae8cc.png)
 
-下载完成后导入到 Unity 工程即可。
+After the download is complete, import it into the Unity project.
 
-## 如何更新
+## How to Update
 
-当有新版本时，在 QFramework 的编辑器面板内就可以升级，打开方式 ctrl + e 或 ctrl + shift + e，打开后如下图所示：
+When there is a new version, it can be upgraded in the QFramework editor panel. The way to open it is ctrl + e or ctrl + shift + e. After opening, it will be displayed as shown in the figure below:
 
 [![](https://file.liangxiegame.com/af6ae4cb-312b-413b-a92e-a57c27820a60.png)](https://file.liangxiegame.com/af6ae4cb-312b-413b-a92e-a57c27820a60.png)
 
-当有新版本时，图中的按钮会显示为"更新"，点击就可以一键更新。
+When there is a new version, the button in the figure will be displayed as "Update", and you can click it to update it with one click.

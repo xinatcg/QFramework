@@ -1,8 +1,8 @@
-# 13. Architecture 的好处
+# 13. Benefits of Architecture
 
-不管是 System、Model 还是 Utility，都会注册到 Architecture 中。
+Whether it's System, Model, or Utility, they are all registered in the Architecture.
 
-伪代码如下:
+Pseudo code is as follows:
 
 ```plain
 namespace QFramework.PointGame
@@ -23,29 +23,27 @@ namespace QFramework.PointGame
 }
 ```
 
-大家可能会问，如果一个项目有非常多的 System、Model、Utility 全部注册到 Architecture，这样 Architecture 的代码量就变多了，会不会让项目变得难以管理？
+You may ask, if a project has a lot of Systems, Models, and Utilities registered in the Architecture, wouldn't the code of the Architecture become more complex and difficult to manage?
 
-答案是不会，Architecture 注册的模块越多，这套架构发挥的作用就越大。
+The answer is no. The more modules registered in the Architecture, the greater the role this architecture can play.
 
-因为 Architecture 本身就能很好地展示项目的结构，可以把 Architecture 本身当做一个架构图。
+Because the Architecture itself can display the structure of the project very well, it can be regarded as an architectural diagram.
 
-比如以上伪代码对应的架构图如下：
+For example, the architecture diagram corresponding to the above pseudo code is as follows:
 
 [![](https://file.liangxiegame.com/cc294f03-4171-4cb3-b774-b487688e51fb.png)](https://file.liangxiegame.com/cc294f03-4171-4cb3-b774-b487688e51fb.png)
 
-  
+Very clear.
 
-非常清晰。
+In the pseudo code, there are only 5 registered modules, which is very rare. In general, projects will register dozens or even hundreds of modules.
 
-而伪代码中只有 5 个注册模块，是非常少见的，一般情况下，项目都会注册十几个甚至几十个模块，也有上百个模块的时候。
+If all these modules are implemented using singletons without using QFramework, the project will become very messy.
 
-而如果这些模块没有用 QFramework 而全部使用单例实现的话，项目就会变得很混乱。
+With QFramework, we can centrally manage these modules in the Architecture, which is convenient for project management.
 
-而使用了 QFramework，我们就可以在 Architecture 中统一集中管理这些模块，是方便项目管理的。
+This is the advantage of using Architecture.
 
-这就是使用 Architecture 的优势。
-
-这里，再贴出一下笔者曾经写的项目的 Architecture，代码如下:
+Here, let me share the Architecture of a project I once wrote, the code is as follows:
 
 ```plain
 using IndieGame.Models;
@@ -97,6 +95,6 @@ namespace IndieGame
 }
 ```
 
-System 层有什么、Model 层有什么、Utility 层有什么，一目了然。
+It is clear at a glance what is in the System layer, what is in the Model layer, and what is in the Utility layer.
 
-好了，这篇就到这里。
+That's it for this article.

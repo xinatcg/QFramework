@@ -1,12 +1,12 @@
-# 12. TableKit 表数据结构
+# 12. TableKit Table Data Structure
 
-在设计 UIKit、ResKit 等系统时，如果只使用默认的 List 和 Dictionary 来管理数据和对象需要做很多的封装。
+When designing systems such as UIKit and ResKit, a lot of encapsulation is required if only the default List and Dictionary are used to manage data and objects.
 
-因为本身 List 和 Dictionary 支持的查询方式比较单一，如果想做一些比较复杂的查询，比如联合查询，那么 List 和 Dictionary 的性能会比较差。
+This is because the query methods supported by List and Dictionary themselves are relatively simple, and if you want to do some more complex queries, such as joint queries, the performance of List and Dictionary will be relatively poor.
 
-所以为此，笔者简单封装了一个 Table 数据结构。
+Therefore, the author has simply encapsulated a Table data structure.
 
-使用示例如下:
+Usage example:
 
 ```plain
 using System;
@@ -79,6 +79,6 @@ namespace QFramework
 // 2:2:ava
 ```
 
-TableKit 兼顾查询功能支持和性能，在功能和性能之间取得了一个平衡。
+TableKit balances functionality and performance, achieving a balance between the two.
 
-ResKit、UIKit 的数据管理全部由 TableKit 支持。
+The data management of ResKit and UIKit is fully supported by TableKit.

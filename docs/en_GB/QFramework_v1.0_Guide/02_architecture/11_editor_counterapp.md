@@ -1,8 +1,8 @@
-# 11. 光速实现 EditorCounterApp 和 给主程看的开发模式
+# 11. Speedy Implementation of EditorCounterApp and Development Mode for Main Programmers
 
-首先，我们来实现一个好玩的事情，就是在前边已经实现好的 CounterApp 的基础上，光速实现一个编辑器版本的 CounterApp。
+First, let's implement something fun, which is to quickly implement an editor version of CounterApp based on the CounterApp that has already been implemented.
 
-代码非常简单，如下:
+The code is very simple, as follows:
 
 ```plain
 #if UNITY_EDITORusing System;
@@ -58,52 +58,52 @@ namespace QFramework.Example
 #endif
 ```
 
-代码量不多，运行结果如下：
+The amount of code is not much, and the running result is as follows:
 
 [![](https://file.liangxiegame.com/3b685522-d4ef-4648-ba3d-5726aaee7b62.png)](https://file.liangxiegame.com/3b685522-d4ef-4648-ba3d-5726aaee7b62.png)
 
-这样就非常快速地实现了 CounterApp 的 编辑器版本。
+This way, the editor version of CounterApp is implemented very quickly.
 
-因为 QFramework 写的 App ，底层三层是可以复用的。
+Because the App written by QFramework can reuse the bottom three layers.
 
-如图所示：
+As shown in the figure:
 
 [![](https://file.liangxiegame.com/fc803d9e-2868-4b5b-af29-d39dd9e37891.png)](https://file.liangxiegame.com/fc803d9e-2868-4b5b-af29-d39dd9e37891.png)
 
-底层的三层 与 表现层 的通信方式有 Command、回调/事件、方法/Query。
+The communication methods between the bottom three layers and the presentation layer are Command, Callback/Event, and Method/Query.
 
-我们可以把表现层类比成网页前端，而底层三层类比成服务器。
+We can analogize the presentation layer to the front-end of a webpage, and the bottom three layers to the server.
 
-那么 Command、回调/事件、方法/Query 其实就是类似于 HTTP 或者 TCP 的接口或协议。
+So Command, Callback/Event, and Method/Query are actually similar to the interface or protocol of HTTP or TCP.
 
-而接口或者协议只要做好约定，那么前端就不需要关心服务端的具体实现了，而服务端也不需要关心前端的具体实现。
+As long as the interface or protocol is well agreed upon, the front-end does not need to care about the specific implementation of the server, and the server does not need to care about the specific implementation of the front-end.
 
-这就做到了在分工时，将表现层和底层三层的工作分别给不同的人来负责。
+This achieves the separation of work between the presentation layer and the bottom three layers when dividing labor among different people.
 
-而笔者曾经做过一个这样的项目。
+And I have done such a project before.
 
-在项目中笔者负责将 底层三层实现好，然后和服务器把数据和接口调好，数据的显示部分笔者用的一个快速写界面的方案，比如 xmllayout 或者 delight，这种方案写界面非常快，可以用来实现系统原型。
+In the project, I was responsible for implementing the bottom three layers, and then coordinating with the server to adjust the data and interface. For the display of data, I used a fast interface writing solution, such as xmllayout or delight, which is very fast for writing interfaces and can be used to implement system prototypes.
 
-然后等数据和接口调好，系统原型实现好后，把界面、做场景流程、做表现的工作都分配给了初学者的同事们，同事们只要看实现的系统原型，就知道调用哪些 Command/Query、监听哪些事件、或调用哪些方法，这样就可以做好分工协作了。
+Then, after the data and interface were adjusted, the system prototype was implemented, and the work of designing the interface, the scene flow, and the presentation was assigned to my beginner colleagues. As long as they looked at the implemented system prototype, they knew which Command/Query to call, which events to listen to, or which methods to call, so they could do a good job of dividing labor and cooperation.
 
-用一张图表示如下：
+It is represented by a picture as follows:
 
 [![](https://file.liangxiegame.com/430968f9-68a8-470a-8450-b70316a31419.png)](https://file.liangxiegame.com/430968f9-68a8-470a-8450-b70316a31419.png)
 
-当然这只是其中一种的项目开发模式。
+Of course, this is only one of the project development modes.
 
-随着时间，初学者同事们用熟了这套架构之后，渐渐地也能自己写底层三层了，于是笔者就慢慢把底层的工作量也分出去了，自己就没啥事干了。
+As time goes by, my beginner colleagues gradually became familiar with this architecture and were able to write the bottom three layers themselves, so I slowly delegated the workload of the bottom layer and had nothing to do myself.
 
-好了，这就是一次笔者曾经使用的一种开发模式的分享，而具体自己的开发模式，需要根据实际情况来制定，最简单的方式就是先按照原有的习惯的开发模式，然后逐渐掌握这套架构，掌握了之后慢慢改进之前的开发模式。
+Well, this is a sharing of a development mode that I once used, and the specific development mode needs to be formulated according to the actual situation. The simplest way is to first follow the original development mode, and then gradually master this architecture and improve the previous development mode after mastering it.
 
-这篇就介绍到这里。
+That's all for this article.
 
   
 
-## 笔记总结
+## Summary
 
   
 
 1. [Delight](https://delight-dev.github.io/) is an open-source component-oriented framework for Unity
 2. [**XmlLayout**](https://assetstore.unity.com/packages/tools/gui/xmllayout-xml-driven-ui-framework-61090) is a framework for Unity UI which allows you to develop professional, fully functional user interfaces and UI elements using XML.
-3. 底 3 层是可以共享的
+3. The bottom three layers can be shared.

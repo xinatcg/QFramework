@@ -1,14 +1,14 @@
-# 09. Query 介绍
+# 09. Introduction to Query
 
-Query 是 CQRS 中的 Q，也就是 Command Query Responsibility Saperation 中的 Query。
+Query is the Q in CQRS, which stands for Query in Command Query Responsibility Separation.
 
-关于 Command 我们已经介绍了。
+We have already introduced Command.
 
-而 Query 是和 Command 对应的查询对象。
+Query is the corresponding query object to Command.
 
-首先 Controller 中的表现逻辑更多是接收到数据变更事件之后，对 Model 或者 System 进行查询，而查询的时候，有的时候需要组合查询，比如多个 Model 一起查询，查询的数据可能还需要转换一下，这种查询的代码量比较多。尤其是像模拟经营或者非常重数据的项目，所以 QFramework 支持通过 Query 这样的一个概念，来解决这部分问题。
+Firstly, the presentation logic in the Controller is mostly about receiving data change events and querying the Model or System. When querying, sometimes it is necessary to perform composite queries, such as querying multiple Models together, and the queried data may need to be transformed. This type of query involves a lot of code, especially for simulation or data-heavy projects. Therefore, QFramework supports the concept of Query to solve this problem.
 
-使用的方式也很简单，和 Command 用法一致，这里我们写一个小的 App， 叫做 QueryExampleApp 代码如下:
+The usage is also very simple, consistent with the usage of Command. Here we write a small App called QueryExampleApp, the code is as follows:
 
 ```plain
 using System.Collections.Generic;
@@ -90,18 +90,18 @@ namespace QFramework.Example
 }
 ```
 
-代码不难。
+The code is not difficult.
 
-运行之后，当按下查询按钮时结果如下：
+After running, when the query button is pressed, the result is as follows:
 
 [![](https://file.liangxiegame.com/1736bf69-b795-408a-8c09-6e413f57b0b1.png)](https://file.liangxiegame.com/1736bf69-b795-408a-8c09-6e413f57b0b1.png)
 
-好了，这样 Query 的示例就写完了。
+Okay, this is the end of the Query example.
 
-Query 是一个可选的概念，如果游戏中数据的查询逻辑并不是很重的话，直接在 Controller 的表现逻辑里写就可以了，但是查询数据比较重，或者项目规模非常大的话，最好是用 Query 来承担查询的逻辑。
+Query is an optional concept. If the data query logic in the game is not very heavy, it can be written directly in the presentation logic of the Controller. However, if the data query is relatively heavy or the project scale is very large, it is best to use Query to handle the query logic.
 
-Command 一般负责数据的 增 删 改，而 Query 负责数据的 查。
+Command is generally responsible for data addition, deletion, and modification, while Query is responsible for data retrieval.
 
-如果游戏需要从服务器同步数据，一般拉取服务器数据的请求可以写在 Query 中，而增删改服务器输的请求可以写在 Command 中。
+If the game needs to synchronize data from the server, the request to pull server data can be written in Query, while the request to add, delete, and modify server data can be written in Command.
 
-好了，关于 Query 就介绍到这里。
+Okay, that's all about Query.

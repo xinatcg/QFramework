@@ -1,8 +1,8 @@
-# 06. 引入 System
+# 06. Introduction to System
 
-在这一篇，我们来引入最后一个基本概念 System。
+In this article, we will introduce the last basic concept, System.
 
-首先我们来看下代码，如下:
+First, let's take a look at the code below:
 
 ```plain
 using UnityEngine;
@@ -161,9 +161,9 @@ namespace QFramework.Example
 }
 ```
 
-这里我们假设一个功能，即策划提出了一个成就达成的功能，即 Count 到 10 的时候，触发一个点击达人成就，点击二十次 则触发一个 点击专家成就。
+Here, we assume a feature, that is, when the count reaches 10, trigger a "Click Master" achievement, and when clicked 20 times, trigger a "Click Expert" achievement.
 
-逻辑听起来很简单，我们直接在 IncreaseCountCommand 里编写即可，如下：
+The logic sounds simple, we can write it directly in the IncreaseCountCommand, as follows:
 
 ```plain
     public class IncreaseCountCommand : AbstractCommand 
@@ -186,9 +186,9 @@ namespace QFramework.Example
     }
 ```
 
-代码很简单，我们运行测试一下。
+The code is simple, let's run the test.
 
-运行之后，笔者点击了 20 次 + 号，结果如下：
+After running, I clicked the + button 20 times, and the result is as follows:
 
 [![](https://file.liangxiegame.com/826d5513-059e-41ba-8f5a-4fbea78dbde7.png)](https://file.liangxiegame.com/826d5513-059e-41ba-8f5a-4fbea78dbde7.png)
 
@@ -196,17 +196,17 @@ namespace QFramework.Example
 
   
 
-这个功能很快就完成了。
+This feature was completed quickly.
 
-但是这个时候策划说，希望再增加一个当点击 - 号到 -10 时，触发一个 点击菜鸟成就，然后策划还说，点击达人 和 点击专家 成就太容易达成了，需要分别改成 1000 次 和 2000 次。
+But at this point, the planner said that he hopes to add another feature, that is, when clicking the - button to -10, trigger a "Click Rookie" achievement. Then the planner also said that the "Click Master" and "Click Expert" achievements are too easy to achieve, and need to be changed to 1000 times and 2000 times respectively.
 
-而这次策划提出的需求，需要我们修改两处的代码，即 IncreaseCountCommand 里需要修改数值为 1000 和 2000，然后再 DecreaseCountCommand 增加一个判断逻辑。
+And this requirement proposed by the planner requires us to modify the code in two places, that is, we need to modify the values to 1000 and 2000 in the IncreaseCountCommand, and then add a judgment logic in the DecreaseCountCommand.
 
-**一次提出的需求，结果造成了多处修改，这说明代码有问题。**
+**A requirement proposed at once resulted in multiple modifications, which indicates that there is a problem with the code.**
 
-首先像这种**规则类的逻辑**，比如分数统计或者成就统计等代码，不适合分散写在 Command 里，而适合统一写在一个对象里，而这种对象，在 QFramework 里有提供，就是 System 对象。
+First of all, for this kind of **rule-based logic**, such as score statistics or achievement statistics, it is not suitable to be written separately in Command, but suitable to be written in a unified object, and this kind of object is provided in QFramework, which is the System object.
 
-使用代码如下:
+The usage is as follows:
 
 ```plain
 using UnityEngine;
@@ -395,9 +395,9 @@ namespace QFramework.Example
 }
 ```
 
-代码越来越多，但是不难。
+The code is getting longer, but it's not difficult.
 
-运行游戏，笔者点击的结果如下：
+After running the game, the result of my click is as follows:
 
 [![](https://file.liangxiegame.com/a1adc1e8-6bb9-49c1-ae74-e0e55673e865.png)](https://file.liangxiegame.com/a1adc1e8-6bb9-49c1-ae74-e0e55673e865.png)
 
@@ -405,33 +405,33 @@ namespace QFramework.Example
 
   
 
-结果没问题。
+The result is correct.
 
-好了，笔者写的成就系统非常简陋，实际上额度成就系统可以写得非常完善，比如可以再成就系统里进行存储加载等操作，而此文的成就系统仅仅是展示目的。
+Well, the achievement system I wrote is very rudimentary. In fact, the achievement system can be written very well, such as storage and loading operations in the achievement system. The achievement system in this article is only for display purposes.
 
-到此，我们就接触到了 QFramework 架构所提供的核心概念。
+So far, we have touched on the core concepts provided by the QFramework architecture.
 
-我们回顾一下第一篇的两张图，如下:
+Let's review the two pictures in the first article, as follows:
 
 [![](https://file.liangxiegame.com/39bdcf54-0240-46e0-8f68-9eb708505695.png)](https://file.liangxiegame.com/39bdcf54-0240-46e0-8f68-9eb708505695.png)
 
 [![](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)
 
-到此，大家应该能看懂这两张图了。
+By now, everyone should be able to understand these two pictures.
 
-QFramework 总共分四个层级，即
+QFramework is divided into four levels, namely:
 
-*   表现层：IController
-*   系统层：ISystem
-*   数据层：IModel
-*   工具层：IUtility
+* Presentation layer: IController
+* System layer: ISystem
+* Data layer: IModel
+* Utility layer: IUtility
 
-除了四个层级，还接触了为 Controller 的交互逻辑减负的 Command 和 为表现逻辑减负的 Event。
+In addition to the four levels, we also touched on Command, which reduces the interaction logic of the Controller, and Event, which reduces the presentation logic.
 
-还有一个非常重要的 CQRS 原则的简易版本，Command->Model->State Changed Event。
+There is also a very important CQRS principle's simplified version, Command->Model->State Changed Event.
 
-到目前为止 QFramework 的基本用法我们过了一遍了。
+So far, we have gone through the basic usage of QFramework.
 
-从下一篇开始，我们开始介绍 QFramework 架构提供的剩余功能，这些功能是可选的。
+Starting from the next article, we will introduce the remaining functions provided by the QFramework architecture, which are optional.
 
-这篇就到这里。
+That's it for this article.

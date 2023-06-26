@@ -1,14 +1,14 @@
-# 16. 内置工具：EasyEvent
+# 16. Built-in Tool: EasyEvent
 
-TypeEventSystem 是基于 EasyEvent 实现的。
+TypeEventSystem is based on EasyEvent.
 
-EasyEvent 也是一个可以脱离架构使用的工具。
+EasyEvent is also a tool that can be used independently of the architecture.
 
-这里我们来学习一下基本用法。
+Let's learn the basic usage here.
 
-## 基本使用
+## Basic Usage
 
-代码如下:
+The code is as follows:
 
 ```plain
 using UnityEngine;
@@ -75,22 +75,22 @@ namespace QFramework.Example
 // 自定义事件:1 2
 ```
 
-基本使用非常简单。
+The basic usage is very simple.
 
-EasyEvent 最多支持三个泛型。
+EasyEvent supports up to three generics.
 
-## EasyEvent 的优势
+## Advantages of EasyEvent
 
-EasyEvent 是 C# 委托和事件的替代。
+EasyEvent is an alternative to C# delegates and events.
 
-EasyEvent 相比 C# 委托和事件，优势是可以自动注销。
+Compared to C# delegates and events, the advantage of EasyEvent is that it can be automatically unregistered.
 
-相比 TypeEventSystem，优势是更轻量，大多数情况下不用声明事件类，而且性能更好（接近 C# 委托）。
+Compared to TypeEventSystem, the advantage is that it is lighter, in most cases, there is no need to declare an event class, and its performance is better (close to C# delegates).
 
-缺点则是其携带的参数没有名字，需要自己定义名字。
+The disadvantage is that the parameters it carries do not have names and need to be defined by yourself.
 
-在设计一些通用系统的时候，EasyEvent 会派上用场，比如背包系统、对话系统，TypeEventSystem 是一个非常好的例子。
+When designing some general systems, EasyEvent will come in handy, such as backpack systems, dialogue systems, and TypeEventSystem is a very good example.
 
-在一个项目早期做原型验证时，EasyEvent 也会起非常大的作用，QFramework 架构中的事件，其实写起来有点繁琐，而在项目早期快速迭代原型是重点，此时用 EasyEvent 可以获得更快的开发效率，而使用 QFramework 架构中的事件在项目规模更大的时候会发挥很大的作用，它更方便协作更容易维护，也更容易标准化。
+In the early stages of a project, EasyEvent will also play a very important role. The events in the QFramework architecture are actually a bit cumbersome to write. At this time, using EasyEvent can achieve faster development efficiency. Using the events in the QFramework architecture will play a big role in larger projects. It is more convenient for collaboration, easier to maintain, and easier to standardize.
 
-好了，关于 EasyEvent 的介绍就到这里。
+Well, that's all about EasyEvent.

@@ -1,73 +1,69 @@
-# 20. QFramework.cs 的更多内容
+# 20. More about QFramework.cs
 
-终于把想介绍的内容都讲完了。
+Finally, all the content that I wanted to introduce has been covered.
 
-如果想进一步了解和学习 QFramework.cs 可以看如下内容。
+If you want to further understand and learn QFramework.cs, you can refer to the following content.
 
-## 使用 QFramework.cs 的案例与项目
+## Examples and projects using QFramework.cs
 
-更多的案例可以到 QFramework github 主页查看。
+More examples can be found on the QFramework GitHub homepage.
 
-地址:
+Address:
 
-*   github: [https://github.com/liangxiegame/QFramework](https://github.com/liangxiegame/QFramework)
-*   gitee: [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
+*   GitHub: [https://github.com/liangxiegame/QFramework](https://github.com/liangxiegame/QFramework)
+*   Gitee: [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
 
-国内童鞋建议打开 gitee 版本仓库。
+It is recommended for Chinese users to open the Gitee version repository.
 
-在 Readme 中可以看到如下内容:
+You can see the following content in the Readme:
 
 [![](https://file.liangxiegame.com/26d4141d-b622-4fed-8dd3-f87979ae5c25.png)](https://file.liangxiegame.com/26d4141d-b622-4fed-8dd3-f87979ae5c25.png)
 
-在这里可以安装 QFramework.cs 与官方示例。
+Here you can install QFramework.cs and official examples.
 
-点击之后，再点击下图中的下载按钮。
+After clicking, click the download button in the figure below.
 
 [![](https://file.liangxiegame.com/78c1b225-4cfb-4f0c-ab98-33049e2068f2.png)](https://file.liangxiegame.com/78c1b225-4cfb-4f0c-ab98-33049e2068f2.png)
 
-  
+You can download the official QFramework.cs example.
 
-就可以下载 QFramework.cs 官方示例了。
+In addition to the CounterApp included in this tutorial, there are many other examples in the example, such as:
 
-示例中，除了本教程包含的 CounterApp，还有很多其他示例，如下:
-
-### 小游戏《点点点》
+### Mini game "Click Click Click"
 
 [![](https://file.liangxiegame.com/5a10aa95-4c93-4dae-acec-667a113c30ca.gif)](https://file.liangxiegame.com/5a10aa95-4c93-4dae-acec-667a113c30ca.gif)
 
-### 小游戏《FlappyBird》
+### Mini game "FlappyBird"
 
 [![](https://file.liangxiegame.com/9845122b-93d9-4106-a027-2d7c129a096a.gif)](https://file.liangxiegame.com/9845122b-93d9-4106-a027-2d7c129a096a.gif)
 
-作者：王二 soso [https://github.com/so-sos-so](https://github.com/so-sos-so)
+Author: Wang Er soso [https://github.com/so-sos-so](https://github.com/so-sos-so)
 
-### 小游戏《Cube Master》
+### Mini game "Cube Master"
 
 [![](https://file.liangxiegame.com/f51abab0-9dc9-478b-b1f1-67f2cd588477.gif)](https://file.liangxiegame.com/f51abab0-9dc9-478b-b1f1-67f2cd588477.gif)
 
-  
+Author: Wang Er soso [https://github.com/so-sos-so](https://github.com/so-sos-so)
 
-作者：王二 soso [https://github.com/so-sos-so](https://github.com/so-sos-so)
-
-### 简易关卡编辑器2D
+### Simple level editor 2D
 
 [![](https://file.liangxiegame.com/6492498b-6c22-478d-8785-9f43453c34db.gif)](https://file.liangxiegame.com/6492498b-6c22-478d-8785-9f43453c34db.gif)
 
 [![](https://file.liangxiegame.com/34b775c6-6a49-4141-9b9a-1377a6c15673.gif)](https://file.liangxiegame.com/34b775c6-6a49-4141-9b9a-1377a6c15673.gif)
 
-### 小游戏《贪吃蛇》
+### Mini game "Snake"
 
 [![](https://file.liangxiegame.com/ac70d14e-ea89-445d-899e-06f18f11f8d1.gif)](https://file.liangxiegame.com/ac70d14e-ea89-445d-899e-06f18f11f8d1.gif)
 
-作者：一只皮皮虾 [https://gitee.com/PantyNeko/](https://gitee.com/PantyNeko/)
+Author: A Shrimp [https://gitee.com/PantyNeko/](https://gitee.com/PantyNeko/)
 
-以上的示例都是由 QFramework.cs 制作而成的官方示例。
+All of the above examples are official examples made with QFramework.cs.
 
-另外还有群友制作的开源游戏
+In addition, there is an open-source game made by group members.
 
 ### CrazyCar
 
-Unity制作的联机赛车游戏，后台为SpringBoot + Mybatis；游戏采用QFramework框架，支持KCP和WebSocket网络(商用级)
+A Unity-made online racing game with SpringBoot + Mybatis backend. The game uses the QFramework framework and supports KCP and WebSocket networks (commercial grade).
 
 [![](https://file.liangxiegame.com/0ab6cb1d-2374-4aa2-b27d-f04eb72792cd.png)](https://file.liangxiegame.com/0ab6cb1d-2374-4aa2-b27d-f04eb72792cd.png)
 
@@ -91,18 +87,18 @@ Unity制作的联机赛车游戏，后台为SpringBoot + Mybatis；游戏采用Q
 
 [![](https://file.liangxiegame.com/06157781-3271-438c-bf3f-613e6ec00fb0.png)](https://file.liangxiegame.com/06157781-3271-438c-bf3f-613e6ec00fb0.png)
 
-作者: TastSone [https://github.com/TastSong](https://github.com/TastSong)
+Author: TastSone [https://github.com/TastSong](https://github.com/TastSong)
 
-项目地址: [https://github.com/TastSong/CrazyCar](https://github.com/TastSong/CrazyCar)
+Project address: [https://github.com/TastSong/CrazyCar](https://github.com/TastSong/CrazyCar)
 
-## QFramework.cs 的架构如何演化出来的?
+## How did the architecture of QFramework.cs evolve?
 
-QFramework.cs 的架构当前的版本，是从 《框架搭建 决定版》中设计出来的，如果学习这门课程，可以对 QFramework.cs 的原理和理念理解得更深刻，更容易对 QFramework.cs 做修改和定制。
+The current version of the architecture of QFramework.cs was designed from the "Framework Construction Final Version". If you learn this course, you can have a deeper understanding of the principles and concepts of QFramework.cs, making it easier to modify and customize.
 
-*   《框架搭建 决定版》B 站试听：[https://www.bilibili.com/video/BV1wh411U7X6](https://www.bilibili.com/video/BV1wh411U7X6)
-*   《框架搭建 决定版》完整版
-    *   Unity 官方中文课堂：[https://learn.u3d.cn/tutorial/framework\_design](https://learn.u3d.cn/tutorial/framework_design)
-    *   siki 学院：[https://www.sikiedu.com/my/course/871](https://www.sikiedu.com/my/course/871)
-    *   GamePix 独立游戏学院：[https://www.gamepixedu.com/my/course/2](https://www.gamepixedu.com/my/course/2)
+*   "Framework Construction Final Version" B station trial listening: [https://www.bilibili.com/video/BV1wh411U7X6](https://www.bilibili.com/video/BV1wh411U7X6)
+*   "Framework Construction Final Version" complete version
+    *   Unity official Chinese classroom: [https://learn.u3d.cn/tutorial/framework\_design](https://learn.u3d.cn/tutorial/framework_design)
+    *   Siki Academy: [https://www.sikiedu.com/my/course/871](https://www.sikiedu.com/my/course/871)
+    *   GamePix Independent Game Academy: [https://www.gamepixedu.com/my/course/2](https://www.gamepixedu.com/my/course/2)
 
-另外 QFramework.Toolkits 和 QFramework.ToolkitsPro 里包含的工具很多都是由 QFramework.cs 设计的， 工具的源码本身也是不错的学习资料。
+In addition, many of the tools included in QFramework.Toolkits and QFramework.ToolkitsPro are designed by QFramework.cs, and the source code of the tools themselves is also good learning material.

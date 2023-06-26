@@ -1,12 +1,12 @@
-# 15. 内置工具：TypeEventSystem
+# 15. Built-in Tool: TypeEventSystem
 
-QFramework 除了提供了一套架构之外，QFramework 还提供三个可以脱离架构使用的工具 TypeEventSystem、EasyEvent、BindableProperty、IOCContainer。
+In addition to providing a framework, QFramework also provides three tools that can be used independently of the framework: TypeEventSystem, EasyEvent, BindableProperty, and IOCContainer.
 
-这些工具并不是有意提供，而是 QFramework 的架构在设计之初是通过这三个工具组合使用而成的。
+These tools were not intentionally provided, but were created by combining these three tools in the design of QFramework's architecture.
 
-在这一篇，我们来学习 TypeEventSystem 的使用。
+In this article, we will learn how to use TypeEventSystem.
 
-## 基本使用
+## Basic Usage
 
 ```plain
 using UnityEngine;
@@ -51,13 +51,13 @@ namespace QFramework.Example
 // 输出结果// 点击鼠标左键，则输出:// 18// 点击鼠标右键，则输出:// 0
 ```
 
-这就是 TypeEventSystem 的最基本用法。
+This is the most basic usage of TypeEventSystem.
 
-## 事件继承支持
+## Event Inheritance Support
 
-除了基本用法，TypeEventSystem 的事件还支持继承关系。
+In addition to basic usage, TypeEventSystem's events also support inheritance.
 
-示例代码如下:
+The sample code is as follows:
 
 ```plain
 using UnityEngine;
@@ -113,11 +113,11 @@ namespace QFramework.Example
 // 输出结果:// 当按下鼠标左键时，输出:// EventB
 ```
 
-代码不难。
+The code is not difficult.
 
-## TypeEventSystem 手动注销
+## Manual Unregistration of TypeEventSystem
 
-如果想控制 TypeEventSystem 的注销，而不是自动注销也很简单，代码如下:
+If you want to control the unregistration of TypeEventSystem instead of automatic unregistration, it is also very simple. The code is as follows:
 
 ```plain
 using UnityEngine;
@@ -150,11 +150,11 @@ namespace QFramework.Example
 }
 ```
 
-代码也很简单。
+The code is also very simple.
 
-## 接口事件
+## Interface Event
 
-TypeEventSystem 还支持接口事件模式，示例代码如下:
+TypeEventSystem also supports interface event mode. The sample code is as follows:
 
 ```plain
 using System;
@@ -217,13 +217,13 @@ namespace QFramework.Example
 // InterfaceEventA// InterfaceEventB
 ```
 
-代码很简单。
+The code is very simple.
 
-同样接口事件也支持事件之间的继承。
+Similarly, interface events also support inheritance between events.
 
-接口事件拥有更好的约束，只要完成实现接口，就可以通过 IDE 的代码生成少写很多代码，其灵感受 CorgiEngine、TopDownEngine 启发。
+Interface events have better constraints, and you can write less code by completing the implementation of the interface through the code generation of the IDE, which is inspired by CorgiEngine and TopDownEngine.
 
-## 非 MonoBehavior 脚本如何自动销毁
+## How to Automatically Destroy Non-MonoBehavior Scripts
 
 ```plain
 public class NoneMonoScript : IUnRegisterList
@@ -246,34 +246,34 @@ public class NoneMonoScript : IUnRegisterList
 }
 ```
 
-## 小结
+## Summary
 
-如果想手动注销，必须要创建一个用于接收事件的方法。
+If you want to manually unregister, you must create a method to receive events.
 
-而用自动注销则直接用委托即可。
+For automatic unregistration, use delegates directly.
 
-这两个各有优劣，按需使用。
+Both have their own advantages and disadvantages, use them as needed.
 
-另外，事件的定义最好使用 struct，因为 struct 的 gc 更少，可以获得更好的性能。
+In addition, it is best to use struct for event definition, because struct has less gc and can achieve better performance.
 
-接口事件拥有更好的约束，也可以通过 IDE 的代码生成来提高开发效率。
+Interface events have better constraints and can also improve development efficiency through IDE code generation.
 
-总之 TypeEventSystem 是一个非常强大的事件工具。
-
-  
-
-## 学习总结
+In summary, TypeEventSystem is a very powerful event tool.
 
   
 
-### 接口使用案例, 为什么可以用 this 访问 RegisterEvent (C# 特性)?
+## Learning Summary
 
   
 
-在 `TypeEventSystemInterfaceExample` 类的 `Start()` 方法中，可以使用 `this` 关键字访问 `RegisterEvent` 方法，是因为 `RegisterEvent` 方法是作为扩展方法定义在静态类 `OnGlobalEventExtension` 中，并且该扩展方法的第一个参数类型为 `IOnEvent<T>`。
+### Interface Usage Example, Why Can RegisterEvent Be Accessed Using "this" (C# Feature)?
 
-在 C# 中，**扩展方法是一种特殊的静态方法**，**它可以在静态类中定义，并且可以像实例方法一样使用**。当一个类型的实例调用扩展方法时，编译器会自动将该实例作为扩展方法的第一个参数传递，以便在方法体内使用。
+  
 
-在这种情况下，`RegisterEvent` 方法的第一个参数类型为 `IOnEvent<T>`，而 `TypeEventSystemInterfaceExample` 类实现了 `IOnEvent<InterfaceEventA>` 和 `IOnEvent<InterfaceEventB>` 接口，因此它是这两个接口类型的实例。所以在 `Start()` 方法中，可以使用 `this.RegisterEvent<InterfaceEventA>()` 和 `this.RegisterEvent<InterfaceEventB>()` 的方式调用 `RegisterEvent` 方法，其中的 `this` 关键字代表当前 `TypeEventSystemInterfaceExample` 类的实例。
+In the `Start()` method of the `TypeEventSystemInterfaceExample` class, `RegisterEvent` method can be accessed using the `this` keyword because the `RegisterEvent` method is defined as an extension method in the static class `OnGlobalEventExtension`, and the first parameter type of this extension method is `IOnEvent<T>`.
 
-通过使用扩展方法，我们可以在 `TypeEventSystemInterfaceExample` 类的实例中使用 `RegisterEvent` 方法，使代码更具可读性和简洁性。
+In C#, **extension methods are a special type of static method** that can be defined in a static class and used like instance methods. When an instance of a type calls an extension method, the compiler automatically passes that instance as the first parameter, so that it can be used in the method body.
+
+In this case, the first parameter type of the `RegisterEvent` method is `IOnEvent<T>`, and the `TypeEventSystemInterfaceExample` class implements the `IOnEvent<InterfaceEventA>` and `IOnEvent<InterfaceEventB>` interfaces, so it is an instance of these two interface types. Therefore, in the `Start()` method, the `RegisterEvent` method can be called using `this.RegisterEvent<InterfaceEventA>()` and `this.RegisterEvent<InterfaceEventB>()`, where the `this` keyword represents the current instance of the `TypeEventSystemInterfaceExample` class.
+
+By using extension methods, we can use the `RegisterEvent` method in the instance of the `TypeEventSystemInterfaceExample` class, making the code more readable and concise.

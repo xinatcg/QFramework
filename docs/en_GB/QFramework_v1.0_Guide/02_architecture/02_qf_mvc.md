@@ -1,22 +1,22 @@
-# 02. QFramework 的 MVC
+# 02. MVC in QFramework
 
 /
 
-QFramework 基于 MVC 的开发模式
+QFramework is based on the MVC development pattern.
 
-所以我们先从最熟知的 MVC 架构开始着手 QFramework 的学习。
+So let's start learning QFramework from the most familiar MVC architecture.
 
-我们先做一个非常简单的计数器应用。
+Let's first create a very simple counter application.
 
-首先我们使用 UGUI 创建一个最简单的界面，如下图所示：
+First, we use UGUI to create the simplest interface, as shown in the figure below:
 
 [![](https://file.liangxiegame.com/902ef543-64b1-45ad-ae45-ea180ebec133.png)](https://file.liangxiegame.com/902ef543-64b1-45ad-ae45-ea180ebec133.png)
 
-场景结构如下所示：
+The scene structure is shown below:
 
 [![](https://file.liangxiegame.com/1db2c50c-cb8b-4b1c-92f6-432ff4083105.png)](https://file.liangxiegame.com/1db2c50c-cb8b-4b1c-92f6-432ff4083105.png)
 
-复制完之后，我们创建一个脚本叫做 CounterAppController，代码如下：
+After copying, we create a script called CounterAppController, with the following code:
 
 ```plain
 using UnityEngine;
@@ -69,28 +69,28 @@ namespace QFramework.Example
 }
 ```
 
-代码很简单，这是一个非常简易的 MVC 的实现。
+The code is very simple, this is a very simple implementation of MVC.
 
-我们将此脚本挂在 Canvas 节点上，运行 Unity 结果如下：
+We attach this script to the Canvas node, and the Unity result is as follows:
 
 [![](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)
 
-非常简单。
+Very simple.
 
-此时我们还没有导入我们的 QFramework，不着急，我们先看看代码中所介绍的概念。
+At this point, we have not imported our QFramework yet, don't worry, let's first look at the concepts introduced in the code.
 
-首先是 Model、View、Controller
+First is Model, View, and Controller.
 
-Model 的代码如下:
+The code for Model is as follows:
 
 ```plain
 // Model
 private int mCount = 0;
 ```
 
-非常简单，只有一个成员变量，但是在这里它其实并不算是一个 Model，他只是要在 View 中显示的一个数据而已，具体为什么不是 Model 我们在后边再说。
+Very simple, only one member variable, but it is not actually a Model here. It is just a data that needs to be displayed in the View. We will explain why it is not a Model later.
 
-View 的代码如下:
+The code for View is as follows:
 
 ```plain
 // View
@@ -99,9 +99,9 @@ private Button mBtnSub;
 private Text mCountText;
 ```
 
-View 的代码也很简单，View 在 QFramework 的 MVC 定义里就是提供关键组件的引用，比如这三个组件是要在 Controller 代码里要用到的。而其他的例如 Canvas Scaler 等这些组件目前 Controller 不需要，所以就不用声明。
+The code for View is also very simple. In the MVC definition of QFramework, View provides references to key components, such as these three components that need to be used in the Controller code. Other components such as Canvas Scaler are not needed by the Controller for now, so they don't need to be declared.
 
-Controller 的代码，如下：
+The code for Controller is as follows:
 
 ```plain
 void Start()
@@ -134,9 +134,9 @@ void UpdateView()
 }
 ```
 
-以上就是 Controller 的代码。
+The above is the code for Controller.
 
-好了，我们回头再看下完整代码。
+Okay, let's take a look at the complete code again.
 
 ```plain
 using UnityEngine;
@@ -188,30 +188,30 @@ namespace QFramework.Example
 }
 ```
 
-目前像计数器这样的逻辑，以上的代码完全没有问题。
+For now, for logic like the counter, the above code is completely fine.
 
-但是我们要用发展的眼光看待问题。
+But we need to look at the problem with a developmental perspective.
 
-假如这是一个初创项目，那么接下来很有可能需要添加大量的业务逻辑。
+If this is a startup project, then it is very likely that a lot of business logic needs to be added next.
 
-其中很有可能让 mCount 在多个 Controller 中使用，甚至需要针对 mCount 这个数据写一些其他逻辑，比如增加 mCount 则增加 5 个分数，或者 mCount 需要存储等，总之 mCount 在未来可能会发展成一个需要共享的数据，而 mCount 目前只属于 CounterAppController，显然在未来这是不够用的。
+Among them, it is very likely that mCount will be used in multiple Controllers, and even some other logic needs to be written for mCount, such as adding 5 points when mCount is increased, or mCount needs to be stored, etc. In short, mCount may develop into a data that needs to be shared in the future, but mCount currently only belongs to CounterAppController, which is obviously not enough for the future.
 
-我们就需要让 mCount 成员变量变成一个共享的数据，最快的做法是吧 mCount 变量变成静态变量或者单例，但是这样虽然写起来很快，但是在后期维护额度时候会产生很多的问题。
+We need to make the member variable mCount a shared data, and the fastest way is to make the mCount variable a static variable or a singleton, but although this is very fast to write, it will cause many problems in later maintenance.
 
-而 QFramework 架构提供了 Model 的概念。
+And the QFramework architecture provides the concept of Model.
 
-我们来使用一下。
+Let's use it.
 
-我们先导入 QFramework 架构。
+First, we import the QFramework architecture.
 
-导入 QFramework 的方式非常简单，只需要复制 QFramework.cs 的代码到 Unity 工程中即可。
+Importing the QFramework is very simple, just copy the code of QFramework.cs to the Unity project.
 
-QFramework.cs 地址：
+QFramework.cs address:
 
-*   Gitee: [https://gitee.com/liangxiegame/QFramework/blob/master/QFramework.cs](https://gitee.com/liangxiegame/QFramework/blob/master/QFramework.cs)
-*   Github: [https://github.com/liangxiegame/QFramework/blob/master/QFramework.cs](https://github.com/liangxiegame/QFramework/blob/master/QFramework.cs)
+* Gitee: [https://gitee.com/liangxiegame/QFramework/blob/master/QFramework.cs](https://gitee.com/liangxiegame/QFramework/blob/master/QFramework.cs)
+* Github: [https://github.com/liangxiegame/QFramework/blob/master/QFramework.cs](https://github.com/liangxiegame/QFramework/blob/master/QFramework.cs)
 
-导入之后，我们将 CounterAppController 的代码改成如下：
+After importing, we will change the code of CounterAppController to the following:
 
 ```plain
 using UnityEngine;
@@ -305,41 +305,41 @@ namespace QFramework.Example
 }
 ```
 
-好了，代码引入了两个新的概念，一个是 Architecture，另一个是 Model。
+Okay, the code introduces two new concepts, one is Architecture, and the other is Model.
 
-Architecture 用于管理模块，或者说 Architecture 提供一整套架构的解决方案，而模块管理和提供 MVC 只是其功能的一小部分。
+Architecture is used to manage modules, or Architecture provides a complete set of architectural solutions, and module management and providing MVC are only a small part of its functionality.
 
-我们运行一下 Unity 结果如下：
+We run Unity and the result is as follows:
 
 [![](https://file.liangxiegame.com/aa28ef15-11e9-49f2-9536-9db18b025a8f.gif)](https://file.liangxiegame.com/aa28ef15-11e9-49f2-9536-9db18b025a8f.gif)
 
-运行正确。
+The operation is correct.
 
-好了，我们上手了 QFramework 提供的 MVC 架构。
+Okay, we have started using the MVC architecture provided by QFramework.
 
-这里要注意一点，Model 的引入是为了解决数据共享的问题，而不是说单只是为了让数据和表现分离，这一点是非常重要的一点。
+One thing to note here is that the introduction of Model is to solve the problem of data sharing, not just to separate data and presentation. This is a very important point.
 
-数据共享分两种：空间上的共享和时间上的共享。
+Data sharing is divided into two types: spatial sharing and temporal sharing.
 
-空间的共享很简单，就是多个点的代码需要访问 Model 里的数据。
+Spatial sharing is simple, that is, the code of multiple points needs to access the data in the Model.
 
-时间上的共享就是存储功能，将上一次关闭 App 之前的数据存储到一个文件里，这次打开时获得上次关闭 App 之前的数据。
+Temporal sharing is storage function, which stores the data before the last time the App was closed in a file, and obtains the data before the last time the App was closed when it is opened this time.
 
-虽然我们上手了 MVC，但是这样的 MVC 还有很多问题，我们下一篇继续解决。
-
-
-
-## 总结笔记
+Although we have started using MVC, there are still many problems with this MVC, and we will continue to solve them in the next article.
 
 
 
-1. 手动完成最简的 MVC 设计, 实现一个计数器
-2. QFramework 最简引入
-3. QFramework Architecture and Model 使用
-    1. Model ➝ AbstractModel 抽象类
-    2. Architecture ➝ Architecture 抽象类
-        1. Architecture 注册 Model
+## Summary Notes
+
+
+
+1. Manually complete the simplest MVC design and implement a counter
+2. QFramework simplest introduction
+3. QFramework Architecture and Model usage
+    1. Model ➝ AbstractModel abstract class
+    2. Architecture ➝ Architecture abstract class
+        1. Architecture registers Model
     3. Controller ➝ IController
-        1. Controller 需要获取 Architecture, 在 Architecture 抽象类 有一个静态方法后去 instance
-        2. Controller 需要定义 Model, 所有数据操作都基于 Model
-4. Model 独立的功能, 数据共享和数据和表现分离
+        1. Controller needs to get Architecture, and there is a static method to get instance in Architecture abstract class
+        2. Controller needs to define Model, and all data operations are based on Model
+4. Model independent functions, data sharing and data and presentation separation

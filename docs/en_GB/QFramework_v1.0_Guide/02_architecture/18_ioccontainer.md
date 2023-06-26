@@ -1,20 +1,20 @@
-# 18. 内置工具：IOCContainer
+# 18. Built-in Tool: IOCContainer
 
-QFramework 架构的模块注册与获取是通过 IOCContainer 实现的。
+The module registration and retrieval in the QFramework architecture is implemented through IOCContainer.
 
-IOC 的意思是控制反转，即控制反转容器。
+IOC stands for Inversion of Control, which means Inversion of Control Container.
 
-其技术的本质很简单，本质就是一个字典，Key 是 Type，Value 是 Object，即：Dictionary<Type,object>。
+The essence of its technology is very simple, essentially a dictionary, where the Key is Type and the Value is Object, that is: Dictionary<Type, object>.
 
-QFramework 架构中的 IOCContainer 是一个非常简易版本的控制反转容器，仅支持了注册对象为单例的模式。
+The IOCContainer in the QFramework architecture is a very simple version of the Inversion of Control Container, which only supports the registration of objects as singletons.
 
-一般情况下，其他的控制反转容器会有各种各样的对象注册模式，有的甚至会内置对象池和对象工厂，比如 Zenject。
+In general, other Inversion of Control Containers will have various object registration modes, and some even have built-in object pools and object factories, such as Zenject.
 
-不过，我们先不用理会那些，如果先上手使用了最简易的版本，其他版本会更容易上手。
+However, let's not worry about those for now. If we start with the simplest version, other versions will be easier to learn.
 
-我们看下 IOCContainer 的基本使用。
+Let's take a look at the basic usage of IOCContainer.
 
-代码如下:
+The code is as follows:
 
 ```plain
 using System;
@@ -67,12 +67,12 @@ namespace QFramework.Example
 // NetworkService Connect Succeed
 ```
 
-非常简单。
+Very simple.
 
-但是对于很多初学者，IOCContainer 感觉不知道怎么用，也无法理解。
+But for many beginners, they may not know how to use IOCContainer or understand it.
 
-这里给一个简单的说法，使用 IOCContainer 更容易设计出符合依赖倒置原则的模块。
+Here is a simple explanation: using IOCContainer makes it easier to design modules that comply with the Dependency Inversion Principle.
 
-而 QFramework 架构的用接口设计模块的支持就是通过 IOCContainer 支持的，同样使用 IOCContainer 也更容易设计出分层的架构。
+The support for designing modules using interfaces in the QFramework architecture is also supported by IOCContainer, and using IOCContainer also makes it easier to design layered architectures.
 
-好了，关于 IOCContainer 就介绍到这里。
+That's all for IOCContainer.

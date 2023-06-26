@@ -1,8 +1,8 @@
-# 05. 引入 Utility
+# 05. Introduction to Utility
 
-在这一篇，我们来支持 CounterApp 的存储功能。
+In this article, we will support the storage function of CounterApp.
 
-其代码也非常简单，只需要修改一部分 Model 的代码即可，如下：
+The code is also very simple, just modify part of the Model code, as follows:
 
 ```plain
     // 定义一个 Model 对象
@@ -30,13 +30,13 @@
     }
 ```
 
-这样就支持了非常基本的数据存储功能。
+This supports very basic data storage functionality.
 
-当然还是有一些问题，如果时候未来我们需要存储的数据非常多的时候，Model 层就会充斥大量存储、加载相关的代码。
+Of course, there are still some problems. If in the future we need to store a lot of data, the Model layer will be filled with a lot of storage and loading related code.
 
-还有就是，我们以后如果不想使用 PlayperPrefs 了，想使用 EasySave 或者 SQLite 的时候，就会造成大量的修改工作量。
+Also, if we don't want to use PlayperPrefs in the future and want to use EasySave or SQLite, it will cause a lot of modification work.
 
-于是 QFramework 提供了一个 Utility 层，专门用来解决上述两个问题的，使用方法非常简单，如下：
+Therefore, QFramework provides a Utility layer specifically designed to solve the above two problems. The usage is very simple, as follows:
 
 ```plain
 using UnityEngine;
@@ -192,16 +192,16 @@ namespace QFramework.Example
 }
 ```
 
-代码非常简单，我们运行下 Unity 看下结果：
+The code is very simple. Let's run Unity to see the result:
 
 [![](https://file.liangxiegame.com/1c622976-b32a-4b62-92a3-d34b2c628e27.gif)](https://file.liangxiegame.com/1c622976-b32a-4b62-92a3-d34b2c628e27.gif)
 
-运行正确。
+The operation is correct.
 
-这样当我们，想要将 PlayerPrefs 方案替换成 EasySave 的时候，只需要对 Storage 里的代码进行修改即可。
+So when we want to replace the PlayerPrefs solution with EasySave, we only need to modify the code in Storage.
 
-最后给出流程图，如下：
+Finally, the flowchart is given below:
 
 [![](https://file.liangxiegame.com/f2329b2f-700a-4693-b22e-b1afc50c7364.png)](https://file.liangxiegame.com/f2329b2f-700a-4693-b22e-b1afc50c7364.png)
 
-好了，这篇就介绍到这里。
+Okay, that's all for this article.

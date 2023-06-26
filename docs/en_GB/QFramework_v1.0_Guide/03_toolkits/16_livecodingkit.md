@@ -1,28 +1,28 @@
-# 16. 补充内容：LiveCodingKit 编码所见即所得的利器
+# 16. Additional Content: LiveCodingKit - A Powerful Tool for Coding on the Fly
 
-我们在用 Unity 开发的时候，每次编写或修改一点代码就需要进行 停止运行->编写代码->等待编译->运行游戏。
+When developing with Unity, every time we write or modify a piece of code, we need to stop the game, write the code, wait for it to compile, and then run the game again.
 
-而在很多情况下这个过程是一个比较耗神的过程，因为开发者需要等待，还需要动手操作。
+In many cases, this process can be quite tedious and time-consuming, as developers have to wait and manually operate the game.
 
-在笔者体验过 GameMakerStudio 的 GMLive 插件后，发现不停止运行就可以直接查看代码编写的结果的体验非常丝滑。
+After experiencing the GMLive plugin in GameMakerStudio, I found that the experience of being able to see the results of code writing without stopping the game was very smooth.
 
-于是笔者就在 QFramework 中写了一个类似的方案 LiveCodingKit。
+So I wrote a similar solution called LiveCodingKit in QFramework.
 
-使用方式很简单，首先在 QFramework 编辑器中可以看到 LiveCodingKit 面板，如下:
+The usage is very simple. First, in the QFramework editor, you can see the LiveCodingKit panel as shown below:
 
 ![](https://file.liangxiegame.com/4e7b25f6-cb59-4283-8e74-9d2c951c39e5.png?ynotemdtimestamp=1675741287837)
 
-确保开启是勾选状态。
+Make sure it is checked.
 
-然后根据自己需要选择当编译完成时，对应的操作，一般情况下重新加载当前场景就够用了。
+Then, according to your needs, select the corresponding operation when the compilation is completed. In general, reloading the current scene is enough.
 
-当然如果是场景和场景间有依赖关系，那么可以选择重启游戏。
+Of course, if there are dependencies between scenes, you can choose to restart the game.
 
-然后随意运行一个带有脚本的场景，笔者选择的是 QFramework 自带的示例，如下:
+Then run a scene with a script at will. I chose the example that comes with QFramework, as shown below:
 
 ![](https://file.liangxiegame.com/907db129-95aa-4674-a63a-3c47f82d4dc9.png?ynotemdtimestamp=1675741287837)
 
-然后新增代码如下:
+Then add the following code:
 
 ```plain
 public partial class UIBasicPanel : UIPanel
@@ -41,21 +41,21 @@ public partial class UIBasicPanel : UIPanel
    
 ```
 
-之后回到 Unity 直接等待编译（不用停止运行）。
+After that, go back to Unity and wait for the compilation to finish (without stopping the running).
 
-编译完成后结果如下:
+After the compilation is completed, the result is as follows:
 
 ![](https://file.liangxiegame.com/5185ab09-938c-4bd7-9259-6ff08ebaf779.png?ynotemdtimestamp=1675741287837)
 
-OK，结果没问题。
+OK, the result is correct.
 
-这就是 LiveCodingKit 的介绍，当你需要在代码中调整一些数值，写 OnGUI 代码，会非常方便，当然也有一些不适用的情况，这个就需要大家自行体验了。
+This is the introduction of LiveCodingKit. It is very convenient when you need to adjust some values in the code and write OnGUI code. Of course, there are also some situations where it is not applicable, which requires everyone to experience it themselves.
 
-## 更多内容
+## More content
 
-*   转载请注明地址：[liangxiegame.com](https://liangxiegame.com/) （首发） 微信公众号：凉鞋的笔记
-*   QFramework 主页：[qframework.cn](https://qframework.cn/)
-*   QFramework 交流群: 623597263
-*   QFramework Github 地址: [https://github.com/liangxiegame/qframework](https://github.com/liangxiegame/qframework)
-*   QFramework Gitee 地址：[https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
-*   GamePix 独立游戏学院 & Unity 进阶小班地址：[https://www.gamepixedu.com/](https://www.gamepixedu.com/)
+*   Reproduced please indicate the address: [liangxiegame.com](https://liangxiegame.com/) (first release) WeChat public account: Liangxie's Notes
+*   QFramework homepage: [qframework.cn](https://qframework.cn/)
+*   QFramework communication group: 623597263
+*   QFramework Github address: [https://github.com/liangxiegame/qframework](https://github.com/liangxiegame/qframework)
+*   QFramework Gitee address: [https://gitee.com/liangxiegame/QFramework](https://gitee.com/liangxiegame/QFramework)
+*   GamePix Independent Game Academy & Unity Advanced Small Class Address: [https://www.gamepixedu.com/](https://www.gamepixedu.com/)

@@ -1,50 +1,48 @@
-# 01. QFramework.Toolkits 简介
+# 01. Introduction to QFramework.Toolkits
 
-QFramework.Toolkits 是包含 QFramework.cs 和 大量工具集的解决方案。
+QFramework.Toolkits is a solution that includes QFramework.cs and a large number of toolkits.
 
-在 QFramework v1.0 之前，QFramework.Toolkits 就是 QFramework 本身，而在 QFramework v1.0 开始，QFramework 拥有了自己的开发架构—QFramework.cs，于是原来的 QFramework 就变成了 QFramework.Toolkits。
+Before QFramework v1.0, QFramework.Toolkits was QFramework itself. However, starting from QFramework v1.0, QFramework has its own development architecture - QFramework.cs, so the original QFramework became QFramework.Toolkits.
 
-QFramework.Toolkits 称为 QFramework 工具集，是一套**开箱即用的、渐进式**的**快速开发**框架。
+QFramework.Toolkits, also known as the QFramework toolkit, is a **ready-to-use, progressive** and **rapid development** framework. Its goal is to be the **first framework** for companies, independent developers, and Unity3D beginners without framework experience. The framework has accumulated solutions for various technical directions in multiple projects. It has low learning costs, low access costs (low intrusiveness), low refactoring costs, and low secondary development costs. The documentation is rich.
 
-目标是作为无框架经验的公司、独立开发者、以及 Unity3D 初学者们的**第一套框架**。框架内部积累了多个项目在各个技术方向的解决方案。学习成本低，接入成本低（侵入性低），重构成本低，二次开发成本低。文档内容丰富。
+The design philosophy of QFramework.Toolkits is to pursue the ultimate development efficiency and development experience.
 
-QFramework 工具集的设计哲学是追求极致的开发效率和开发体验。
+**Overview of QFramework.Toolkits Features**
 
-**QFramework.Toolkits 特性一览**
+*   Toolkits (QFramework.Toolkits v0.16)
+    *   UIKit interface & View rapid development & management solution
+        *   Code generation & automatic assignment of UI and GameObject
+        *   Interface management
+        *   Hierarchy management
+        *   Interface stack
+        *   Default use of ResKit to manage interface resources
+        *   Customizable interface loading and unloading methods
+        *   Manager Of Manager architecture integration (not recommended)
+    *   ResKit resource rapid development & management solution
+        *   AssetBundle provides simulation mode, resources can be loaded without packaging during development
+        *   Resource name code generation support
+        *   The same API can load resources from AssetBundle, Resources, network, and custom sources
+        *   Provides a reference counting resource management model
+    *   AudioKit audio management solution
+        *   Provides three types of audio playback APIs: background music, vocals, and sound effects
+        *   Volume control
+        *   Default use of ResKit to manage audio resources
+        *   Customizable audio loading and unloading methods
+    *   CoreKit provides a large number of code tools
+        *   ActionKit: Action sequence execution system
+        *   CodeGenKit: Code generation & automatic serialization assignment tool
+        *   EventKit: Provides a set of event toolkits based on classes, strings, enumerations, and signal types
+        *   FluentAPI: Provides static extensions for a large number of commonly used Unity and C# APIs (chain API)
+        *   IOCKit: Provides a dependency injection container
+        *   LocaleKit: Localization & multilingual toolkits
+        *   LogKit: Log toolkits
+        *   PackageKit: Package management tool, which can update the framework and corresponding plug-in modules.
+        *   PoolKit: Object pool toolkit, which provides not only object pool but also ListPool and Dictionary Pool tools.
+        *   SingletonKit: Singleton toolkit
+        *   TableKit: Provides a set of tools for table-like data structures
 
-*   工具集（QFramework.Toolkits v0.16）
-    *   UIKit 界面&View快速开发&管理解决方案
-        *   UI、GameObject 的代码生成&自动赋值
-        *   界面管理
-        *   层级管理
-        *   界面堆栈
-        *   默认使用 ResKit 方式管理界面资源
-        *   可自定义界面的加载、卸载方式
-        *   Manager Of Manager 架构集成（不推荐使用）
-    *   ResKit 资源快速开发&管理解决方案
-        *   AssetBundle 提供模拟模式，开发阶段无需打包即可加载资源
-        *   资源名称代码生成支持
-        *   同一个 API 可加载 AssetBundle、Resources、网络 和 自定义来源的资源
-        *   提供一套引用计数的资源管理模型
-    *   AudioKit 音频管理解决方案
-        *   提供背景音乐、人声、音效 三种音频播放 API
-        *   音量控制
-        *   默认使用 ResKit 方式管理音频资源
-        *   可自定义音频的加载、卸载方式
-    *   CoreKit 提供大量的代码工具
-        *   ActionKit：动作序列执行系统
-        *   CodeGenKit：代码生成 & 自动序列化赋值工具
-        *   EventKit：提供基于类、字符串、枚举以及信号类型的事件工具集
-        *   FluentAPI：对大量的 Unity 和 C# 常用的 API 提供了静态扩展的封装（链式 API）
-        *   IOCKit：提供依赖注入容器
-        *   LocaleKit：本地化&多语言工具集
-        *   LogKit：日志工具集
-        *   PackageKit：包管理工具，由此可更新框架和对应的插件模块。
-        *   PoolKit：对象池工具集，提供对象池的基础上，也提供 ListPool 和 Dictionary Pool 等工具。
-        *   SingletonKit：单例工具集
-        *   TableKit：提供表格类数据结构的工具集
-
-**典型的 QFrameowrk.Toolkits 代码**
+**Typical QFrameowrk.Toolkits Code**
 
 ```plain
 using QFramework;

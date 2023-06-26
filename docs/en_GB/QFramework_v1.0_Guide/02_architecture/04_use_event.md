@@ -1,6 +1,6 @@
-# 04. 引入 Event
+# 04. Introduction to Event
 
-我们看下当前的代码:
+Let's take a look at the current code:
 
 ```plain
 using UnityEngine;
@@ -111,11 +111,11 @@ namespace QFramework.Example
 }
 ```
 
-我们通过引入了 Command 来帮助 Controller 分担了一部分的交互逻辑。
+We have introduced Command to help the Controller share some of the interaction logic.
 
-但是表现逻辑的代码目前看起来并不是很智能。
+However, the code that represents the logic doesn't look very intelligent at the moment.
 
-表现逻辑的代码如下：
+The code that represents the logic is as follows:
 
 ```plain
 // 监听输入
@@ -136,23 +136,23 @@ mBtnSub.onClick.AddListener(() =>
 });
 ```
 
-每次调用逻辑之后，表现逻辑部分都需要手动调用一次（UpdateView 方法）。
+After each logic call, the representation logic part needs to be manually called once (UpdateView method).
 
-在一个项目中，表现逻辑的调用次数，至少会和交互逻辑的调用次数一样多。因为只要修改了数据，对应地就要把数据的变化在界面上表现出来。
+In a project, the number of calls to the representation logic will be at least as many as the number of calls to the interaction logic. Because as soon as the data is modified, the corresponding changes in the data must be represented on the interface.
 
-而这部分调用表现逻辑的代码也会很多，所以我们引入一个事件机制来解决这个问题。
+And this part of the code that calls the representation logic will also be very large, so we introduce an event mechanism to solve this problem.
 
-这个事件机制的使用其实是和 Command 一起使用的，这里有一个简单的小模式，如下图所示：
+The use of this event mechanism is actually used together with Command. Here is a simple pattern, as shown in the figure below:
 
 [![](https://file.liangxiegame.com/60ccd370-7c2c-4792-8435-ff5427dc5a1b.png)](https://file.liangxiegame.com/60ccd370-7c2c-4792-8435-ff5427dc5a1b.png)
 
-即通过 Command 修改数据，当数据发生修改后发送对应的数据变更事件。
+That is, modify the data through Command, and send the corresponding data change event when the data is modified.
 
-这个是**简化版本的 CQRS 原则**，即 Command Query Responsibility Separiation，读写分离原则。
+This is a simplified version of the CQRS principle, that is, the Command Query Responsibility Separation principle.
 
-引入这项原则会很容易实现 事件驱动、数据驱动 架构。
+Introducing this principle will easily implement an event-driven, data-driven architecture.
 
-在 QFramework 中，用法非常简单，代码如下:
+In QFramework, the usage is very simple, the code is as follows:
 
 ```plain
 using UnityEngine;
@@ -273,19 +273,19 @@ namespace QFramework.Example
 }
 ```
 
-代码很简单。
+The code is very simple.
 
-流程图如下：
+The flow chart is as follows:
 
 [![](https://file.liangxiegame.com/43474a6f-6a18-4d97-bdb9-9319a77481b9.png)](https://file.liangxiegame.com/43474a6f-6a18-4d97-bdb9-9319a77481b9.png)
 
-运行结果如下:
+The running result is as follows:
 
 [![](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)](https://file.liangxiegame.com/1b934e4f-8f72-44c2-800a-a97f1e707950.gif)
 
-引入事件机制 和 CQRS 原则之后，我们的表现逻辑的代码变少了很多。
+After introducing the event mechanism and the CQRS principle, our code for representing logic has been greatly reduced.
 
-由原来的两次主动调用
+From the original two active calls
 
 ```plain
 // 监听输入
@@ -306,7 +306,7 @@ mBtnSub.onClick.AddListener(() =>
 });
 ```
 
-变成了一处监听事件，接收事件进行调用。
+It became a place to listen for events and receive events for calls.
 
 ```plain
 // 监听输入
@@ -331,23 +331,19 @@ this.RegisterEvent<CountChangeEvent>(e =>
 }).UnRegisterWhenGameObjectDestroyed(gameObject);
 ```
 
-这样减缓了很多交互逻辑。
+This has eased a lot of interaction logic.
 
-OK，到此，我们算是用上了还算合格的 MVC 的实现，而 QFramework 所提供的概念中，最重要的概念已经接触到了，即 CQRS，通过 Command 去修改数据，数据发生修改后发送数据变更事件。
+OK, so far, we have used a qualified implementation of MVC, and the most important concept in the concepts provided by QFramework has been touched upon, that is, CQRS, using Command to modify data, and sending data change events after the data is modified.
 
-当前的示意图如下：
+The current schematic is as follows:
 
 [![](https://file.liangxiegame.com/d25c65e0-25ba-43ca-9060-69bd51efaf46.png)](https://file.liangxiegame.com/d25c65e0-25ba-43ca-9060-69bd51efaf46.png)
 
-学到这里，对于 QFramework 架构的使用算是真正的入门了。
+Learning up to this point, the use of the QFramework architecture can be considered a real entry.
 
-不过接下来还有一些概念，我们下一篇继续。
+However, there are still some concepts to be continued in the next article.
 
-  
+## Summary
 
-## 笔记总结
-
-  
-
-1. 通过事件方式, 将表现逻辑更新进行解耦, 就是说我们并不要主动调用表现逻辑, 而是定义好变现逻辑后, 然后在数据变更的同时发送对应的事件, 表现逻辑只需要订阅这个事件并定义好对应执行的逻辑即可. 这样不论任何角色发生了数据变更, 同时需要负责发送事件.
+1. By using the event method to decouple the update of the representation logic, it means that we do not need to actively call the representation logic, but define the representation logic, and then send the corresponding event when the data changes. The representation logic only needs to subscribe to this event and define the corresponding execution logic. This way, no matter which role changes the data, it is responsible for sending events at the same time.
 2. CQRS:

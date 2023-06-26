@@ -1,87 +1,87 @@
-# 02. Roadmap-路线图
+# 02. Roadmap
 
-**将来也许**
+**Future Plans**
 
-*   sLua、toLua、xLua、ILRuntime 支持
-*   Pro 版本推进
-    *   Architecture Designer 使用可视化设计架构，一键生成架构代码
-*   ResKit 支持自定义目录方案
-*   UIKit 支持多个 Canvas Root 和 摄像机方案
-*   CodeGenKit 同步
-*   插件平台的插件整理
-*   ResKit 重构（支持热更）
-*   UIKit 重构
-*   AudioKit 重构
+*   Support for sLua, toLua, xLua, and ILRuntime
+*   Advancement of Pro version
+    *   Architecture Designer with visual design architecture and one-click generation of architecture code
+*   Custom directory scheme support for ResKit
+*   Support for multiple Canvas Roots and camera schemes in UIKit
+*   CodeGenKit synchronization
+*   Plugin platform plugin organization
+*   Refactoring of ResKit (support for hot updates)
+*   Refactoring of UIKit
+*   Refactoring of AudioKit
 
-**v1.0.x**（当前）
+**v1.0.x** (Current)
 
-*   QFramework.Toolkits 收录四个示例
-*   编辑器使用体验改进
-*   QFramework Pro v0.5 Architecture Designer 发布
+*   QFramework.Toolkits includes four examples
+*   Improved editor user experience
+*   QFramework Pro v0.5 Architecture Designer release
 
-**v0.16.x**（已完成） \*《QFramework v1.0 使用指南》 完成
+**v0.16.x** (Completed) 
+*   Completion of "QFramework v1.0 User Guide"
+*   Editor documentation supports gif animations and simple C# code highlighting
+*   Improved examples
 
-*   编辑器文档 支持 gif 动画 和 简单的 C# 代码高亮
-*   示例完善
+**v0.15.x** (Completed)
 
-**v0.15.x**（已完成）
+*   Documentation organization and built-in editor
 
-*   文档整理 & 在编辑器内部内置
+**v0.14.x (Completed)**
 
-**v0.14.x（已完成）**
+*   Asset Store compatibility and reduced third-party dependencies
 
-*   Asset Store 兼容 & 减少第三方依赖
+**v0.11.x (Completed)**
 
-**v0.11.x（已完成）**
+*   Optimized DLL compilation speed for older devices
 
-*   打 dll 优化旧设备的编译速度
+**v0.10.x (Completed)**
 
-**v0.10.x（已完成）**
+*   ILRuntime support (only partially completed, more support to come)
 
-*   ILRuntime 支持（只完成一部分，后续再支持）
+**v0.9.x (Completed)**
 
-**v0.9.x（已完成）**
+*   Unit test coverage
+*   Examples for PackageKit, Framework, and Extensions fully covered
+*   3-5 demos released
 
-*   单元测试覆盖
-*   PackageKit、Framework、Extensions 的示例全部覆盖
-*   3 ~ 5 个 Demo 发布
+**v0.2.x ~ v0.8.x (Completed)**
 
-**v0.2.x ~ v0.8.x（已完成）**
+*   PackageManager is now independent as PackageKit
+*   Separated third-party plugins for better extension support
+*   Plugin platform released: [https://liangxiegame.com/qf/package](https://liangxiegame.com/qf/package)
+*   Namespace changed from QF back to QFramework
+*   Numerous bug fixes and example writing
+*   Gomoku demo released: Demo: Gomoku
+*   QFramework User Guide 2020 completed: QFramework User Guide 2020
 
-*   PackageManager 独立成 PackageKit
-*   剥离掉第三方插件，最为扩展插件支持
-*   插件平台发布：[https://liangxiegame.com/qf/package](https://liangxiegame.com/qf/package)
-*   命名空间从 QF 改回 QFramework
-*   大量 Bug 修复、大量示例编写
-*   五子棋 Demo 发布：Demo：五子棋
-*   QFramework 使用指南 2020 完结：QFramework 使用指南 2020
+**v0.1.x (Completed)**
 
-**v0.1.x（已完成)**
+*   Integration and enhancement of UniRx, Zenject, uFrame, JsonDotnet, and CatLib
+*   IOC added to IOC section
+*   Framework automatic update mechanism => PackageManager
+*   Namespace changed from QFramework to QF
 
-*   UniRx、Zenject、uFrame、JsonDotnet、CatLib 集成和增强
-*   IOC 增加 IOC 部分
-*   框架自动更新机制 => PackageManager
-*   命名空间从 QFramework 改成 QF
+**v0.0.x (Completed)**
 
-**v0.0.x（已完成**
-
-*   框架搭建 2017 的工具集收录
-*   框架搭建 2018 的 ResKit 和 UI Kit 模块实现
-*   ActionKit 模块实现
-*   Manager Of Managers 支持
-*   框架自动更新机制
-*   Pro 版本（开源收费版本）
-    *   CoreKitPro（未开始）
-    *   LuaKit-轻量级 Lua 脚本方案，由 MoonSharp 魔改而来(未开始)
-    *   CodeGenKitPro 代码生成库
-    *   ActionKitPro(未开始)
-    *   ResKitPro(未开始)
+*   Toolset collection for 2017 framework construction
+*   Implementation of ResKit and UI Kit modules for 2018 framework construction
+*   Implementation of ActionKit module
+*   Manager Of Managers support
+*   Framework automatic update mechanism
+*   Pro version (open source paid version)
+    *   CoreKitPro (not started)
+    *   LuaKit-lightweight Lua script scheme, modified from MoonSharp (not started)
+    *   CodeGenKitPro code generation library
+    *   ActionKitPro (not started)
+    *   ResKitPro (not started)
     *   UIKitPro
-    *   LuaKitPro（基于 xLua)(未开始)
-    *   ILRuntimeKitPro（基于 ILRuntime 的热更框架）(未开始)
-    *   DocKit-可视化编程写文档，一键生成类图功能（进行中）
-    *   DialogueKit-对话编辑器（未开始）
-    *   InventoryKit-背包系统（未开始）
-    *   ArchitectureKit-架构设计器（未开始）
-    *   QuestKit-任务编辑器（未开始）
-    *   存档-未开始）
+    *   LuaKitPro (based on xLua) (not started)
+    *   ILRuntimeKitPro (hot update framework based on ILRuntime) (not started)
+    *   DocKit-visual programming and document writing, one-click generation of class diagram function (in progress)
+    *   DialogueKit-dialogue editor (not started)
+    *   InventoryKit-backpack system (not started)
+    *   ArchitectureKit-architecture designer (not started)
+    *   QuestKit-mission editor (not started)
+    *   Archive-not started)

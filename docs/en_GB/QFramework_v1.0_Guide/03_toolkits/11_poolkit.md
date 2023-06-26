@@ -1,6 +1,6 @@
-# 11. PoolKit 对象池套件
+# 11. PoolKit Object Pooling Kit
 
-## SimpleObjectPool 简易对象池
+## SimpleObjectPool Simple Object Pool
 
 ```plain
 class Fish
@@ -37,7 +37,7 @@ var gameObjPool = new SimpleObjectPool<GameObject>(() =>
 });
 ```
 
-## SafeObjectPool 安全对象池
+## SafeObjectPool Safe Object Pool
 
 ```plain
 class Bullet :IPoolable,IPoolType
@@ -84,7 +84,7 @@ SafeObjectPool<Bullet>.Instance.SetObjectFactory(new DefaultObjectFactory<Bullet
 // CustomObjectFactory: 自定义创建对象的方式,can create object by Func<T>// DefaultObjectFactory: 通过 new 创建对象, can create object by new 
 ```
 
-## 基本的数据结构封装 List、Dictionary
+## Basic Data Structure Encapsulation List, Dictionary
 
 ```plain
 var names = ListPool<string>.Get()

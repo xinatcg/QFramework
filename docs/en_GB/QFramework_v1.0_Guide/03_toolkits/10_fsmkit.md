@@ -1,8 +1,8 @@
-# 10. FSMKit 状态机
+# 10. FSMKit State Machine
 
-QFramework 内置了一个简易的状态机，基本使用如下:
+QFramework comes with a simple state machine, which can be used as follows:
 
-## 链式
+## Chained Mode
 
 ```plain
 using UnityEngine;
@@ -86,17 +86,17 @@ namespace QFramework.Example
 }
 ```
 
-运行之后，结果如下:
+After running, the result is as follows:
 
 [![](https://file.liangxiegame.com/c263fec3-02eb-4af6-bb84-a3310440cfa9.gif)](https://file.liangxiegame.com/c263fec3-02eb-4af6-bb84-a3310440cfa9.gif)
 
-没啥问题。
+No problem.
 
-## 类模式
+## Class Mode
 
-链式适合在快速开发阶段，或者在状态非常少的阶段使用。
+Chained mode is suitable for quick development or stages with few states.
 
-而如果状态较多，或者相应代码量较多的阶段，可以使用类模式，代码如下:
+If there are many states or corresponding code, class mode can be used, as shown in the following code:
 
 ```plain
 using UnityEngine;
@@ -188,8 +188,8 @@ namespace QFramework.Example
 }
 ```
 
-运行之后结果如下。
+After running, the result is as follows:
 
 [![](https://file.liangxiegame.com/c263fec3-02eb-4af6-bb84-a3310440cfa9.gif)](https://file.liangxiegame.com/c263fec3-02eb-4af6-bb84-a3310440cfa9.gif)
 
-关于状态机的介绍就到这里。
+That's all about the introduction of the state machine.

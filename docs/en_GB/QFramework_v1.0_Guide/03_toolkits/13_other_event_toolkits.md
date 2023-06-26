@@ -1,10 +1,10 @@
-# 13. 其他事件工具
+# 13. Other Event Tools
 
-QFramework 除了支持了 TypeEventSystem、EasyEvent 还支持了 EnumEventSystem、StringEventSystem。
+In addition to supporting TypeEventSystem and EasyEvent, QFramework also supports EnumEventSystem and StringEventSystem.
 
 ## EnumEventSystem
 
-EnumEventSystem 前身是 老版本 QFramework 的 QEventSystem
+EnumEventSystem was formerly known as QEventSystem in the old version of QFramework.
 
 ```plain
 using UnityEngine;
@@ -60,7 +60,7 @@ namespace QFramework
 
 ## StringEventSystem
 
-StringEventSystem 的前身是，老版本的 MsgDispatcher
+StringEventSystem was formerly known as MsgDispatcher in the old version.
 
 ```plain
 using UnityEngine;
@@ -154,29 +154,29 @@ namespace QFramework.Example
 // 输出结果// 点击鼠标左键// TEST_ONE// TEST_TWO:10
 ```
 
-## 对比
+## Comparison
 
-*   TypeEventSystem：
-    *   事件体定义简洁
-    *   比较适合用于设计框架
-    *   支持 struct 获得较好内存性能
-    *   使用反射，CPU 性能相对比较差
+*   TypeEventSystem:
+    *   Concise event body definition
+    *   More suitable for designing frameworks
+    *   Supports struct for better memory performance
+    *   Uses reflection, relatively poor CPU performance
 *   EasyEvent
-    *   方便、易用、开发效率高
-    *   CPU 性能、内存性能较好，接近委托
-    *   功能有限
-    *   比较适合设计通用解决工具，比如通用背包、全局生命周期触发等
-    *   StringEventSystem、TypeEventSystem 的底层由 EasyEvent 实现
+    *   Convenient, easy to use, high development efficiency
+    *   Good CPU and memory performance, close to delegates
+    *   Limited functionality
+    *   More suitable for designing general-purpose tools, such as universal backpacks, global lifecycle triggers, etc.
+    *   StringEventSystem and TypeEventSystem are implemented by EasyEvent at the bottom.
 *   EnumEventSystem
-    *   使用枚举作为事件 id，比较适合和服务端的 protobuf 或带有消息 id 的长链接通信
-    *   性能较好
-    *   枚举用于定义消息体有维护成本
+    *   Uses enumeration as the event ID, more suitable for long-link communication with protobuf or messages with message IDs on the server side
+    *   Good performance
+    *   There is maintenance cost for using enumeration to define message bodies
 *   StringEventSystem
-    *   使用字符串作为事件 id，比较适合和其他脚本层通信，比如 Lua、ILRuntime、PlayMaker 等。
-    *   性能一般
+    *   Uses strings as event IDs, more suitable for communication with other script layers, such as Lua, ILRuntime, PlayMaker, etc.
+    *   Average performance
 
-目前官方推荐使用 TypeEventSystem 和 EasyEvent 这两个工具。
+Currently, the official recommendation is to use TypeEventSystem and EasyEvent.
 
-如果要和网络通信则选择用 EnumEventSystem。
+Choose EnumEventSystem for network communication.
 
-如果要和其他脚本层通信选择用 StringEventSystem。
+Choose StringEventSystem for communication with other script layers.

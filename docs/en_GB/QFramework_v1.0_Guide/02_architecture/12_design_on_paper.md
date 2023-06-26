@@ -1,75 +1,61 @@
-# 12. 纸上设计
+# 12. Paper Design
 
-由于 QFramework 支持 MVC、分层 和 CQRS，再加上提供了使用规范，那么 QFramework 就可以达到高度的标准化，达到高度的标准化那么就有了做一件事情的条件，就是纸上设计。
+As QFramework supports MVC, layered architecture, and CQRS, and provides usage specifications, it can achieve a high degree of standardization. With a high degree of standardization, there are conditions for paper design.
 
-假如我们想实现一个主角吃金币，金币数量增加的功能，则可以按照如下顺序设计图。
+Suppose we want to implement a function where the main character eats coins and the number of coins increases. We can design the diagram in the following order.
 
-首先需要确定数据结构。
+First, we need to determine the data structure.
 
-我们可以用类图来确定，也可以用更简单的方式绘制。
+We can use a class diagram to determine this, or we can use a simpler method to draw it.
 
-[![](https://file.liangxiegame.com/fb76cf87-9758-4289-8b6b-29621beba7c4.png)](https://file.liangxiegame.com/fb76cf87-9758-4289-8b6b-29621beba7c4.png)
+Then, we need to determine how the presentation layer displays the coins.
 
-然后，我们需要确定表现层如何显示金币。
+Next, we need to start designing the command.
 
-[![](https://file.liangxiegame.com/6f4dcfce-75a6-4e5d-bfc0-edc5f2e20f16.png)](https://file.liangxiegame.com/6f4dcfce-75a6-4e5d-bfc0-edc5f2e20f16.png)
+Then, we can draw the trigger and update diagrams.
 
-接着，我们要开始设计 Command。
+This way, the idea of a coin-eating function is designed.
 
-[![](https://file.liangxiegame.com/ed1b486b-4ea7-45e1-8af2-6c238952c83e.png)](https://file.liangxiegame.com/ed1b486b-4ea7-45e1-8af2-6c238952c83e.png)
+Of course, this example of eating coins is very simple.
 
-然后，可以把如何触发，和如何更新的图都画好。
+However, I suggest that if you are not very familiar with the QFramework architecture, it is more appropriate to use such small functions to do some paper design.
 
-[![](https://file.liangxiegame.com/504fc46e-351a-4b56-874e-bbb9d2879642.png)](https://file.liangxiegame.com/504fc46e-351a-4b56-874e-bbb9d2879642.png)
+When you are very familiar with the QFramework architecture, you can design more complex functions on paper, such as skill systems, enhanced item systems, backpack systems, task systems, and so on.
 
-这样一个吃金币的功能思路就设计好了。
+Let's take a look at a picture in the first article.
 
-当然吃金币这个例子很简单。
+This picture is actually a paper design diagram, that is, when the main character kills an enemy, it triggers the score change and achievement completion functions.
 
-不过笔者建议，如果 QFramework 架构用得不是很熟悉的时候，就用这种小功能来做一些纸上设计比较合适。
+This kind of diagram, plus the coin-eating diagram, is the functional diagram in QFramework paper design.
 
-而当 QFramework 架构用得很熟的时候，可以在纸上设计一些更复杂的功能。
+In addition to the functional diagram, there is also the architecture diagram in QFrameowrk paper design.
 
-比如技能系统、强化道具系统、背包系统、任务系统等等。
+The architecture diagram is shown below:
 
-我们看一下第一篇中的一张图。
+The architecture diagram only lists which module is in which level and does not show how to interact specifically.
 
-[![](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)](https://file.liangxiegame.com/6bf42306-0b2a-4417-bbcf-354af0132596.png)
+The function shows the specific logical control flow of a function.
 
-这张图，其实就是一张纸上设计图，即 当主角打死敌人后 触发分数变更、触发成就达成 的功能。
+In general, neither the architecture diagram nor the functional diagram is necessary.
 
-这种图加上吃金币图，是 QFramework 纸上设计中的 功能图。
+The functional diagram was more used to help people who were not familiar with QFramework to sort out their ideas in the early days.
 
-除了功能图 ，还有 QFrameowrk 纸上设计的 架构图。
+But there are also times when developers are not at their computers, and the project is relatively tight. At this time, paper design will come in handy.
 
-架构图的示例如下所示：
+Developers can completely implement the functional ideas of the entire project on paper.
 
-[![](https://file.liangxiegame.com/c1584a3b-f8be-49a1-897a-9f1b684864bf.png)](https://file.liangxiegame.com/c1584a3b-f8be-49a1-897a-9f1b684864bf.png)
+Another usage is that after the developers receive the requirements, they can gather all the developers for a meeting, read the planning document together, and use paper design to implement the functional ideas of the entire project. Then, the workload of coding and specific implementation can be assigned to each person, which is also a usage.
 
-架构图只是罗列了每个模块都在哪个层级，并没有展示具体如何交互。
+In short, paper design is a very useful method.
 
-而功能则是展示了一个功能具体的逻辑控制流向。
+Some people may ask, is there a format to follow for paper design?
 
-在一般情况下，架构图 和 功能图 都不是必须的。
+The answer is no.
 
-功能图在早期更多是帮助 QFramework 不熟悉的人梳理思路用的。
+If you are used to using UML class diagrams, then use UML class diagrams to draw. If you are used to using squares, circles, and corners, then use squares, circles, and corners. If you are used to using pen and paper, then use pen and paper.
 
-但是也有开发人员不在电脑旁的时候，而此时项目也比较紧，这个时候 纸上设计 就会排上用场了。
+In short, use whatever is fast and convenient.
 
-开发人员完全可以纸上把整个项目的功能思路都实现出来。
+Paper design is not only convenient for function implementation, but also for communication within the team. For example, if a developer has no idea how to implement a function, he can ask the lead or QFramework expert to use a piece of paper to sort out the ideas, so that the developer can implement it after receiving the paper. You can also ask the developer to design it on paper first, and then give this paper to the lead or QFramework expert. The lead or QFramework expert can verify it before coding and implementation.
 
-还有一种用法就是，开发人员拿到需求之后，集合全部开发人员开一次会议，在会议中边研读策划文档边和大家一起用纸上设计把整个项目的功能思路都实现出来，然后再把编码和具体实现的工作量分配给每个人，这也是一种用法。
-
-总之 纸上设计 是非常有用的一个方法。
-
-可能有人会问，纸上设计需要遵循什么格式吗？
-
-答案是没有的。
-
-如果习惯用 UML 类图，那就用 UML 类图绘制，如果习惯用方块、圆圈、棱角那就用方块、圆圈、棱角，如果习惯用纸笔，那就用纸笔。
-
-总之怎么快怎么方便就怎么用。
-
-纸上设计 除了方便功能实现，也方便在团队内沟通，比如一位开发人员如果对实现一个功能没有思路，那么就可以问主程或者 QFramework 高手，让高手用一张纸来梳理思路，这样开发人员拿到这张纸就可以去实现了。还可以每次让开发人员先在纸上设计好，然后把这张纸拿给主程或者 QFramework 高手，主程或 QFramework 高手验证完才可以进行编码实现，这样用也是可以的。
-
-好了关于纸上设计的入门和一些拓展用法就介绍到这里。
+Alright, that's all for the introduction and some extended usage of paper design.
